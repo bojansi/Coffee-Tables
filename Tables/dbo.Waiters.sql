@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Waiters]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Surname] NVARCHAR(50) NOT NULL, 
+    [JMBG] NVARCHAR(13) NOT NULL, 
+    [Address] NVARCHAR(100) NULL, 
+    [PhoneNumber] NVARCHAR(15) NOT NULL, 
+    [Username] NVARCHAR(25) NOT NULL, 
+    [Password] NVARCHAR(20) NOT NULL
+)
