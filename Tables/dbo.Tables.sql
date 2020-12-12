@@ -1,7 +1,8 @@
-﻿CREATE TABLE [dbo].[Tables]
-(
-	[Id] INT NOT NULL PRIMARY KEY, 
-    [TableNumber] INT NOT NULL, 
-    [TableItems] NVARCHAR(MAX) NOT NULL, 
-    [TableTaken] BIT NOT NULL
-)
+﻿CREATE TABLE [dbo].[Tables] (
+    [Id]     INT            NOT NULL,
+    [Number] INT            NOT NULL,
+    [Items]  NVARCHAR (MAX) NULL,
+    [Taken]  BIT            NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
