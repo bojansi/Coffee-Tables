@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{81B1F046-71B4-4D81-88D7-F70711DB921E}</ProjectGuid>
+    <ProjectGuid>{C11B0445-CC6B-4F30-A67B-573D7D09EFE8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PresentationLayer</RootNamespace>
     <AssemblyName>PresentationLayer</AssemblyName>
@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,13 +61,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Constants.cs" />
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductAddUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductAddUpdate.Designer.cs">
+      <DependentUpon>ProductAddUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt.cs" />
+    <Compile Include="TableOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableOverview.Designer.cs">
+      <DependentUpon>TableOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableProducts.Designer.cs">
+      <DependentUpon>TableProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableReceipts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableReceipts.Designer.cs">
+      <DependentUpon>TableReceipts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableWaiter.Designer.cs">
+      <DependentUpon>TableWaiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Waiter.cs" />
+    <Compile Include="WaiterAddUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaiterAddUpdate.Designer.cs">
+      <DependentUpon>WaiterAddUpdate.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductAddUpdate.resx">
+      <DependentUpon>ProductAddUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,7 +132,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TableOverview.resx">
+      <DependentUpon>TableOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableProducts.resx">
+      <DependentUpon>TableProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableReceipts.resx">
+      <DependentUpon>TableReceipts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableWaiter.resx">
+      <DependentUpon>TableWaiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaiterAddUpdate.resx">
+      <DependentUpon>WaiterAddUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,6 +162,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\floor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
