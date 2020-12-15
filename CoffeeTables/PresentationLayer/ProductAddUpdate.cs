@@ -20,13 +20,13 @@ namespace PresentationLayer
 
             if (type == 'a')
             {
-                btnProductAddUpdate.BackColor = Color.FromArgb(99, 205, 99);
+                btnProductAddUpdate.BackColor = Constants.buttonAdd;
                 btnProductAddUpdate.Text = "Dodaj";
                 this.Text = "Dodaj Artikal";
             }
             else if (type == 'u')
             {
-                btnProductAddUpdate.BackColor = Color.FromArgb(29, 160, 255);
+                btnProductAddUpdate.BackColor = Constants.buttonUpdate;
                 btnProductAddUpdate.Text = "Izmeni";
                 this.Text = "Izmeni Artikal";
             }

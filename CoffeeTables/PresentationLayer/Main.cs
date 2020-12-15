@@ -151,10 +151,5 @@ namespace PresentationLayer
             TableReceipts tr = new TableReceipts();
             tr.ShowDialog();
         }
-
-        private void lbTable1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

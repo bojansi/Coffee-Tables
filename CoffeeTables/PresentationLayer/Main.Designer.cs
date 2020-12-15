@@ -84,7 +84,6 @@ namespace PresentationLayer
             this.lbTable1.TabIndex = 0;
             this.lbTable1.Text = "1";
             this.lbTable1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbTable1.Click += new System.EventHandler(this.lbTable1_Click);
             this.lbTable1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbTable1_MouseDoubleClick);
             // 
             // lbTable3

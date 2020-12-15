@@ -26,11 +26,6 @@ namespace PresentationLayer
             this.Text = "Sto " + brStola;
             lbBrojStola.Text = "BROJ STOLA " + brStola;
 
-        }
-
-        private void TableOverview_Load(object sender, EventArgs e)
-        {
-
             dataGridView2.AutoGenerateColumns = false;
             dataGridView1.AutoGenerateColumns = false;
 
@@ -41,36 +36,11 @@ namespace PresentationLayer
             dataGridView1.Columns["Product_Price"].DataPropertyName = "Price";
             dataGridView1.Columns["Product_Quantity"].DataPropertyName = "Quantity";
 
-            List<Product> list = new List<Product>();
+        }
 
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.CommandText = "SELECT Name, Price FROM Products;";
-                sqlCommand.Connection = sqlConnection;
-
-                sqlConnection.Open();
-
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                DataTable dt = new DataTable();
-
-
-                while (sqlDataReader.Read())
-                {
-
-                    Product p = new Product();
-                    p.Name = sqlDataReader.GetString(0);
-                    p.Price = sqlDataReader.GetDecimal(1);
-                    list.Add(p);
-
-                }
-
-                dataGridView2.DataSource = list;
-                dataGridView2.CurrentCell.Selected = false;
-                
-            }
+        private void TableOverview_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
