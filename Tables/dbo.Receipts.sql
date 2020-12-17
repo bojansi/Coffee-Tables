@@ -1,8 +1,7 @@
 ﻿CREATE TABLE [dbo].[Receipts] (
-    [Id]       INT            NOT NULL,
+    [Id]       INT            NOT NULL IDENTITY,
     [WaiterId] INT            NOT NULL,
     [TableId]  INT            NOT NULL,
-    [Items]    NVARCHAR (MAX) NOT NULL,
     [Date]     DATE           NOT NULL,
     [Cost]     DECIMAL (18)   NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
