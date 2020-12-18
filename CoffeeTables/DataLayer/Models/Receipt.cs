@@ -13,7 +13,8 @@ namespace DataLayer.Models
         public int WaiterId { get; set; }
         public int TableId { get; set; }
         public DateTime Date { get; set; }
-        public decimal Cost { get; set; }
+        public decimal Total { get; set; }
+        public bool Paid { get; set; }
 
 
         
