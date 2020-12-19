@@ -7,6 +7,7 @@
     [PhoneNumber] NVARCHAR (15)  NOT NULL,
     [Username]    NVARCHAR (25)  NOT NULL,
     [Password]    NVARCHAR (20)  NOT NULL,
+    [Logged] BIT NOT NULL DEFAULT 0, 
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
