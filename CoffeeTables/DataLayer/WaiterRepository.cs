@@ -18,7 +18,7 @@ namespace DataLayer
             {
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = "SELECT * FROM Waiters";
+                sqlCommand.CommandText = "SELECT * FROM Waiters;";
 
                 sqlConnection.Open();
 
@@ -50,16 +50,13 @@ namespace DataLayer
             {
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("INSERT INTO Waiters VALUES ('{0}','{1}'," +
-                    "'{2}','{3}','{4}','{5}','{6}','{7}','{8}')", w.Id, w.Name, w.Surname,
+                sqlCommand.CommandText = string.Format("INSERT INTO Waiters VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}');", w.Name, w.Surname,
                     w.Email, w.Address, w.PhoneNumber, w.Username, w.Password, w.Logged);
 
                 sqlConnection.Open();
                
                 return sqlCommand.ExecuteNonQuery();
             }
-
-
         }
 
         public int UpdateWaiter(Waiter w)
@@ -68,18 +65,14 @@ namespace DataLayer
             {
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("UPDATE Waiters SET Name = '{0}', Surname = '{1}'," +
-                    " Email = '{2}', Address = '{3}', PhoneNumber = '{4}', Username = '{5}', Password = '{6}'," +
-                    "Logged = '{7}' WHERE Id = '{8}' ", w.Name, w.Surname, w.Email, w.Address,
-                    w.PhoneNumber, w.Username, w.Password, w.Logged, w.Id);
+                sqlCommand.CommandText = string.Format("UPDATE Waiters SET Name = '{0}', Surname = '{1}', Email = '{2}', Address = '{3}', PhoneNumber = '{4}', Username = '{5}', Password = '{6}', Logged = '{7}' WHERE Id = '{8}';", w.Name, w.Surname, w.Email, w.Address, w.PhoneNumber, w.Username, w.Password, w.Logged, w.Id);
 
                 sqlConnection.Open();
 
-                int resault = sqlCommand.ExecuteNonQuery();
+                int result = sqlCommand.ExecuteNonQuery();
 
-                return resault;
+                return result;
             }
-
         }
 
 
@@ -92,10 +85,9 @@ namespace DataLayer
                 sqlCommand.CommandText = string.Format("DETELE FROM Waiters WHERE Id = '{0}' ", Id); 
 
                 sqlConnection.Open();
-                int resault = sqlCommand.ExecuteNonQuery();
+                int result = sqlCommand.ExecuteNonQuery();
 
-                return resault;
-                
+                return result;                
             }
         }
 
