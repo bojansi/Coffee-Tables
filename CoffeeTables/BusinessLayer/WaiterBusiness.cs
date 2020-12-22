@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using DataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,50 @@ namespace BusinessLayer
 {
     public class WaiterBusiness
     {
+        private readonly WaiterRepository waiterRepository;
+        public WaiterBusiness()
+        {
+            this.waiterRepository = new WaiterRepository();
+        }
+
+        public List<Waiter> getAllWaiters()
+        {
+            return this.waiterRepository.GetAllWaiters();
+        }
+
+        public bool insertWaiter(Waiter w)
+        {
+            if(this.waiterRepository.InsertWaiter(w) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool updateWaiter(Waiter w)
+        {
+            if (this.waiterRepository.UpdateWaiter(w) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool deleteWaiter(int Id)
+        {
+            if (this.waiterRepository.DeleteWaiter(Id) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Waiter GetWaiterById(int id)
+        {
+            return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Id == id);
+        }
+
+        public Waiter GetWaiterByUserAndPass(string waiterUser, string waiterPass)
+        {
+            return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Username == waiterUser && w.Password == waiterPass);
+        }
     }
 }
