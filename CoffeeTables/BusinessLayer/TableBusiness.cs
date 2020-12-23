@@ -21,9 +21,9 @@ namespace BusinessLayer
             return this.tableRepository.GetAllTables();
         }
 
-        public int getTableById(int Id)
+        public Table getTableById(int Id)
         {
-            return this.tableRepository.GetAllTables().FirstOrDefault(t => t.Id == id);
+            return this.tableRepository.GetAllTables().FirstOrDefault(t => t.Id == Id);
         }
 
         public bool updateTable(Table t)
