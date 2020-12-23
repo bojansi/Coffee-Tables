@@ -46,12 +46,12 @@ namespace BusinessLayer
             return false;
         }
 
-        public Waiter GetWaiterById(int id)
+        public Waiter getWaiterById(int id)
         {
             return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Id == id);
         }
 
-        public Waiter GetWaiterByUserAndPass(string waiterUser, string waiterPass)
+        public Waiter getWaiterByUserAndPass(string waiterUser, string waiterPass)
         {
             return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Username == waiterUser && w.Password == waiterPass);
         }
