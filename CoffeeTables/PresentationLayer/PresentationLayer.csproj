@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants2.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -75,7 +74,6 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs" />
     <Compile Include="ProductAddUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,32 +82,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Receipt.cs" />
     <Compile Include="TableOverview.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TableOverview.Designer.cs">
       <DependentUpon>TableOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableProducts.cs">
+    <Compile Include="TableViewForms\TableProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableProducts.Designer.cs">
+    <Compile Include="TableViewForms\TableProducts.Designer.cs">
       <DependentUpon>TableProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableReceipts.cs">
+    <Compile Include="TableViewForms\TableReceipts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableReceipts.Designer.cs">
+    <Compile Include="TableViewForms\TableReceipts.Designer.cs">
       <DependentUpon>TableReceipts.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableWaiter.cs">
+    <Compile Include="TableViewForms\TableWaiter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableWaiter.Designer.cs">
+    <Compile Include="TableViewForms\TableWaiter.Designer.cs">
       <DependentUpon>TableWaiter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Waiter.cs" />
     <Compile Include="WaiterAddUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,13 +134,13 @@
     <EmbeddedResource Include="TableOverview.resx">
       <DependentUpon>TableOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableProducts.resx">
+    <EmbeddedResource Include="TableViewForms\TableProducts.resx">
       <DependentUpon>TableProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableReceipts.resx">
+    <EmbeddedResource Include="TableViewForms\TableReceipts.resx">
       <DependentUpon>TableReceipts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TableWaiter.resx">
+    <EmbeddedResource Include="TableViewForms\TableWaiter.resx">
       <DependentUpon>TableWaiter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaiterAddUpdate.resx">
@@ -178,6 +174,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\floor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{0b3b9a64-be66-4fa0-a0d3-c21a453f9b2c}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{8510e18a-fdd4-4ffc-a281-eec4f898d9d7}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -102,7 +102,8 @@ namespace PresentationLayer
         {
             Login lw = new Login('w');
             lw.ShowDialog();
-;        }
+            ;
+        }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -136,20 +137,36 @@ namespace PresentationLayer
 
         private void artikliToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TableProducts tp = new TableProducts();
-            tp.ShowDialog();
+            Login al = new Login('a');
+            if (al.ShowDialog() == DialogResult.OK)
+            {
+                al.Dispose();
+                TableProducts tp = new TableProducts();
+                tp.ShowDialog();
+            }
+
         }
 
         private void konobariToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TableWaiter tw = new TableWaiter();
-            tw.ShowDialog();
+            Login al = new Login('a');
+            if (al.ShowDialog() == DialogResult.OK)
+            {
+                al.Dispose();
+                TableWaiter tw = new TableWaiter();
+                tw.ShowDialog();
+            }
         }
 
         private void racuniToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TableReceipts tr = new TableReceipts();
-            tr.ShowDialog();
+            Login al = new Login('a');
+            if (al.ShowDialog() == DialogResult.OK)
+            {
+                al.Dispose();
+                TableReceipts tr = new TableReceipts();
+                tr.ShowDialog();
+            }
         }
     }
 }

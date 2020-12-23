@@ -32,9 +32,9 @@ namespace PresentationLayer
             this.lbHeading = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbWaiterUser = new System.Windows.Forms.TextBox();
-            this.tbWaiterPass = new System.Windows.Forms.TextBox();
-            this.btnWaiterLogin = new System.Windows.Forms.Button();
+            this.tbUser = new System.Windows.Forms.TextBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -71,45 +71,45 @@ namespace PresentationLayer
             this.label1.Text = "Password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbWaiterUser
+            // tbUser
             // 
-            this.tbWaiterUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            this.tbWaiterUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbWaiterUser.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbWaiterUser.Location = new System.Drawing.Point(61, 143);
-            this.tbWaiterUser.MaxLength = 20;
-            this.tbWaiterUser.Multiline = true;
-            this.tbWaiterUser.Name = "tbWaiterUser";
-            this.tbWaiterUser.Size = new System.Drawing.Size(270, 30);
-            this.tbWaiterUser.TabIndex = 7;
-            this.tbWaiterUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.tbUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbUser.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUser.Location = new System.Drawing.Point(61, 143);
+            this.tbUser.MaxLength = 20;
+            this.tbUser.Multiline = true;
+            this.tbUser.Name = "tbUser";
+            this.tbUser.Size = new System.Drawing.Size(270, 30);
+            this.tbUser.TabIndex = 7;
+            this.tbUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbWaiterPass
+            // tbPass
             // 
-            this.tbWaiterPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            this.tbWaiterPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbWaiterPass.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbWaiterPass.Location = new System.Drawing.Point(61, 236);
-            this.tbWaiterPass.MaxLength = 20;
-            this.tbWaiterPass.Multiline = true;
-            this.tbWaiterPass.Name = "tbWaiterPass";
-            this.tbWaiterPass.PasswordChar = '*';
-            this.tbWaiterPass.Size = new System.Drawing.Size(270, 30);
-            this.tbWaiterPass.TabIndex = 8;
-            this.tbWaiterPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.tbPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPass.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPass.Location = new System.Drawing.Point(61, 236);
+            this.tbPass.MaxLength = 20;
+            this.tbPass.Multiline = true;
+            this.tbPass.Name = "tbPass";
+            this.tbPass.PasswordChar = '*';
+            this.tbPass.Size = new System.Drawing.Size(270, 30);
+            this.tbPass.TabIndex = 8;
+            this.tbPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnWaiterLogin
+            // btnLogin
             // 
-            this.btnWaiterLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
-            this.btnWaiterLogin.FlatAppearance.BorderSize = 0;
-            this.btnWaiterLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWaiterLogin.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWaiterLogin.Location = new System.Drawing.Point(90, 322);
-            this.btnWaiterLogin.Name = "btnWaiterLogin";
-            this.btnWaiterLogin.Size = new System.Drawing.Size(206, 49);
-            this.btnWaiterLogin.TabIndex = 9;
-            this.btnWaiterLogin.Text = "PRIJAVI SE";
-            this.btnWaiterLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(90, 322);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(206, 49);
+            this.btnLogin.TabIndex = 9;
+            this.btnLogin.Text = "PRIJAVI SE";
+            this.btnLogin.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -122,6 +122,7 @@ namespace PresentationLayer
             // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
@@ -130,9 +131,9 @@ namespace PresentationLayer
             this.Controls.Add(this.lbHeading);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbWaiterUser);
-            this.Controls.Add(this.tbWaiterPass);
-            this.Controls.Add(this.btnWaiterLogin);
+            this.Controls.Add(this.tbUser);
+            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Login";
@@ -149,9 +150,9 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lbHeading;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbWaiterUser;
-        private System.Windows.Forms.TextBox tbWaiterPass;
-        private System.Windows.Forms.Button btnWaiterLogin;
+        private System.Windows.Forms.TextBox tbUser;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel panel1;
     }
 }
