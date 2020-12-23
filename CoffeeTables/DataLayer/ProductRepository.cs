@@ -11,9 +11,9 @@ namespace DataLayer
     public class ProductRepository
     {
 
-        public List<Product> GetAllReceiptItems()
+        public List<Product> GetAllProducts()
         {
-            List<Product> listOfReceiptItems = new List<Product>();
+            List<Product> listOfProducts = new List<Product>();
 
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
             {
@@ -31,11 +31,11 @@ namespace DataLayer
                     p.Name = sqlDataReader.GetString(1);
                     p.Price = sqlDataReader.GetDecimal(2);
                     p.Type = sqlDataReader.GetString(3);
-                    listOfReceiptItems.Add(p);
+                    listOfProducts.Add(p);
                 }
             }
 
-                return listOfReceiptItems;
+                return listOfProducts;
         }
 
 
