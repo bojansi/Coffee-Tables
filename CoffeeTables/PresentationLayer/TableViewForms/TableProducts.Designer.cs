@@ -34,11 +34,11 @@ namespace PresentationLayer
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbTableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,16 +124,6 @@ namespace PresentationLayer
             this.dgvData.Size = new System.Drawing.Size(755, 411);
             this.dgvData.TabIndex = 20;
             // 
-            // lbTableName
-            // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(755, 47);
-            this.lbTableName.TabIndex = 21;
-            this.lbTableName.Text = "ARTIKLI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -161,6 +151,16 @@ namespace PresentationLayer
             this.Type.ReadOnly = true;
             this.Type.Width = 180;
             // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(755, 47);
+            this.lbTableName.TabIndex = 21;
+            this.lbTableName.Text = "ARTIKLI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TableProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +174,7 @@ namespace PresentationLayer
             this.Controls.Add(this.lbTableName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TableProducts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikli";
             this.Load += new System.EventHandler(this.TableProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();

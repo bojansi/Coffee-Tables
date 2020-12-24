@@ -34,7 +34,6 @@ namespace PresentationLayer
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@ namespace PresentationLayer
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Logged = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbTableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,16 +134,6 @@ namespace PresentationLayer
             this.dgvData.Size = new System.Drawing.Size(1004, 409);
             this.dgvData.TabIndex = 15;
             // 
-            // lbTableName
-            // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(982, 47);
-            this.lbTableName.TabIndex = 16;
-            this.lbTableName.Text = "KONOBARI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -206,6 +196,16 @@ namespace PresentationLayer
             this.Logged.ReadOnly = true;
             this.Logged.Visible = false;
             // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(982, 47);
+            this.lbTableName.TabIndex = 16;
+            this.lbTableName.Text = "KONOBARI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TableWaiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +218,7 @@ namespace PresentationLayer
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.lbTableName);
             this.Name = "TableWaiter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Konobari";
             this.Load += new System.EventHandler(this.TableWaiter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
