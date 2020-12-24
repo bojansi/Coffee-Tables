@@ -39,7 +39,7 @@ namespace PresentationLayer
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
-            this.btnWaiterAddUpdate = new System.Windows.Forms.Button();
+            this.btnWaiterInsertUpdate = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,13 +50,12 @@ namespace PresentationLayer
             // 
             this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbName.Location = new System.Drawing.Point(170, 24);
+            this.tbName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbName.Location = new System.Drawing.Point(167, 20);
             this.tbName.Margin = new System.Windows.Forms.Padding(15);
-            this.tbName.MaxLength = 20;
-            this.tbName.Multiline = true;
+            this.tbName.MaxLength = 30;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(190, 30);
+            this.tbName.Size = new System.Drawing.Size(305, 37);
             this.tbName.TabIndex = 1;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -64,13 +63,12 @@ namespace PresentationLayer
             // 
             this.tbSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbSurname.Location = new System.Drawing.Point(170, 84);
+            this.tbSurname.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbSurname.Location = new System.Drawing.Point(170, 80);
             this.tbSurname.Margin = new System.Windows.Forms.Padding(15);
-            this.tbSurname.MaxLength = 20;
-            this.tbSurname.Multiline = true;
+            this.tbSurname.MaxLength = 30;
             this.tbSurname.Name = "tbSurname";
-            this.tbSurname.Size = new System.Drawing.Size(190, 30);
+            this.tbSurname.Size = new System.Drawing.Size(305, 37);
             this.tbSurname.TabIndex = 2;
             this.tbSurname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -122,13 +120,12 @@ namespace PresentationLayer
             // 
             this.tbAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbAddress.Location = new System.Drawing.Point(170, 144);
+            this.tbAddress.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbAddress.Location = new System.Drawing.Point(170, 138);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(15);
-            this.tbAddress.MaxLength = 20;
-            this.tbAddress.Multiline = true;
+            this.tbAddress.MaxLength = 40;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(190, 30);
+            this.tbAddress.Size = new System.Drawing.Size(305, 37);
             this.tbAddress.TabIndex = 3;
             this.tbAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -136,13 +133,12 @@ namespace PresentationLayer
             // 
             this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbEmail.Location = new System.Drawing.Point(170, 204);
+            this.tbEmail.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbEmail.Location = new System.Drawing.Point(170, 200);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(15);
-            this.tbEmail.MaxLength = 20;
-            this.tbEmail.Multiline = true;
+            this.tbEmail.MaxLength = 40;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(190, 30);
+            this.tbEmail.Size = new System.Drawing.Size(305, 37);
             this.tbEmail.TabIndex = 4;
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -154,38 +150,38 @@ namespace PresentationLayer
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 30);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Broj telefona : ";
+            this.label5.Text = "Broj telefon :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbPhoneNumber
             // 
             this.tbPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPhoneNumber.Location = new System.Drawing.Point(170, 264);
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPhoneNumber.Location = new System.Drawing.Point(170, 260);
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(15);
             this.tbPhoneNumber.MaxLength = 20;
-            this.tbPhoneNumber.Multiline = true;
             this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(190, 30);
+            this.tbPhoneNumber.Size = new System.Drawing.Size(305, 37);
             this.tbPhoneNumber.TabIndex = 5;
             this.tbPhoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnWaiterAddUpdate
+            // btnWaiterInsertUpdate
             // 
-            this.btnWaiterAddUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnWaiterAddUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
-            this.btnWaiterAddUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWaiterAddUpdate.FlatAppearance.BorderSize = 0;
-            this.btnWaiterAddUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWaiterAddUpdate.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWaiterAddUpdate.Location = new System.Drawing.Point(79, 448);
-            this.btnWaiterAddUpdate.Margin = new System.Windows.Forms.Padding(70, 3, 70, 20);
-            this.btnWaiterAddUpdate.Name = "btnWaiterAddUpdate";
-            this.btnWaiterAddUpdate.Size = new System.Drawing.Size(226, 49);
-            this.btnWaiterAddUpdate.TabIndex = 6;
-            this.btnWaiterAddUpdate.Text = "Dodaj";
-            this.btnWaiterAddUpdate.UseVisualStyleBackColor = false;
+            this.btnWaiterInsertUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnWaiterInsertUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.btnWaiterInsertUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWaiterInsertUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.btnWaiterInsertUpdate.FlatAppearance.BorderSize = 0;
+            this.btnWaiterInsertUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWaiterInsertUpdate.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWaiterInsertUpdate.Location = new System.Drawing.Point(135, 448);
+            this.btnWaiterInsertUpdate.Margin = new System.Windows.Forms.Padding(70, 3, 70, 20);
+            this.btnWaiterInsertUpdate.Name = "btnWaiterInsertUpdate";
+            this.btnWaiterInsertUpdate.Size = new System.Drawing.Size(226, 49);
+            this.btnWaiterInsertUpdate.TabIndex = 8;
+            this.btnWaiterInsertUpdate.Text = "Dodaj";
+            this.btnWaiterInsertUpdate.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -194,7 +190,7 @@ namespace PresentationLayer
             this.label6.Margin = new System.Windows.Forms.Padding(15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 30);
-            this.label6.TabIndex = 7;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Password : ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -202,14 +198,13 @@ namespace PresentationLayer
             // 
             this.tbPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPass.Location = new System.Drawing.Point(170, 384);
+            this.tbPass.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPass.Location = new System.Drawing.Point(170, 380);
             this.tbPass.Margin = new System.Windows.Forms.Padding(15);
-            this.tbPass.MaxLength = 20;
-            this.tbPass.Multiline = true;
+            this.tbPass.MaxLength = 7;
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(190, 30);
-            this.tbPass.TabIndex = 10;
+            this.tbPass.Size = new System.Drawing.Size(305, 37);
+            this.tbPass.TabIndex = 7;
             this.tbPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
@@ -219,7 +214,7 @@ namespace PresentationLayer
             this.label7.Margin = new System.Windows.Forms.Padding(15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(160, 30);
-            this.label7.TabIndex = 8;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Username : ";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -227,27 +222,27 @@ namespace PresentationLayer
             // 
             this.tbUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbUser.Location = new System.Drawing.Point(170, 324);
+            this.tbUser.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbUser.Location = new System.Drawing.Point(170, 320);
             this.tbUser.Margin = new System.Windows.Forms.Padding(15);
-            this.tbUser.MaxLength = 20;
-            this.tbUser.Multiline = true;
+            this.tbUser.MaxLength = 6;
             this.tbUser.Name = "tbUser";
-            this.tbUser.Size = new System.Drawing.Size(190, 30);
-            this.tbUser.TabIndex = 9;
+            this.tbUser.Size = new System.Drawing.Size(305, 37);
+            this.tbUser.TabIndex = 6;
             this.tbUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // WaiterAddUpdate
             // 
+            this.AcceptButton = this.btnWaiterInsertUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(384, 526);
+            this.ClientSize = new System.Drawing.Size(496, 526);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbUser);
-            this.Controls.Add(this.btnWaiterAddUpdate);
+            this.Controls.Add(this.btnWaiterInsertUpdate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbPhoneNumber);
             this.Controls.Add(this.label3);
@@ -263,7 +258,6 @@ namespace PresentationLayer
             this.Name = "WaiterAddUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj konobara";
-            this.Load += new System.EventHandler(this.WaiterAddUpdate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,7 +275,7 @@ namespace PresentationLayer
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbPhoneNumber;
-        private System.Windows.Forms.Button btnWaiterAddUpdate;
+        private System.Windows.Forms.Button btnWaiterInsertUpdate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Label label7;

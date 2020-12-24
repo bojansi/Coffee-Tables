@@ -30,7 +30,7 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
@@ -47,26 +47,27 @@ namespace PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnRemove
+            // btnDelete
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(774, 485);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(240, 65);
-            this.btnRemove.TabIndex = 19;
-            this.btnRemove.Text = "Izbrisi";
-            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(774, 485);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(240, 65);
+            this.btnDelete.TabIndex = 19;
+            this.btnDelete.Text = "Izbrisi";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(409, 485);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
             this.btnUpdate.Name = "btnUpdate";
@@ -74,13 +75,14 @@ namespace PresentationLayer
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Izmeni";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(12, 485);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.btnAdd.Name = "btnAdd";
@@ -88,6 +90,7 @@ namespace PresentationLayer
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvData
             // 
@@ -212,7 +215,7 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1026, 561);
-            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvData);
@@ -228,7 +231,7 @@ namespace PresentationLayer
 
         #endregion
 
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvData;

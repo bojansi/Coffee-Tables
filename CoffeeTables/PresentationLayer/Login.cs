@@ -61,13 +61,9 @@ namespace PresentationLayer
             {
                 MessageBox.Show("Popunite sva potrebna polja");
                 if (tbUser.Text.Trim().Length == 0)
-                {
                     tbUser.Focus();
-                }
                 else
-                {
                     tbPass.Focus();
-                }
             }
         }
 
@@ -90,14 +86,9 @@ namespace PresentationLayer
             {
                 MessageBox.Show("Popunite sva potrebna polja");
                 if (tbUser.Text.Trim().Length == 0)
-                {
                     tbUser.Focus();
-                    
-                }
                 else
-                {
                     tbPass.Focus();
-                }
             }
         }
 
