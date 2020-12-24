@@ -27,10 +27,9 @@ namespace BusinessLayer
             }
             return false;
         }
-        public string getReceiptByTodayDate()
+        public List<Receipt> getReceiptByTodayDate(DateTime date)
         {
-            string d = DateTime.Now.ToString();
-            return d;
+            return this.receiptRepository.GetAllReceipts().Where(r => r.Date == date).ToList();
         }
     }
 }
