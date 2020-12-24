@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer;
+using DataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,20 +15,26 @@ namespace PresentationLayer
 {
     public partial class TableReceipts : Form
     {
+        private readonly ReceiptBusiness receiptusiness;
         public TableReceipts()
         {
             InitializeComponent();
+
+            this.receiptusiness = new ReceiptBusiness();
 
             dgvData.Columns["Id"].DataPropertyName = "Id";
             dgvData.Columns["WaiterId"].DataPropertyName = "WaiterId";
             dgvData.Columns["TableId"].DataPropertyName = "TableId";
             dgvData.Columns["Date"].DataPropertyName = "Date";
-            dgvData.Columns["Cost"].DataPropertyName = "Cost";
+            dgvData.Columns["Total"].DataPropertyName = "Total";
+            dgvData.Columns["Paid"].DataPropertyName = "Paid";
         }
 
         private void TableReceipts_Load(object sender, EventArgs e)
         {
-           
+            List<Receipt> receipts = this.receiptusiness.getAllReceipts();
+
+            dgvData.DataSource = receipts;
         }
     }
 }

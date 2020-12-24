@@ -29,14 +29,15 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WaiterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbTableName = new System.Windows.Forms.Label();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +48,14 @@ namespace PresentationLayer
             this.dgvData.AllowUserToResizeColumns = false;
             this.dgvData.AllowUserToResizeRows = false;
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -62,7 +63,8 @@ namespace PresentationLayer
             this.WaiterId,
             this.TableId,
             this.Date,
-            this.Cost});
+            this.Total,
+            this.Paid});
             this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
             this.dgvData.Location = new System.Drawing.Point(12, 61);
             this.dgvData.MultiSelect = false;
@@ -81,6 +83,16 @@ namespace PresentationLayer
             this.dgvData.Size = new System.Drawing.Size(773, 438);
             this.dgvData.TabIndex = 15;
             // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(752, 47);
+            this.lbTableName.TabIndex = 16;
+            this.lbTableName.Text = "RACUNI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -91,18 +103,16 @@ namespace PresentationLayer
             // WaiterId
             // 
             this.WaiterId.DataPropertyName = "WaiterId";
-            this.WaiterId.HeaderText = "Id Konobara";
+            this.WaiterId.HeaderText = "Konobar";
             this.WaiterId.Name = "WaiterId";
             this.WaiterId.ReadOnly = true;
-            this.WaiterId.Width = 150;
             // 
             // TableId
             // 
             this.TableId.DataPropertyName = "TableId";
-            this.TableId.HeaderText = "Id Stola";
+            this.TableId.HeaderText = "Sto";
             this.TableId.Name = "TableId";
             this.TableId.ReadOnly = true;
-            this.TableId.Width = 150;
             // 
             // Date
             // 
@@ -112,23 +122,20 @@ namespace PresentationLayer
             this.Date.ReadOnly = true;
             this.Date.Width = 200;
             // 
-            // Cost
+            // Total
             // 
-            this.Cost.DataPropertyName = "Cost";
-            this.Cost.HeaderText = "Iznos";
-            this.Cost.Name = "Cost";
-            this.Cost.ReadOnly = true;
-            this.Cost.Width = 150;
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Iznos";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 150;
             // 
-            // lbTableName
+            // Paid
             // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(752, 47);
-            this.lbTableName.TabIndex = 16;
-            this.lbTableName.Text = "RACUNI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Paid.HeaderText = "Placen";
+            this.Paid.Name = "Paid";
+            this.Paid.ReadOnly = true;
+            this.Paid.Width = 70;
             // 
             // TableReceipts
             // 
@@ -140,6 +147,7 @@ namespace PresentationLayer
             this.Controls.Add(this.lbTableName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TableReceipts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Racuni";
             this.Load += new System.EventHandler(this.TableReceipts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
@@ -154,6 +162,7 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn WaiterId;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Paid;
     }
 }

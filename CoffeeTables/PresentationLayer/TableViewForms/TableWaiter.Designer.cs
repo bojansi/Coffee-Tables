@@ -42,6 +42,7 @@ namespace PresentationLayer
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Logged = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbTableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
@@ -113,7 +114,8 @@ namespace PresentationLayer
             this.Email,
             this.PhoneNumber,
             this.Username,
-            this.Password});
+            this.Password,
+            this.Logged});
             this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
             this.dgvData.Location = new System.Drawing.Point(12, 61);
             this.dgvData.MultiSelect = false;
@@ -187,6 +189,13 @@ namespace PresentationLayer
             this.Password.ReadOnly = true;
             this.Password.Visible = false;
             // 
+            // Logged
+            // 
+            this.Logged.HeaderText = "Ulogovan";
+            this.Logged.Name = "Logged";
+            this.Logged.ReadOnly = true;
+            this.Logged.Visible = false;
+            // 
             // lbTableName
             // 
             this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,6 +218,7 @@ namespace PresentationLayer
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.lbTableName);
             this.Name = "TableWaiter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Konobari";
             this.Load += new System.EventHandler(this.TableWaiter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
@@ -231,5 +241,6 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Logged;
     }
 }

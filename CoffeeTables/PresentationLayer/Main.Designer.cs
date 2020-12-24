@@ -156,7 +156,7 @@ namespace PresentationLayer
             // 
             this.pnBackTable5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.pnBackTable5.Controls.Add(this.lbTable5);
-            this.pnBackTable5.Location = new System.Drawing.Point(526, 329);
+            this.pnBackTable5.Location = new System.Drawing.Point(550, 329);
             this.pnBackTable5.Name = "pnBackTable5";
             this.pnBackTable5.Size = new System.Drawing.Size(280, 140);
             this.pnBackTable5.TabIndex = 2;
@@ -326,6 +326,7 @@ namespace PresentationLayer
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coffee Table";
             this.pnBackTable1.ResumeLayout(false);
             this.pnBackTable3.ResumeLayout(false);

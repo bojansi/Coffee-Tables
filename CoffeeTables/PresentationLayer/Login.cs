@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using DataLayer.Models;
+using DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,50 +27,77 @@ namespace PresentationLayer
 
             if (type == 'a')
             {
+                this.Text = "Prijava admina";
                 lbHeading.Text = "PRIJAVA ADMIN";
-                btnLogin.MouseClick += new MouseEventHandler(checkAdmin);
-                
+                btnLogin.Click += new EventHandler(checkAdmin);
             }
             else if (type == 'w')
             {
+                this.Text = "Prijava konobara";
                 lbHeading.Text = "PRIJAVA KONOBAR";
-                btnLogin.MouseClick += new MouseEventHandler(checkWaiter);
-                
+                btnLogin.Click += new EventHandler(checkWaiter);
             }
             else
             {
                 Application.Exit();
             }
-
+            this.AcceptButton = btnLogin;
         }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkAdmin(object sender, EventArgs e)
         {
-            if (tbPass.Text.Trim() == "admin" && tbUser.Text.Trim() == "admin")
+            if (tbUser.Text.Trim().Length != 0 && tbPass.Text.Length != 0)
             {
-                this.DialogResult = DialogResult.OK;
+                if (tbUser.Text.Trim() == DataLayer.Constants.adminUsername && tbPass.Text == DataLayer.Constants.adminPassword)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Pogresan username ili lozinka");
+                    tbUser.Focus();
+                }
             }
             else
             {
-                MessageBox.Show("Pogresan username ili lozinka");
+                MessageBox.Show("Popunite sva potrebna polja");
+                if (tbUser.Text.Trim().Length == 0)
+                {
+                    tbUser.Focus();
+                }
+                else
+                {
+                    tbPass.Focus();
+                }
             }
         }
 
         private void checkWaiter(object sender, EventArgs e)
         {
-            Waiter w = waiterBusiness.getWaiterByUserAndPass(tbUser.Text.Trim(), tbPass.Text.Trim());
-            if (w != null && w.Logged == false)
+            if (tbUser.Text.Trim().Length != 0 && tbPass.Text.Length != 0)
             {
-                this.DialogResult = DialogResult.OK;
+                Waiter w = waiterBusiness.getWaiterByUserAndPass(tbUser.Text.Trim(), tbPass.Text.Trim());
+                if (w != null && w.Logged == false)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Pogresan username ili lozinka");
+                    tbUser.Focus();
+                }
             }
             else
             {
-                MessageBox.Show("Pogresan username ili lozinka");
+                MessageBox.Show("Popunite sva potrebna polja");
+                if (tbUser.Text.Trim().Length == 0)
+                {
+                    tbUser.Focus();
+                    
+                }
+                else
+                {
+                    tbPass.Focus();
+                }
             }
         }
 
