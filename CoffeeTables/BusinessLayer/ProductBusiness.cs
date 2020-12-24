@@ -35,7 +35,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool removeProduct(int Id)
+        public bool deleteProduct(int Id)
         {
             if (this.productRepository.DeleteProduct(Id) > 0)
             {
