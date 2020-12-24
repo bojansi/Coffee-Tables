@@ -34,6 +34,7 @@ namespace PresentationLayer
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +43,7 @@ namespace PresentationLayer
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbTableName = new System.Windows.Forms.Label();
+            this.Logged = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +114,8 @@ namespace PresentationLayer
             this.Email,
             this.PhoneNumber,
             this.Username,
-            this.Password});
+            this.Password,
+            this.Logged});
             this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
             this.dgvData.Location = new System.Drawing.Point(12, 61);
             this.dgvData.MultiSelect = false;
@@ -131,6 +133,16 @@ namespace PresentationLayer
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(1004, 409);
             this.dgvData.TabIndex = 15;
+            // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(982, 47);
+            this.lbTableName.TabIndex = 16;
+            this.lbTableName.Text = "KONOBARI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Id
             // 
@@ -187,15 +199,12 @@ namespace PresentationLayer
             this.Password.ReadOnly = true;
             this.Password.Visible = false;
             // 
-            // lbTableName
+            // Logged
             // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(982, 47);
-            this.lbTableName.TabIndex = 16;
-            this.lbTableName.Text = "KONOBARI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Logged.HeaderText = "Ulogovan";
+            this.Logged.Name = "Logged";
+            this.Logged.ReadOnly = true;
+            this.Logged.Visible = false;
             // 
             // TableWaiter
             // 
@@ -231,5 +240,6 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Logged;
     }
 }
