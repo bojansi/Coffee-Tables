@@ -32,12 +32,42 @@ namespace PresentationLayer
             dgvData.Columns["Password"].DataPropertyName = "Password";
             dgvData.Columns["Logged"].DataPropertyName = "Logged";
         }
-
-        private void TableWaiter_Load(object sender, EventArgs e)
-        {       
+        private void RefreshData() 
+        {
             List<Waiter> waiters = this.waiterBusiness.getAllWaiters();
-
             dgvData.DataSource = waiters;
+        }
+        private void TableWaiter_Load(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            WaiterAddUpdate wa = new WaiterAddUpdate('i', null);
+            if (wa.ShowDialog() == DialogResult.OK) 
+            {
+                RefreshData();
+            }
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Waiter w = this.waiterBusiness.getWaiterById((int)dgvData.SelectedRows[0].Cells["Id"].Value);
+            if (w != null)
+            {
+                WaiterAddUpdate wu = new WaiterAddUpdate('u', w);
+                if (wu.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshData();
+                }
+            }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (this.waiterBusiness.deleteWaiter((int)dgvData.SelectedRows[0].Cells["Id"].Value)) 
+            {
+                MessageBox.Show("Uspesno izbrisan konobar iz baze podataka");
+                RefreshData();
+            }
         }
     }
 }
