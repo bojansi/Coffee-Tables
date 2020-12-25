@@ -79,7 +79,6 @@ namespace PresentationLayer
                 }
             }
         }
-
         private void updateWaiter(object sender, EventArgs e)
         {
             if (CheckTextBox())
@@ -109,21 +108,14 @@ namespace PresentationLayer
         }
         private bool CheckTextBox()
         {
-            foreach (Control c in this.Controls)
+            TextBox tb = this.Controls.OfType<TextBox>().FirstOrDefault(c => c.Text.Length == 0);
+            if (tb != null)
             {
-                if (c is TextBox)
-                {
-                    if (c.Text.Length == 0)
-                    {
-                        MessageBox.Show("Popunite sva polja");
-                        c.Focus();
-                        return false;
-                    }
-                }
+                tb.Focus();
+                MessageBox.Show("Popunite sva polja");
+                return false;
             }
             return true;
         }
-
-
     }
 }

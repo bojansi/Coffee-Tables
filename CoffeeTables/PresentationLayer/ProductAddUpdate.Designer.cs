@@ -33,25 +33,25 @@ namespace PresentationLayer
             this.label1 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbPrice = new System.Windows.Forms.TextBox();
-            this.btnProductAddUpdate = new System.Windows.Forms.Button();
+            this.btnProductInsertUpdate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.rbHotBeverage = new System.Windows.Forms.RadioButton();
+            this.rbWater = new System.Windows.Forms.RadioButton();
+            this.rbStrongDrink = new System.Windows.Forms.RadioButton();
+            this.rbBeer = new System.Windows.Forms.RadioButton();
+            this.rbJuice = new System.Windows.Forms.RadioButton();
+            this.rbEnergyDrink = new System.Windows.Forms.RadioButton();
+            this.panelRadioButtons = new System.Windows.Forms.Panel();
+            this.panelRadioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 29);
+            this.label2.Location = new System.Drawing.Point(14, 29);
             this.label2.Margin = new System.Windows.Forms.Padding(15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 30);
+            this.label2.Size = new System.Drawing.Size(85, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "Naziv : ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,10 +59,10 @@ namespace PresentationLayer
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 89);
+            this.label1.Location = new System.Drawing.Point(14, 89);
             this.label1.Margin = new System.Windows.Forms.Padding(15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 30);
+            this.label1.Size = new System.Drawing.Size(85, 30);
             this.label1.TabIndex = 4;
             this.label1.Text = "Cena :  ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -72,12 +72,11 @@ namespace PresentationLayer
             this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbName.Location = new System.Drawing.Point(156, 29);
+            this.tbName.Location = new System.Drawing.Point(100, 25);
             this.tbName.Margin = new System.Windows.Forms.Padding(15);
-            this.tbName.MaxLength = 20;
-            this.tbName.Multiline = true;
+            this.tbName.MaxLength = 100;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(205, 30);
+            this.tbName.Size = new System.Drawing.Size(281, 37);
             this.tbName.TabIndex = 1;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -86,30 +85,29 @@ namespace PresentationLayer
             this.tbPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPrice.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPrice.Location = new System.Drawing.Point(156, 89);
+            this.tbPrice.Location = new System.Drawing.Point(100, 85);
             this.tbPrice.Margin = new System.Windows.Forms.Padding(15);
             this.tbPrice.MaxLength = 20;
-            this.tbPrice.Multiline = true;
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(205, 30);
+            this.tbPrice.Size = new System.Drawing.Size(281, 37);
             this.tbPrice.TabIndex = 2;
             this.tbPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnProductAddUpdate
+            // btnProductInsertUpdate
             // 
-            this.btnProductAddUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProductAddUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
-            this.btnProductAddUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductAddUpdate.FlatAppearance.BorderSize = 0;
-            this.btnProductAddUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductAddUpdate.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductAddUpdate.Location = new System.Drawing.Point(84, 338);
-            this.btnProductAddUpdate.Margin = new System.Windows.Forms.Padding(70, 3, 70, 15);
-            this.btnProductAddUpdate.Name = "btnProductAddUpdate";
-            this.btnProductAddUpdate.Size = new System.Drawing.Size(226, 49);
-            this.btnProductAddUpdate.TabIndex = 9;
-            this.btnProductAddUpdate.Text = "Dodaj";
-            this.btnProductAddUpdate.UseVisualStyleBackColor = false;
+            this.btnProductInsertUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnProductInsertUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.btnProductInsertUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductInsertUpdate.FlatAppearance.BorderSize = 0;
+            this.btnProductInsertUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductInsertUpdate.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductInsertUpdate.Location = new System.Drawing.Point(84, 338);
+            this.btnProductInsertUpdate.Margin = new System.Windows.Forms.Padding(70, 3, 70, 15);
+            this.btnProductInsertUpdate.Name = "btnProductInsertUpdate";
+            this.btnProductInsertUpdate.Size = new System.Drawing.Size(226, 49);
+            this.btnProductInsertUpdate.TabIndex = 9;
+            this.btnProductInsertUpdate.Text = "Dodaj";
+            this.btnProductInsertUpdate.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -121,144 +119,143 @@ namespace PresentationLayer
             this.label3.Text = "Tip napitka";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radioButton1
+            // rbHotBeverage
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.radioButton1.FlatAppearance.BorderSize = 0;
-            this.radioButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
-            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton1.Location = new System.Drawing.Point(5, 60);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton1.Size = new System.Drawing.Size(115, 24);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Topli napitak";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbHotBeverage.AutoSize = true;
+            this.rbHotBeverage.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
+            this.rbHotBeverage.FlatAppearance.BorderSize = 0;
+            this.rbHotBeverage.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rbHotBeverage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
+            this.rbHotBeverage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.rbHotBeverage.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbHotBeverage.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbHotBeverage.Location = new System.Drawing.Point(5, 60);
+            this.rbHotBeverage.Name = "rbHotBeverage";
+            this.rbHotBeverage.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rbHotBeverage.Size = new System.Drawing.Size(106, 24);
+            this.rbHotBeverage.TabIndex = 3;
+            this.rbHotBeverage.TabStop = true;
+            this.rbHotBeverage.Text = "Topli napici";
+            this.rbHotBeverage.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbWater
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.radioButton2.FlatAppearance.BorderSize = 0;
-            this.radioButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
-            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton2.Location = new System.Drawing.Point(123, 60);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton2.Size = new System.Drawing.Size(124, 24);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Hladni napitak";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbWater.AutoSize = true;
+            this.rbWater.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
+            this.rbWater.FlatAppearance.BorderSize = 0;
+            this.rbWater.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rbWater.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
+            this.rbWater.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.rbWater.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbWater.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbWater.Location = new System.Drawing.Point(123, 60);
+            this.rbWater.Name = "rbWater";
+            this.rbWater.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rbWater.Size = new System.Drawing.Size(64, 24);
+            this.rbWater.TabIndex = 4;
+            this.rbWater.TabStop = true;
+            this.rbWater.Text = "Vode";
+            this.rbWater.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbStrongDrink
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
-            this.radioButton3.FlatAppearance.BorderSize = 0;
-            this.radioButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.radioButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
-            this.radioButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton3.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton3.Location = new System.Drawing.Point(238, 60);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton3.Size = new System.Drawing.Size(125, 24);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Alkoholno pice";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbStrongDrink.AutoSize = true;
+            this.rbStrongDrink.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
+            this.rbStrongDrink.FlatAppearance.BorderSize = 0;
+            this.rbStrongDrink.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.rbStrongDrink.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
+            this.rbStrongDrink.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.rbStrongDrink.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbStrongDrink.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbStrongDrink.Location = new System.Drawing.Point(238, 60);
+            this.rbStrongDrink.Name = "rbStrongDrink";
+            this.rbStrongDrink.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rbStrongDrink.Size = new System.Drawing.Size(113, 24);
+            this.rbStrongDrink.TabIndex = 5;
+            this.rbStrongDrink.TabStop = true;
+            this.rbStrongDrink.Text = "Zestoka pica";
+            this.rbStrongDrink.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // rbBeer
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.FlatAppearance.BorderSize = 0;
-            this.radioButton6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton6.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton6.Location = new System.Drawing.Point(5, 100);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton6.Size = new System.Drawing.Size(64, 24);
-            this.radioButton6.TabIndex = 6;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Voda";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rbBeer.AutoSize = true;
+            this.rbBeer.FlatAppearance.BorderSize = 0;
+            this.rbBeer.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbBeer.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbBeer.Location = new System.Drawing.Point(5, 100);
+            this.rbBeer.Name = "rbBeer";
+            this.rbBeer.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rbBeer.Size = new System.Drawing.Size(57, 24);
+            this.rbBeer.TabIndex = 6;
+            this.rbBeer.TabStop = true;
+            this.rbBeer.Text = "Piva";
             // 
-            // radioButton5
+            // rbJuice
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.FlatAppearance.BorderSize = 0;
-            this.radioButton5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton5.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton5.Location = new System.Drawing.Point(123, 100);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton5.Size = new System.Drawing.Size(56, 24);
-            this.radioButton5.TabIndex = 7;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Sok";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbJuice.AutoSize = true;
+            this.rbJuice.FlatAppearance.BorderSize = 0;
+            this.rbJuice.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbJuice.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbJuice.Location = new System.Drawing.Point(123, 100);
+            this.rbJuice.Name = "rbJuice";
+            this.rbJuice.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rbJuice.Size = new System.Drawing.Size(73, 24);
+            this.rbJuice.TabIndex = 7;
+            this.rbJuice.TabStop = true;
+            this.rbJuice.Text = "Sokovi";
+            this.rbJuice.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbEnergyDrink
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.FlatAppearance.BorderSize = 0;
-            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.radioButton4.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton4.Location = new System.Drawing.Point(238, 100);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.radioButton4.Size = new System.Drawing.Size(132, 24);
-            this.radioButton4.TabIndex = 8;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Energetsko pice";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbEnergyDrink.AutoSize = true;
+            this.rbEnergyDrink.FlatAppearance.BorderSize = 0;
+            this.rbEnergyDrink.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbEnergyDrink.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbEnergyDrink.Location = new System.Drawing.Point(238, 100);
+            this.rbEnergyDrink.Name = "rbEnergyDrink";
+            this.rbEnergyDrink.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rbEnergyDrink.Size = new System.Drawing.Size(132, 24);
+            this.rbEnergyDrink.TabIndex = 8;
+            this.rbEnergyDrink.TabStop = true;
+            this.rbEnergyDrink.Text = "Energetska pica";
+            this.rbEnergyDrink.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // panelRadioButtons
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.radioButton4);
-            this.panel1.Controls.Add(this.radioButton5);
-            this.panel1.Controls.Add(this.radioButton6);
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(12, 155);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 151);
-            this.panel1.TabIndex = 7;
+            this.panelRadioButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.panelRadioButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRadioButtons.Controls.Add(this.rbEnergyDrink);
+            this.panelRadioButtons.Controls.Add(this.rbJuice);
+            this.panelRadioButtons.Controls.Add(this.rbBeer);
+            this.panelRadioButtons.Controls.Add(this.rbStrongDrink);
+            this.panelRadioButtons.Controls.Add(this.rbWater);
+            this.panelRadioButtons.Controls.Add(this.rbHotBeverage);
+            this.panelRadioButtons.Controls.Add(this.label3);
+            this.panelRadioButtons.Location = new System.Drawing.Point(12, 155);
+            this.panelRadioButtons.Name = "panelRadioButtons";
+            this.panelRadioButtons.Size = new System.Drawing.Size(370, 151);
+            this.panelRadioButtons.TabIndex = 7;
             // 
             // ProductAddUpdate
             // 
+            this.AcceptButton = this.btnProductInsertUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(394, 411);
-            this.Controls.Add(this.btnProductAddUpdate);
+            this.Controls.Add(this.btnProductInsertUpdate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbPrice);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelRadioButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ProductAddUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductAddUpdate";
-            this.Load += new System.EventHandler(this.ProductAddUpdate_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelRadioButtons.ResumeLayout(false);
+            this.panelRadioButtons.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,14 +267,14 @@ namespace PresentationLayer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbPrice;
-        private System.Windows.Forms.Button btnProductAddUpdate;
+        private System.Windows.Forms.Button btnProductInsertUpdate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbHotBeverage;
+        private System.Windows.Forms.RadioButton rbWater;
+        private System.Windows.Forms.RadioButton rbStrongDrink;
+        private System.Windows.Forms.RadioButton rbBeer;
+        private System.Windows.Forms.RadioButton rbJuice;
+        private System.Windows.Forms.RadioButton rbEnergyDrink;
+        private System.Windows.Forms.Panel panelRadioButtons;
     }
 }

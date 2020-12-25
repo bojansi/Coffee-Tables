@@ -51,7 +51,7 @@ namespace PresentationLayer
             this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbName.Location = new System.Drawing.Point(167, 20);
+            this.tbName.Location = new System.Drawing.Point(170, 20);
             this.tbName.Margin = new System.Windows.Forms.Padding(15);
             this.tbName.MaxLength = 30;
             this.tbName.Name = "tbName";
@@ -79,7 +79,7 @@ namespace PresentationLayer
             this.label2.Margin = new System.Windows.Forms.Padding(15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 30);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Ime : ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
