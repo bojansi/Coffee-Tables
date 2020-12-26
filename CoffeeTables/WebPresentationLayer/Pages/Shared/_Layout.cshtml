@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoffeTable</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav>
+        <!-- COMMON NAV -->
+        <div><a href="index.html"></a><img src="img/logo1.png" alt=""></div>
+        <ul>
+            <li><a href="index.html">LOGIN</a></li>
+            <li><a href="home.html">STATS</a></li>
+            <li><a href="receipt.html">RECEIPTS</a></li>
+            <li><a href="table.html">TABLES</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    @RenderBody()
+
+    <footer>
+        <!-- COMMON FOOTER -->
+        CoffeeTables
+    </footer>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
