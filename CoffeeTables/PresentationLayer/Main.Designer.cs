@@ -56,17 +56,17 @@ namespace PresentationLayer
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbTime = new System.Windows.Forms.Label();
-            this.lbDailyIncome = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dgvLoggedWaiters = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvLoggedWaiters = new System.Windows.Forms.DataGridView();
             this.WId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WLogOut = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbDailyIncome = new System.Windows.Forms.Label();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBackTable1.SuspendLayout();
             this.pnBackTable3.SuspendLayout();
             this.pnBackTable2.SuspendLayout();
@@ -263,7 +263,7 @@ namespace PresentationLayer
             // prijavaToolStripMenuItem
             // 
             this.prijavaToolStripMenuItem.Name = "prijavaToolStripMenuItem";
-            this.prijavaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.prijavaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.prijavaToolStripMenuItem.Text = "Prijava";
             this.prijavaToolStripMenuItem.Click += new System.EventHandler(this.prijavaToolStripMenuItem_Click);
             // 
@@ -280,29 +280,29 @@ namespace PresentationLayer
             // konobariToolStripMenuItem
             // 
             this.konobariToolStripMenuItem.Name = "konobariToolStripMenuItem";
-            this.konobariToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.konobariToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.konobariToolStripMenuItem.Text = "Konobari";
             this.konobariToolStripMenuItem.Click += new System.EventHandler(this.konobariToolStripMenuItem_Click);
             // 
             // artikliToolStripMenuItem
             // 
             this.artikliToolStripMenuItem.Name = "artikliToolStripMenuItem";
-            this.artikliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.artikliToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.artikliToolStripMenuItem.Text = "Artikli";
             this.artikliToolStripMenuItem.Click += new System.EventHandler(this.artikliToolStripMenuItem_Click);
             // 
             // racuniToolStripMenuItem
             // 
             this.racuniToolStripMenuItem.Name = "racuniToolStripMenuItem";
-            this.racuniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.racuniToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.racuniToolStripMenuItem.Text = "Racuni";
             this.racuniToolStripMenuItem.Click += new System.EventHandler(this.racuniToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.exitToolStripMenuItem.Text = "Izlaz";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // pictureBox1
@@ -331,46 +331,15 @@ namespace PresentationLayer
             this.panel1.Size = new System.Drawing.Size(337, 226);
             this.panel1.TabIndex = 4;
             // 
-            // lbTime
+            // label1
             // 
-            this.lbTime.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.Location = new System.Drawing.Point(3, 6);
-            this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(334, 35);
-            this.lbTime.TabIndex = 0;
-            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbDailyIncome
-            // 
-            this.lbDailyIncome.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDailyIncome.Location = new System.Drawing.Point(3, 185);
-            this.lbDailyIncome.Name = "lbDailyIncome";
-            this.lbDailyIncome.Size = new System.Drawing.Size(334, 41);
-            this.lbDailyIncome.TabIndex = 1;
-            this.lbDailyIncome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
-            this.panel2.Location = new System.Drawing.Point(20, 174);
-            this.panel2.Margin = new System.Windows.Forms.Padding(20);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(297, 5);
-            this.panel2.TabIndex = 11;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
-            this.panel3.Location = new System.Drawing.Point(21, 42);
-            this.panel3.Margin = new System.Windows.Forms.Padding(20);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(297, 5);
-            this.panel3.TabIndex = 12;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 138);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "KONOBARI";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvLoggedWaiters
             // 
@@ -398,16 +367,6 @@ namespace PresentationLayer
             this.dgvLoggedWaiters.Size = new System.Drawing.Size(295, 111);
             this.dgvLoggedWaiters.TabIndex = 13;
             this.dgvLoggedWaiters.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoggedWaiters_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 138);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "KONOBARI";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // WId
             // 
@@ -442,6 +401,47 @@ namespace PresentationLayer
             this.WLogOut.Text = "Odjavi se";
             this.WLogOut.UseColumnTextForButtonValue = true;
             this.WLogOut.Width = 80;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.panel3.Location = new System.Drawing.Point(21, 42);
+            this.panel3.Margin = new System.Windows.Forms.Padding(20);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(297, 5);
+            this.panel3.TabIndex = 12;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.panel2.Location = new System.Drawing.Point(20, 174);
+            this.panel2.Margin = new System.Windows.Forms.Padding(20);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(297, 5);
+            this.panel2.TabIndex = 11;
+            // 
+            // lbDailyIncome
+            // 
+            this.lbDailyIncome.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDailyIncome.Location = new System.Drawing.Point(3, 185);
+            this.lbDailyIncome.Name = "lbDailyIncome";
+            this.lbDailyIncome.Size = new System.Drawing.Size(334, 41);
+            this.lbDailyIncome.TabIndex = 1;
+            this.lbDailyIncome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbTime
+            // 
+            this.lbTime.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Location = new System.Drawing.Point(3, 6);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(334, 35);
+            this.lbTime.TabIndex = 0;
+            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 

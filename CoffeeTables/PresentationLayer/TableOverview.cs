@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,10 @@ namespace PresentationLayer
 {
     public partial class TableOverview : Form
     {
-        private readonly ProductBusiness productBusiness;
-        private readonly ReceiptBusiness receiptBusiness;
-        private readonly ReceiptItemBusiness receiptItemBusiness;
-        private readonly WaiterBusiness waiterBusiness;
+        private readonly IProductBusiness productBusiness;
+        private readonly IReceiptBusiness receiptBusiness;
+        private readonly IReceiptItemBusiness receiptItemBusiness;
+        private readonly IWaiterBusiness waiterBusiness;
 
         public bool tableTaken = false;
         private DataGridViewRow rowClone;
@@ -27,7 +28,7 @@ namespace PresentationLayer
         private Receipt currentReceipt;
         private Receipt receipt;
 
-        public TableOverview(int tableNumber)
+        public TableOverview(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, int tableNumber)
         {
             InitializeComponent();
 
@@ -52,10 +53,10 @@ namespace PresentationLayer
 
             
 
-            this.productBusiness = new ProductBusiness();
-            this.receiptBusiness = new ReceiptBusiness();
-            this.receiptItemBusiness = new ReceiptItemBusiness();
-            this.waiterBusiness = new WaiterBusiness();
+            this.productBusiness = _productBusiness;
+            this.receiptBusiness = _receiptBusiness;
+            this.receiptItemBusiness = _receiptItemBusiness;
+            this.waiterBusiness = _waiterBusiness;
 
             currentReceipt = this.receiptBusiness.getUnpaidReceiptByTableId(tableNumber);
         }
@@ -100,6 +101,7 @@ namespace PresentationLayer
                     dgvTable.Rows.Add(row);
                     rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
                 }
+                dgvTable.CurrentCell.Selected = false;
                 Waiter waiter = this.waiterBusiness.getWaiterById(currentReceipt.WaiterId);
                 cbWaiters.Text = waiter.Id + ". " + waiter.Name + " " + waiter.Surname;
             }
@@ -197,7 +199,7 @@ namespace PresentationLayer
             }
             else 
             {
-                ReceiptOverview ro = new ReceiptOverview(currentReceipt.Id, true);
+                ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, currentReceipt.Id, true);
                 if (ro.ShowDialog() == DialogResult.OK) 
                 {
                     this.DialogResult = DialogResult.OK;

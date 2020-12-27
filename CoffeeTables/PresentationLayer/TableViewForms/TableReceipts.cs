@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,16 @@ namespace PresentationLayer
 {
     public partial class TableReceipts : Form
     {
-        private readonly ReceiptBusiness receiptusiness;
-        public TableReceipts()
+        private readonly IReceiptBusiness receiptBusiness;
+        private readonly IReceiptItemBusiness receiptItemBusiness; 
+        private readonly IWaiterBusiness waiterBusiness;
+        public TableReceipts(IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusienss, IWaiterBusiness _waiterBusiness)
         {
             InitializeComponent();
 
-            this.receiptusiness = new ReceiptBusiness();
+            this.receiptBusiness = _receiptBusiness;
+            this.receiptItemBusiness = _receiptItemBusienss;
+            this.waiterBusiness = _waiterBusiness;
 
             dgvData.Columns["Id"].DataPropertyName = "Id";
             dgvData.Columns["WaiterId"].DataPropertyName = "WaiterId";
@@ -32,14 +37,14 @@ namespace PresentationLayer
 
         private void TableReceipts_Load(object sender, EventArgs e)
         {
-            List<Receipt> receipts = this.receiptusiness.getAllReceipts();
+            List<Receipt> receipts = this.receiptBusiness.getAllReceipts();
 
             dgvData.DataSource = receipts;
         }
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ReceiptOverview ro = new ReceiptOverview(Convert.ToInt32(dgvData.SelectedRows[0].Cells[0].Value), false);
+            ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, Convert.ToInt32(dgvData.SelectedRows[0].Cells[0].Value), false);
             ro.ShowDialog();
         }
     }

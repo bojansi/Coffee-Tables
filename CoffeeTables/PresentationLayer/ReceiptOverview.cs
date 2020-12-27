@@ -1,5 +1,7 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,20 +16,20 @@ namespace PresentationLayer
 {
     public partial class ReceiptOverview : Form
     {
-        private readonly ReceiptBusiness receiptBusiness;
-        private readonly ReceiptItemBusiness receiptItemBusiness;
-        private readonly WaiterBusiness waiterBusiness;
+        private readonly IReceiptBusiness receiptBusiness;
+        private readonly IReceiptItemBusiness receiptItemBusiness;
+        private readonly IWaiterBusiness waiterBusiness;
         private Receipt currentReceipt;
         private List<ReceiptItem> receiptItems;
-        public ReceiptOverview(int receiptId, bool payment)
+        public ReceiptOverview(IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, int receiptId, bool payment)
         {
             InitializeComponent();
 
             this.Text = "Racun " + receiptId;
 
-            this.receiptBusiness = new ReceiptBusiness();
-            this.receiptItemBusiness = new ReceiptItemBusiness();
-            this.waiterBusiness = new WaiterBusiness();
+            this.receiptBusiness = _receiptBusiness;
+            this.receiptItemBusiness = _receiptItemBusiness;
+            this.waiterBusiness = _waiterBusiness;
 
             if (!payment) 
             {
@@ -43,7 +45,7 @@ namespace PresentationLayer
         {
             string receipt = "";
             richTextBox1.Font = new Font("Consolas", 12, FontStyle.Regular);
-            foreach (string s in DataLayer.Constants.caffeInfo)
+            foreach (string s in Constants.caffeInfo)
             {
                 receipt += s + "\n";
             }
