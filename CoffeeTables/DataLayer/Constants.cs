@@ -12,5 +12,12 @@ namespace DataLayer
 
         public static string adminUsername = "veliko";
         public static string adminPassword = "toceno";
+
+        public static string caffeName = "\"Veliko toceno \"";
+        public static string caffeAddress = "Bulevar Tanaska Rajica 256";
+        public static string caffePostalCode = "3200 Cacak";
+        public static string caffePIB = "PIB : 4478596232145284";
+
+        public static List<string> caffeInfo = new List<string>() { caffeName, caffeAddress, caffePostalCode, caffePIB };
     }
 }

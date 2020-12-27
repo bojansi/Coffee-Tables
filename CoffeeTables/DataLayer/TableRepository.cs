@@ -1,4 +1,5 @@
-﻿using DataLayer.Models;
+﻿using Shared.Interfaces.Repository;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class TableRepository
+    public class TableRepository : ITableRepository
     {
         public List<Table> GetAllTables()
         {
