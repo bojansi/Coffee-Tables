@@ -1,5 +1,7 @@
 ﻿using DataLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Interfaces.Repository;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class WaiterBusiness
+    public class WaiterBusiness:IWaiterBusiness
     {
-        private readonly WaiterRepository waiterRepository;
-        public WaiterBusiness()
+
+        private readonly IWaiterRepository waiterRepository;
+        public WaiterBusiness(IWaiterRepository _waiterRepository)
         {
-            this.waiterRepository = new WaiterRepository();
+            this.waiterRepository = _waiterRepository;
         }
 
         public List<Waiter> getAllWaiters()
