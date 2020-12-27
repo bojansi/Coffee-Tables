@@ -91,8 +91,9 @@ namespace DataLayer
                 sqlCommand.CommandText = string.Format("SELECT IDENT_CURRENT('Receipts')");
 
                 sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                sqlDataReader.Read();
+                return Convert.ToInt32(sqlDataReader[0]);
             }
         }
 
