@@ -23,8 +23,9 @@ namespace PresentationLayer
         private readonly IReceiptBusiness receiptBusiness;
         private readonly IWaiterBusiness waiterBusiness;
         private readonly IReceiptItemBusiness receiptItemBusiness;
+        private readonly ITableBusiness tableBusiness;
 
-        public Main(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IWaiterBusiness _waiterBusiness, IReceiptItemBusiness _receiptItemBusiness)
+        public Main(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IWaiterBusiness _waiterBusiness, IReceiptItemBusiness _receiptItemBusiness, ITableBusiness _tableBusiness)
         {
             InitializeComponent();
 
@@ -32,6 +33,7 @@ namespace PresentationLayer
             this.receiptBusiness = _receiptBusiness;
             this.waiterBusiness = _waiterBusiness;
             this.receiptItemBusiness = _receiptItemBusiness;
+            this.tableBusiness = _tableBusiness;
 
             products = this.productBusiness.getAllProduct();
             waiters = this.waiterBusiness.getLoggedWaiters();
@@ -175,7 +177,7 @@ namespace PresentationLayer
         }
         private void OpenTable(int id) 
         {
-            TableOverview to = new TableOverview(this.productBusiness, this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, id);
+            TableOverview to = new TableOverview(this.productBusiness, this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, this.tableBusiness, id);
             to.ShowDialog();
             List<Receipt> receipts = this.receiptBusiness.getReceiptByTodayDate(DateTime.Now);
             decimal daily = 0;

@@ -21,20 +21,30 @@ namespace PresentationLayer
         private readonly IReceiptBusiness receiptBusiness;
         private readonly IReceiptItemBusiness receiptItemBusiness;
         private readonly IWaiterBusiness waiterBusiness;
+        private readonly ITableBusiness tableBusiness;
 
-        public bool tableTaken = false;
         private DataGridViewRow rowClone;
         private decimal total = 0;
         private Receipt currentReceipt;
         private Receipt receipt;
+        private Table currentTable;
 
-        public TableOverview(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, int tableNumber)
+        public TableOverview(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, ITableBusiness _tableBusiness, int tableNumber)
         {
             InitializeComponent();
+
+            this.productBusiness = _productBusiness;
+            this.receiptBusiness = _receiptBusiness;
+            this.receiptItemBusiness = _receiptItemBusiness;
+            
+            this.tableBusiness = _tableBusiness;
+
+            this.waiterBusiness = _waiterBusiness;
 
             rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
             dgvTable.AllowUserToAddRows = false;
 
+            currentTable = this.tableBusiness.getTableById(tableNumber);
             this.Text = "Sto " + tableNumber;
             lbTableNumber.Text = "BROJ STOLA " + tableNumber;
 
@@ -49,14 +59,7 @@ namespace PresentationLayer
             dgvTable.Columns["TProductId"].DataPropertyName = "ProductId";
             dgvTable.Columns["TName"].DataPropertyName = "Name";
             dgvTable.Columns["TAmount"].DataPropertyName = "Amount";
-            dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";
-
-            
-
-            this.productBusiness = _productBusiness;
-            this.receiptBusiness = _receiptBusiness;
-            this.receiptItemBusiness = _receiptItemBusiness;
-            this.waiterBusiness = _waiterBusiness;
+            dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";            
 
             currentReceipt = this.receiptBusiness.getUnpaidReceiptByTableId(tableNumber);
         }
@@ -171,11 +174,13 @@ namespace PresentationLayer
         {
             if (dgvTable.Rows.Count > 0)
             {
-                tableTaken = true;
+                currentTable.Taken = true;
+                this.tableBusiness.updateTable(currentTable);
             }
             else 
             {
-                tableTaken = false;
+                currentTable.Taken = false; 
+                this.tableBusiness.updateTable(currentTable);
                 this.receiptBusiness.deleteReceipt(currentReceipt.Id);
             }
         }
