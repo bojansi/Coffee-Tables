@@ -74,6 +74,8 @@ namespace PresentationLayer
                 Waiter w = waiterBusiness.getWaiterByUserAndPass(tbUser.Text.Trim(), tbPass.Text.Trim());
                 if (w != null && w.Logged == false)
                 {
+                    w.Logged = true;
+                    this.waiterBusiness.updateWaiter(w);
                     this.DialogResult = DialogResult.OK;
                 }
                 else

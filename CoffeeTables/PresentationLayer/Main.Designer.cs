@@ -324,10 +324,12 @@ namespace PresentationLayer
             this.Controls.Add(this.pnBackTable1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coffee Table";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.pnBackTable1.ResumeLayout(false);
             this.pnBackTable3.ResumeLayout(false);
             this.pnBackTable2.ResumeLayout(false);

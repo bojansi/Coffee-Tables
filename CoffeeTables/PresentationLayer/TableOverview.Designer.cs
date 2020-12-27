@@ -30,37 +30,42 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lbBrojStola = new System.Windows.Forms.Label();
+            this.lbTableNumber = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.lbReceiptCost = new System.Windows.Forms.Label();
+            this.lbReceiptTotal = new System.Windows.Forms.Label();
             this.btn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvTable = new System.Windows.Forms.DataGridView();
+            this.TProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.PId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbDrinkType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.cbWaiters = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbBrojStola
+            // lbTableNumber
             // 
-            this.lbBrojStola.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBrojStola.Location = new System.Drawing.Point(14, 14);
-            this.lbBrojStola.Margin = new System.Windows.Forms.Padding(5);
-            this.lbBrojStola.Name = "lbBrojStola";
-            this.lbBrojStola.Size = new System.Drawing.Size(757, 45);
-            this.lbBrojStola.TabIndex = 0;
-            this.lbBrojStola.Text = "Broj stola : X";
-            this.lbBrojStola.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbTableNumber.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableNumber.Location = new System.Drawing.Point(14, 14);
+            this.lbTableNumber.Margin = new System.Windows.Forms.Padding(5);
+            this.lbTableNumber.Name = "lbTableNumber";
+            this.lbTableNumber.Size = new System.Drawing.Size(850, 45);
+            this.lbTableNumber.TabIndex = 0;
+            this.lbTableNumber.Text = "Broj stola : X";
+            this.lbTableNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -68,7 +73,7 @@ namespace PresentationLayer
             this.panel1.Location = new System.Drawing.Point(59, 59);
             this.panel1.Margin = new System.Windows.Forms.Padding(50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(667, 5);
+            this.panel1.Size = new System.Drawing.Size(760, 5);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -77,7 +82,7 @@ namespace PresentationLayer
             this.label2.Location = new System.Drawing.Point(22, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(30, 5, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(302, 28);
+            this.label2.Size = new System.Drawing.Size(367, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "Trenutno za stolom";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,11 +93,11 @@ namespace PresentationLayer
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(361, 180);
+            this.btnAdd.Location = new System.Drawing.Point(419, 191);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(133, 65);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Size = new System.Drawing.Size(135, 65);
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -103,28 +108,28 @@ namespace PresentationLayer
             this.btnRemove.FlatAppearance.BorderSize = 0;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(361, 333);
+            this.btnRemove.Location = new System.Drawing.Point(419, 338);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(133, 65);
-            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Size = new System.Drawing.Size(135, 65);
+            this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Izbrisi";
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // lbReceiptCost
+            // lbReceiptTotal
             // 
-            this.lbReceiptCost.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbReceiptCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbReceiptCost.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbReceiptCost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbReceiptCost.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReceiptCost.Location = new System.Drawing.Point(44, 530);
-            this.lbReceiptCost.Name = "lbReceiptCost";
-            this.lbReceiptCost.Size = new System.Drawing.Size(261, 31);
-            this.lbReceiptCost.TabIndex = 7;
-            this.lbReceiptCost.Text = "Iznos racuna : X";
-            this.lbReceiptCost.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbReceiptTotal.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbReceiptTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbReceiptTotal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbReceiptTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbReceiptTotal.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReceiptTotal.Location = new System.Drawing.Point(68, 527);
+            this.lbReceiptTotal.Name = "lbReceiptTotal";
+            this.lbReceiptTotal.Size = new System.Drawing.Size(261, 31);
+            this.lbReceiptTotal.TabIndex = 7;
+            this.lbReceiptTotal.Text = "Iznos racuna : X";
+            this.lbReceiptTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn
             // 
@@ -132,200 +137,259 @@ namespace PresentationLayer
             this.btn.FlatAppearance.BorderSize = 0;
             this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn.Location = new System.Drawing.Point(335, 496);
+            this.btn.Location = new System.Drawing.Point(419, 459);
             this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(176, 61);
-            this.btn.TabIndex = 8;
+            this.btn.Size = new System.Drawing.Size(135, 100);
+            this.btn.TabIndex = 3;
             this.btn.Text = "Naplati";
             this.btn.UseVisualStyleBackColor = false;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
-            // dataGridView1
+            // dgvTable
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Product_Name,
-            this.Product_Price,
-            this.Product_Quantity});
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
-            this.dataGridView1.Location = new System.Drawing.Point(20, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvTable.AllowUserToDeleteRows = false;
+            this.dgvTable.AllowUserToOrderColumns = true;
+            this.dgvTable.AllowUserToResizeColumns = false;
+            this.dgvTable.AllowUserToResizeRows = false;
+            this.dgvTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTable.ColumnHeadersVisible = false;
+            this.dgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TProductId,
+            this.TName,
+            this.TQuantity,
+            this.TAmount});
+            this.dgvTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
+            this.dgvTable.Location = new System.Drawing.Point(20, 122);
+            this.dgvTable.Name = "dgvTable";
+            this.dgvTable.RowHeadersVisible = false;
+            this.dgvTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(304, 365);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTable.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvTable.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
+            this.dgvTable.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dgvTable.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvTable.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvTable.RowTemplate.Height = 40;
+            this.dgvTable.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTable.Size = new System.Drawing.Size(369, 365);
+            this.dgvTable.TabIndex = 9;
+            this.dgvTable.TabStop = false;
             // 
-            // Product_Name
+            // TProductId
             // 
-            this.Product_Name.HeaderText = "Product Name";
-            this.Product_Name.Name = "Product_Name";
-            this.Product_Name.ReadOnly = true;
-            this.Product_Name.Width = 180;
+            this.TProductId.HeaderText = "Product Id";
+            this.TProductId.Name = "TProductId";
+            this.TProductId.Visible = false;
             // 
-            // Product_Price
+            // TName
             // 
-            this.Product_Price.HeaderText = "Product Price";
-            this.Product_Price.Name = "Product_Price";
-            this.Product_Price.ReadOnly = true;
-            this.Product_Price.Width = 70;
+            this.TName.HeaderText = "Product Name";
+            this.TName.Name = "TName";
+            this.TName.ReadOnly = true;
+            this.TName.Width = 215;
             // 
-            // Product_Quantity
+            // TQuantity
             // 
-            this.Product_Quantity.HeaderText = "Product Quantity";
-            this.Product_Quantity.Name = "Product_Quantity";
-            this.Product_Quantity.ReadOnly = true;
-            this.Product_Quantity.Width = 50;
+            this.TQuantity.HeaderText = "Product Quantity";
+            this.TQuantity.Name = "TQuantity";
+            this.TQuantity.ReadOnly = true;
+            this.TQuantity.Width = 50;
             // 
-            // dataGridView2
+            // TAmount
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TAmount.HeaderText = "Product Amount";
+            this.TAmount.Name = "TAmount";
+            this.TAmount.ReadOnly = true;
+            this.TAmount.Width = 80;
+            // 
+            // dgvProducts
+            // 
+            this.dgvProducts.AllowUserToAddRows = false;
+            this.dgvProducts.AllowUserToDeleteRows = false;
+            this.dgvProducts.AllowUserToOrderColumns = true;
+            this.dgvProducts.AllowUserToResizeColumns = false;
+            this.dgvProducts.AllowUserToResizeRows = false;
+            this.dgvProducts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProducts.ColumnHeadersVisible = false;
+            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PId,
             this.PName,
-            this.PPrice});
-            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
-            this.dataGridView2.Location = new System.Drawing.Point(523, 122);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(243, 365);
-            this.dataGridView2.TabIndex = 10;
+            this.PPrice,
+            this.PType});
+            this.dgvProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
+            this.dgvProducts.Location = new System.Drawing.Point(585, 122);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
+            this.dgvProducts.RowHeadersVisible = false;
+            this.dgvProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvProducts.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvProducts.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgvProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProducts.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProducts.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvProducts.RowTemplate.Height = 40;
+            this.dgvProducts.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProducts.Size = new System.Drawing.Size(281, 365);
+            this.dgvProducts.TabIndex = 10;
+            this.dgvProducts.TabStop = false;
+            this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // PId
+            // 
+            this.PId.HeaderText = "Id";
+            this.PId.Name = "PId";
+            this.PId.ReadOnly = true;
+            this.PId.Visible = false;
             // 
             // PName
             // 
             this.PName.HeaderText = "Product Name";
             this.PName.Name = "PName";
             this.PName.ReadOnly = true;
-            this.PName.Width = 160;
+            this.PName.Width = 190;
             // 
             // PPrice
             // 
             this.PPrice.HeaderText = "Product Price";
             this.PPrice.Name = "PPrice";
             this.PPrice.ReadOnly = true;
-            this.PPrice.Width = 60;
+            this.PPrice.Width = 70;
+            // 
+            // PType
+            // 
+            this.PType.HeaderText = "Type";
+            this.PType.Name = "PType";
+            this.PType.ReadOnly = true;
+            this.PType.Visible = false;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(542, 91);
+            this.label3.Location = new System.Drawing.Point(585, 91);
             this.label3.Margin = new System.Windows.Forms.Padding(30, 5, 0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 28);
+            this.label3.Size = new System.Drawing.Size(281, 28);
             this.label3.TabIndex = 11;
             this.label3.Text = "Artikli";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // cbDrinkType
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.Gray;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbDrinkType.BackColor = System.Drawing.Color.Gray;
+            this.cbDrinkType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDrinkType.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDrinkType.FormattingEnabled = true;
+            this.cbDrinkType.Items.AddRange(new object[] {
             "Sve",
-            "Topli napitci",
+            "Topli napici",
             "Sokovi",
             "Piva",
             "Zestoka pica",
-            "Energetska pica"});
-            this.comboBox1.Location = new System.Drawing.Point(563, 530);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(178, 31);
-            this.comboBox1.TabIndex = 12;
+            "Energetska pica",
+            "Vode"});
+            this.cbDrinkType.Location = new System.Drawing.Point(641, 527);
+            this.cbDrinkType.Name = "cbDrinkType";
+            this.cbDrinkType.Size = new System.Drawing.Size(178, 31);
+            this.cbDrinkType.TabIndex = 4;
+            this.cbDrinkType.SelectedIndexChanged += new System.EventHandler(this.cbDrinkType_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(560, 504);
+            this.label1.Location = new System.Drawing.Point(638, 501);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 23);
             this.label1.TabIndex = 13;
             this.label1.Text = "Tip pica";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbWaiters
+            // 
+            this.cbWaiters.BackColor = System.Drawing.Color.Gray;
+            this.cbWaiters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWaiters.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWaiters.FormattingEnabled = true;
+            this.cbWaiters.Location = new System.Drawing.Point(379, 80);
+            this.cbWaiters.Name = "cbWaiters";
+            this.cbWaiters.Size = new System.Drawing.Size(221, 26);
+            this.cbWaiters.TabIndex = 14;
+            this.cbWaiters.SelectedIndexChanged += new System.EventHandler(this.cbWaiters_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(393, 111);
+            this.label4.Margin = new System.Windows.Forms.Padding(30, 2, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(189, 28);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Konobar";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TableOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(785, 579);
+            this.ClientSize = new System.Drawing.Size(878, 579);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbWaiters);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbDrinkType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.dgvTable);
             this.Controls.Add(this.btn);
-            this.Controls.Add(this.lbReceiptCost);
+            this.Controls.Add(this.lbReceiptTotal);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lbBrojStola);
+            this.Controls.Add(this.lbTableNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TableOverview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Overview";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TableOverview_FormClosing);
             this.Load += new System.EventHandler(this.TableOverview_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbBrojStola;
+        private System.Windows.Forms.Label lbTableNumber;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Label lbReceiptCost;
+        private System.Windows.Forms.Label lbReceiptTotal;
         private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvTable;
+        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbDrinkType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PId;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PPrice;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TAmount;
+        private System.Windows.Forms.ComboBox cbWaiters;
+        private System.Windows.Forms.Label label4;
     }
 }
