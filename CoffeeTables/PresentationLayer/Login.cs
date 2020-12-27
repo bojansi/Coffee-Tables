@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
-using DataLayer;
+using Shared;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +18,13 @@ namespace PresentationLayer
 {
     public partial class Login : Form
     {
-        private readonly WaiterBusiness waiterBusiness;
+        private readonly IWaiterBusiness waiterBusiness;
 
-        public Login(char type)
+        public Login(IWaiterBusiness _waiterBusiness, char type)
         {
             InitializeComponent();
 
-            this.waiterBusiness = new WaiterBusiness();
+            this.waiterBusiness = _waiterBusiness;
 
             if (type == 'a')
             {
@@ -47,7 +48,7 @@ namespace PresentationLayer
         {
             if (tbUser.Text.Trim().Length != 0 && tbPass.Text.Length != 0)
             {
-                if (tbUser.Text.Trim() == DataLayer.Constants.adminUsername && tbPass.Text == DataLayer.Constants.adminPassword)
+                if (tbUser.Text.Trim() == Constants.adminUsername && tbPass.Text == Constants.adminPassword)
                 {
                     this.DialogResult = DialogResult.OK;
                 }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,24 +17,34 @@ namespace PresentationLayer
 {
     public partial class TableOverview : Form
     {
-        private readonly ProductBusiness productBusiness;
-        private readonly ReceiptBusiness receiptBusiness;
-        private readonly ReceiptItemBusiness receiptItemBusiness;
-        private readonly WaiterBusiness waiterBusiness;
+        private readonly IProductBusiness productBusiness;
+        private readonly IReceiptBusiness receiptBusiness;
+        private readonly IReceiptItemBusiness receiptItemBusiness;
+        private readonly IWaiterBusiness waiterBusiness;
+        private readonly ITableBusiness tableBusiness;
 
-        public bool tableTaken = false;
         private DataGridViewRow rowClone;
         private decimal total = 0;
         private Receipt currentReceipt;
         private Receipt receipt;
+        private Table currentTable;
 
-        public TableOverview(int tableNumber)
+        public TableOverview(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, ITableBusiness _tableBusiness, int tableNumber)
         {
             InitializeComponent();
+
+            this.productBusiness = _productBusiness;
+            this.receiptBusiness = _receiptBusiness;
+            this.receiptItemBusiness = _receiptItemBusiness;
+            
+            this.tableBusiness = _tableBusiness;
+
+            this.waiterBusiness = _waiterBusiness;
 
             rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
             dgvTable.AllowUserToAddRows = false;
 
+            currentTable = this.tableBusiness.getTableById(tableNumber);
             this.Text = "Sto " + tableNumber;
             lbTableNumber.Text = "BROJ STOLA " + tableNumber;
 
@@ -48,14 +59,7 @@ namespace PresentationLayer
             dgvTable.Columns["TProductId"].DataPropertyName = "ProductId";
             dgvTable.Columns["TName"].DataPropertyName = "Name";
             dgvTable.Columns["TAmount"].DataPropertyName = "Amount";
-            dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";
-
-            
-
-            this.productBusiness = new ProductBusiness();
-            this.receiptBusiness = new ReceiptBusiness();
-            this.receiptItemBusiness = new ReceiptItemBusiness();
-            this.waiterBusiness = new WaiterBusiness();
+            dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";            
 
             currentReceipt = this.receiptBusiness.getUnpaidReceiptByTableId(tableNumber);
         }
@@ -100,6 +104,7 @@ namespace PresentationLayer
                     dgvTable.Rows.Add(row);
                     rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
                 }
+                dgvTable.CurrentCell.Selected = false;
                 Waiter waiter = this.waiterBusiness.getWaiterById(currentReceipt.WaiterId);
                 cbWaiters.Text = waiter.Id + ". " + waiter.Name + " " + waiter.Surname;
             }
@@ -169,11 +174,13 @@ namespace PresentationLayer
         {
             if (dgvTable.Rows.Count > 0)
             {
-                tableTaken = true;
+                currentTable.Taken = true;
+                this.tableBusiness.updateTable(currentTable);
             }
             else 
             {
-                tableTaken = false;
+                currentTable.Taken = false; 
+                this.tableBusiness.updateTable(currentTable);
                 this.receiptBusiness.deleteReceipt(currentReceipt.Id);
             }
         }
@@ -197,7 +204,7 @@ namespace PresentationLayer
             }
             else 
             {
-                ReceiptOverview ro = new ReceiptOverview(currentReceipt.Id, true);
+                ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, currentReceipt.Id, true);
                 if (ro.ShowDialog() == DialogResult.OK) 
                 {
                     this.DialogResult = DialogResult.OK;

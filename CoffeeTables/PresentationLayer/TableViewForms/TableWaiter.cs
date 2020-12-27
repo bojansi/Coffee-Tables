@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,12 @@ namespace PresentationLayer
 {
     public partial class TableWaiter : Form
     {
-        private readonly WaiterBusiness waiterBusiness;
-        public TableWaiter()
+        private readonly IWaiterBusiness waiterBusiness;
+        public TableWaiter(IWaiterBusiness _waiterBusiness)
         {
             InitializeComponent();
 
-            this.waiterBusiness = new WaiterBusiness();
+            this.waiterBusiness = _waiterBusiness;
 
             dgvData.Columns["Id"].DataPropertyName = "Id";
             dgvData.Columns["WName"].DataPropertyName = "Name";
@@ -43,7 +44,7 @@ namespace PresentationLayer
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            WaiterAddUpdate wa = new WaiterAddUpdate('i', null);
+            WaiterAddUpdate wa = new WaiterAddUpdate(waiterBusiness, 'i', null);
             if (wa.ShowDialog() == DialogResult.OK) 
             {
                 RefreshData();
@@ -54,7 +55,7 @@ namespace PresentationLayer
             Waiter w = this.waiterBusiness.getWaiterById((int)dgvData.SelectedRows[0].Cells["Id"].Value);
             if (w != null)
             {
-                WaiterAddUpdate wu = new WaiterAddUpdate('u', w);
+                WaiterAddUpdate wu = new WaiterAddUpdate(waiterBusiness,'u', w);
                 if (wu.ShowDialog() == DialogResult.OK)
                 {
                     RefreshData();

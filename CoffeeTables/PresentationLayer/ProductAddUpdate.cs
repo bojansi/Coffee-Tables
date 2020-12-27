@@ -1,5 +1,7 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +19,12 @@ namespace PresentationLayer
     public partial class ProductAddUpdate : Form
     {
         private Product selectedProduct;
-        private readonly ProductBusiness productBusiness;
-        public ProductAddUpdate(char type, Product p)
+        private readonly IProductBusiness productBusiness;
+        public ProductAddUpdate(IProductBusiness _productBusiness, char type, Product p)
         {
             InitializeComponent();
 
-            this.productBusiness = new ProductBusiness();
+            this.productBusiness = _productBusiness;
             this.selectedProduct = p;
 
             if (type == 'i')

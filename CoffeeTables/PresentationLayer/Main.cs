@@ -1,5 +1,7 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,17 +19,21 @@ namespace PresentationLayer
     {
         public static List<Product> products = new List<Product>();
         public static List<Waiter> waiters = new List<Waiter>();
-        private readonly ProductBusiness productBusiness;
-        private readonly ReceiptBusiness receiptBusiness;
-        private readonly WaiterBusiness waiterBusiness;
+        private readonly IProductBusiness productBusiness;
+        private readonly IReceiptBusiness receiptBusiness;
+        private readonly IWaiterBusiness waiterBusiness;
+        private readonly IReceiptItemBusiness receiptItemBusiness;
+        private readonly ITableBusiness tableBusiness;
 
-        public Main()
+        public Main(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IWaiterBusiness _waiterBusiness, IReceiptItemBusiness _receiptItemBusiness, ITableBusiness _tableBusiness)
         {
             InitializeComponent();
 
-            this.productBusiness = new ProductBusiness();
-            this.receiptBusiness = new ReceiptBusiness();
-            this.waiterBusiness = new WaiterBusiness();
+            this.productBusiness = _productBusiness;
+            this.receiptBusiness = _receiptBusiness;
+            this.waiterBusiness = _waiterBusiness;
+            this.receiptItemBusiness = _receiptItemBusiness;
+            this.tableBusiness = _tableBusiness;
 
             products = this.productBusiness.getAllProduct();
             waiters = this.waiterBusiness.getLoggedWaiters();
@@ -64,7 +70,7 @@ namespace PresentationLayer
         }
         private void prijavaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login lw = new Login('w');
+            Login lw = new Login(this.waiterBusiness, 'w');
             if (lw.ShowDialog() == DialogResult.OK) 
             {
                 waiters = this.waiterBusiness.getLoggedWaiters();
@@ -97,31 +103,31 @@ namespace PresentationLayer
         }
         private void artikliToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login al = new Login('a');
+            Login al = new Login(this.waiterBusiness, 'a');
             if (al.ShowDialog() == DialogResult.OK)
             {
                 al.Dispose();
-                TableProducts tp = new TableProducts();
+                TableProducts tp = new TableProducts(this.productBusiness);
                 tp.ShowDialog();
             }
         }
         private void konobariToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login al = new Login('a');
+            Login al = new Login(this.waiterBusiness, 'a');
             if (al.ShowDialog() == DialogResult.OK)
             {
                 al.Dispose();
-                TableWaiter tw = new TableWaiter();
+                TableWaiter tw = new TableWaiter(this.waiterBusiness);
                 tw.ShowDialog();
             }
         }
         private void racuniToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Login al = new Login('a');
+            Login al = new Login(this.waiterBusiness,'a');
             if (al.ShowDialog() == DialogResult.OK)
             {
                 al.Dispose();
-                TableReceipts tr = new TableReceipts();
+                TableReceipts tr = new TableReceipts(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness);
                 tr.ShowDialog();
             }
         }
@@ -171,7 +177,7 @@ namespace PresentationLayer
         }
         private void OpenTable(int id) 
         {
-            TableOverview to = new TableOverview(id);
+            TableOverview to = new TableOverview(this.productBusiness, this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, this.tableBusiness, id);
             to.ShowDialog();
             List<Receipt> receipts = this.receiptBusiness.getReceiptByTodayDate(DateTime.Now);
             decimal daily = 0;

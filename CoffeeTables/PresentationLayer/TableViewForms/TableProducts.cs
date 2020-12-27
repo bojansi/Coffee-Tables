@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,12 @@ namespace PresentationLayer
 {
     public partial class TableProducts : Form
     {
-        private readonly ProductBusiness productBusiness;
-        public TableProducts()
+        private readonly IProductBusiness productBusiness;
+        public TableProducts(IProductBusiness _productBusiness)
         {
             InitializeComponent();
 
-            this.productBusiness = new ProductBusiness();
+            this.productBusiness = _productBusiness;
 
             dgvData.Columns["Id"].DataPropertyName = "Id";
             dgvData.Columns["PName"].DataPropertyName = "Name";
@@ -38,7 +39,7 @@ namespace PresentationLayer
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ProductAddUpdate wa = new ProductAddUpdate('i', null);
+            ProductAddUpdate wa = new ProductAddUpdate(this.productBusiness, 'i', null);
             if (wa.ShowDialog() == DialogResult.OK)
             {
                 RefreshData();
@@ -49,7 +50,7 @@ namespace PresentationLayer
             Product p = this.productBusiness.getProductById((int)dgvData.SelectedRows[0].Cells["Id"].Value);
             if (p != null)
             {
-                ProductAddUpdate wu = new ProductAddUpdate('u', p);
+                ProductAddUpdate wu = new ProductAddUpdate(this.productBusiness , 'u', p);
                 if (wu.ShowDialog() == DialogResult.OK)
                 {
                     RefreshData();
