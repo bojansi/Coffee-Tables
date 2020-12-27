@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Business\IProductBusiness.cs" />
+    <Compile Include="Interfaces\Business\IReceiptBusiness.cs" />
+    <Compile Include="Interfaces\Business\IReceiptItemBusiness.cs" />
+    <Compile Include="Interfaces\Business\ITableBusiness.cs" />
+    <Compile Include="Interfaces\Business\IWaiterBusiness.cs" />
     <Compile Include="Interfaces\Repository\IProductRepository.cs" />
     <Compile Include="Interfaces\Repository\IReceiptItemRepository.cs" />
     <Compile Include="Interfaces\Repository\IReceiptRepository.cs" />
@@ -53,8 +58,6 @@
     <Compile Include="Models\Waiter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Business\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

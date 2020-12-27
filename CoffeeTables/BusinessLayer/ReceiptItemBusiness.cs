@@ -1,5 +1,7 @@
 ﻿using DataLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Interfaces.Repository;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class ReceiptItemBusiness
+    public class ReceiptItemBusiness:IReceiptItemBusiness
     {
-        private readonly ReceiptItemRepository receiptItemRepository;
-        public ReceiptItemBusiness()
+        private readonly IReceiptItemRepository receiptItemRepository;
+        public ReceiptItemBusiness(IReceiptItemRepository _receiptItemRepository)
         {
-            this.receiptItemRepository = new ReceiptItemRepository();
+            this.receiptItemRepository = _receiptItemRepository;
         }
         public List<ReceiptItem> getAllReceiptItems()
         {

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
-using DataLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Interfaces.Repository;
+using Shared.Models;
 
 namespace BusinessLayer
 {
-    public class TableBusiness
+    public class TableBusiness:ITableBusiness
     {
-        private readonly TableRepository tableRepository;
-        public TableBusiness()
+        private readonly ITableRepository tableRepository;
+        public TableBusiness(ITableRepository _tableRepository)
         {
-            this.tableRepository = new TableRepository();
+            this.tableRepository = _tableRepository;
         }
 
         public List<Table> getAllTables()
