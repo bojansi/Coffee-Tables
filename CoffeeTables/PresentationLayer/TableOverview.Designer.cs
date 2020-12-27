@@ -36,7 +36,7 @@ namespace PresentationLayer
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.lbReceiptTotal = new System.Windows.Forms.Label();
-            this.btn = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
             this.dgvTable = new System.Windows.Forms.DataGridView();
             this.TProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,19 +131,19 @@ namespace PresentationLayer
             this.lbReceiptTotal.Text = "Iznos racuna : X";
             this.lbReceiptTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btn
+            // btnPay
             // 
-            this.btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(255)))), ((int)(((byte)(67)))));
-            this.btn.FlatAppearance.BorderSize = 0;
-            this.btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn.Location = new System.Drawing.Point(419, 459);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(135, 100);
-            this.btn.TabIndex = 3;
-            this.btn.Text = "Naplati";
-            this.btn.UseVisualStyleBackColor = false;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(255)))), ((int)(((byte)(67)))));
+            this.btnPay.FlatAppearance.BorderSize = 0;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.Location = new System.Drawing.Point(419, 459);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(135, 100);
+            this.btnPay.TabIndex = 3;
+            this.btnPay.Text = "Naplati";
+            this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btn_Click);
             // 
             // dgvTable
             // 
@@ -241,7 +241,6 @@ namespace PresentationLayer
             this.dgvProducts.Size = new System.Drawing.Size(281, 365);
             this.dgvProducts.TabIndex = 10;
             this.dgvProducts.TabStop = false;
-            this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // PId
             // 
@@ -348,7 +347,7 @@ namespace PresentationLayer
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.dgvTable);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.lbReceiptTotal);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
@@ -375,7 +374,7 @@ namespace PresentationLayer
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Label lbReceiptTotal;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.DataGridView dgvTable;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Label label3;

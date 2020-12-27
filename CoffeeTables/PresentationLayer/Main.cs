@@ -31,57 +31,27 @@ namespace PresentationLayer
 
         private void lbTable1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            TableOverview to = new TableOverview(1);
-            to.ShowDialog();
-
-            if (to.tableTaken)
-                pnBackTable1.BackColor = Constants.tableTaken;
-            else
-                pnBackTable1.BackColor = Constants.tableAvailable;
+            OpenTable(1);
         }
 
         private void lbTable2_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            TableOverview to = new TableOverview(2);
-            to.ShowDialog();
-
-            if (to.tableTaken)
-                pnBackTable2.BackColor = Constants.tableTaken;
-            else
-                pnBackTable2.BackColor = Constants.tableAvailable;
+            OpenTable(2);
         }
 
         private void lbTable3_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            TableOverview to = new TableOverview(3);
-            to.ShowDialog();
-
-            if (to.tableTaken)
-                pnBackTable3.BackColor = Constants.tableTaken;
-            else
-                pnBackTable3.BackColor = Constants.tableAvailable;
+            OpenTable(3);
         }
 
         private void lbTable4_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            TableOverview to = new TableOverview(4);
-            to.ShowDialog();
-
-            if (to.tableTaken)
-                pnBackTable4.BackColor = Constants.tableTaken;
-            else
-                pnBackTable4.BackColor = Constants.tableAvailable;
+            OpenTable(4);
         }
 
         private void lbTable5_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            TableOverview to = new TableOverview(5);
-            to.ShowDialog();
-
-            if (to.tableTaken)
-                pnBackTable5.BackColor = Constants.tableTaken;
-            else
-                pnBackTable5.BackColor = Constants.tableAvailable;
+            OpenTable(5);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,32 +67,27 @@ namespace PresentationLayer
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            TableOverview to = new TableOverview(1);
-            to.ShowDialog();
+            OpenTable(1);
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            TableOverview to = new TableOverview(2);
-            to.ShowDialog();
+            OpenTable(2);
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            TableOverview to = new TableOverview(3);
-            to.ShowDialog();
+            OpenTable(3);
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            TableOverview to = new TableOverview(4);
-            to.ShowDialog();
+            OpenTable(4);
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            TableOverview to = new TableOverview(5);
-            to.ShowDialog();
+            OpenTable(5);
         }
 
         private void artikliToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,7 +99,6 @@ namespace PresentationLayer
                 TableProducts tp = new TableProducts();
                 tp.ShowDialog();
             }
-
         }
 
         private void konobariToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,6 +151,16 @@ namespace PresentationLayer
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            CheckTables();
+        }
+        private void OpenTable(int id) 
+        {
+            TableOverview to = new TableOverview(id);
+            /*if (to.ShowDialog() == DialogResult.OK)
+            {
+                CheckTables();
+            }*/
+            to.ShowDialog();
             CheckTables();
         }
     }

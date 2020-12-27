@@ -36,5 +36,11 @@ namespace PresentationLayer
 
             dgvData.DataSource = receipts;
         }
+
+        private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ReceiptOverview ro = new ReceiptOverview(Convert.ToInt32(dgvData.SelectedRows[0].Cells[0].Value), false);
+            ro.ShowDialog();
+        }
     }
 }

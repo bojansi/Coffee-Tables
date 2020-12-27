@@ -50,15 +50,15 @@ namespace PresentationLayer
             dgvTable.Columns["TAmount"].DataPropertyName = "Amount";
             dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";
 
-            DisplayTotal(0);
-
             this.productBusiness = new ProductBusiness();
             this.receiptBusiness = new ReceiptBusiness();
             this.receiptItemBusiness = new ReceiptItemBusiness();
             this.waiterBusiness = new WaiterBusiness();
 
             currentReceipt = this.receiptBusiness.getUnpaidReceiptByTableId(tableNumber);
+
             
+
         }
 
         private void TableOverview_Load(object sender, EventArgs e)
@@ -84,6 +84,7 @@ namespace PresentationLayer
                 this.receiptBusiness.insertReceipt(receipt);
                 currentReceipt = receipt;
                 currentReceipt.Id = this.receiptBusiness.getNewReceiptId();
+                DisplayTotal(0);
             }
             else
             {
@@ -116,7 +117,7 @@ namespace PresentationLayer
                 {
                     r.Cells[2].Value = (int) r.Cells[2].Value + 1;
                     r.Cells[3].Value = (decimal)r.Cells[3].Value + (decimal)dgvProducts.SelectedRows[0].Cells[2].Value;
-                    DisplayTotal((decimal)dgvProducts.SelectedRows[0].Cells[2].Value);
+                    DisplayTotal(Convert.ToDecimal(dgvProducts.SelectedRows[0].Cells[2].Value));
                     ReceiptItem riu = new ReceiptItem()
                     {
                         ReceiptId = currentReceipt.Id,
@@ -134,7 +135,9 @@ namespace PresentationLayer
             row.Cells[1].Value = dgvProducts.SelectedRows[0].Cells[1].Value.ToString();
             row.Cells[2].Value = 1;
             row.Cells[3].Value = Convert.ToDecimal(dgvProducts.SelectedRows[0].Cells[2].Value);
-            DisplayTotal((decimal)dgvProducts.SelectedRows[0].Cells[2].Value);
+
+            currentReceipt.Date = DateTime.Now;
+            DisplayTotal(Convert.ToDecimal(dgvProducts.SelectedRows[0].Cells[2].Value));
 
             ReceiptItem rii = new ReceiptItem()
             {
@@ -145,10 +148,6 @@ namespace PresentationLayer
             };
             this.receiptItemBusiness.insertReceiptItem(rii);
 
-            currentReceipt.Date = DateTime.Now;
-            currentReceipt.Total = Convert.ToDecimal(lbReceiptTotal.Text.Split(':')[1].Split('d')[0].Trim());
-            this.receiptBusiness.updateReceipt(currentReceipt);
-
             dgvTable.Rows.Add(row);
             rowClone = (DataGridViewRow) dgvTable.Rows[0].Clone();
             dgvTable.CurrentCell.Selected = false;
@@ -157,12 +156,16 @@ namespace PresentationLayer
         private void DisplayTotal(decimal price) 
         {
             total += price;
+            currentReceipt.Total = total;
+            this.receiptBusiness.updateReceipt(currentReceipt);
             lbReceiptTotal.Text = "Iznos racuna : " + total + " din.";
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
             this.receiptItemBusiness.deleteReceiptItemById(currentReceipt.Id, Convert.ToInt32(dgvTable.SelectedRows[0].Cells[0].Value));
+            DisplayTotal(Convert.ToDecimal(dgvTable.SelectedRows[0].Cells[3].Value) * -1);
             dgvTable.Rows.RemoveAt(dgvTable.SelectedRows[0].Index);
+
         }
         private void TableOverview_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -176,12 +179,6 @@ namespace PresentationLayer
                 this.receiptBusiness.deleteReceipt(currentReceipt.Id);
             }
         }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void cbDrinkType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbDrinkType.Text.Equals("Sve"))
@@ -202,10 +199,10 @@ namespace PresentationLayer
             }
             else 
             {
-                ReceiptOverview ro = new ReceiptOverview(currentReceipt.Id);
+                ReceiptOverview ro = new ReceiptOverview(currentReceipt.Id, true);
                 if (ro.ShowDialog() == DialogResult.OK) 
                 {
-
+                    this.DialogResult = DialogResult.OK;
                 }
             }
         }

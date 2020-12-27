@@ -82,6 +82,7 @@ namespace PresentationLayer
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(741, 438);
             this.dgvData.TabIndex = 15;
+            this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             // 
             // Id
             // 
