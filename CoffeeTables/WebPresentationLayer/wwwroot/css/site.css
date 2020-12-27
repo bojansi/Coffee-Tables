@@ -118,3 +118,98 @@ footer {
     background-color: #fff;
     text-align: center;
 }
+
+.box {
+    background-color: #636363;
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    width: 80vw;
+    height: 75vh;
+    border-radius: 10px;
+}
+
+    .box > .heading {
+        color: white;
+        font-size: 20pt;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+.tables {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw;
+    margin-top: 2vh;
+    gap: 2vw;
+    justify-content: center;
+    text-align: center;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-image: url("/img/table.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 100px;
+    border: 6px solid rgb(0, 255, 42);
+    text-align: center;
+    margin-top: 2vh;
+}
+
+    .table > div {
+        /* background-color: blue; */
+        line-height: 100px;
+        color: rgb(73, 15, 15);
+        font-size: 30pt;
+        font-weight: bold;
+    }
+
+hr {
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stats {
+    width: 100%;
+    /* background-color: red; */
+    text-align: center;
+}
+
+.data {
+    color: white;
+    font-size: 16pt;
+    margin-left: 20px;
+    display: inline;
+}
+
+.data1 {
+    color: white;
+    font-size: 10pt;
+    margin-left: 20px;
+    display: inline;
+}
+
+#t1 {
+    border-color: red !important;
+}
+
+#t5 {
+    border-color: blue !important;
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: rgb(0, 255, 42);
+}
+
+#blue {
+    background-color: blue;
+}
