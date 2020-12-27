@@ -66,7 +66,7 @@ nav {
     border-radius: 10px;
     padding: 20px;
     padding-top: 5vh;
-    padding-bottom: 10vh;
+    padding-bottom: 15vh;
 }
 
 input[type=text] {
@@ -77,6 +77,30 @@ input[type=text] {
     border: none;
     background-color: #636363;
     color: white;
+}
+
+    input[type=text]:active {
+        background-color: #9b9b9b;
+    }
+
+.login > button {
+    background-color: #636363;
+    border-radius: 5px;
+    columns: white;
+    text-decoration: none;
+    border: 0;
+    font-size: 14pt;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border: 2px solid #636363;
+}
+
+button:hover {
+    background-color: white;
+    border: 2px solid #636363;
+    color: #636363;
 }
 
 label {
