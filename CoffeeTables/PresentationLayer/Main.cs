@@ -16,8 +16,10 @@ namespace PresentationLayer
     public partial class Main : Form
     {
         public static List<Product> products = new List<Product>();
+        public static List<Waiter> waiters = new List<Waiter>();
         private readonly ProductBusiness productBusiness;
         private readonly ReceiptBusiness receiptBusiness;
+        private readonly WaiterBusiness waiterBusiness;
 
         public Main()
         {
@@ -25,71 +27,74 @@ namespace PresentationLayer
 
             this.productBusiness = new ProductBusiness();
             this.receiptBusiness = new ReceiptBusiness();
+            this.waiterBusiness = new WaiterBusiness();
 
             products = this.productBusiness.getAllProduct();
+            waiters = this.waiterBusiness.getLoggedWaiters();
+
+            dgvLoggedWaiters.AutoGenerateColumns = false;
+            dgvLoggedWaiters.Columns["WId"].DataPropertyName = "Id";
+            dgvLoggedWaiters.Columns["WName"].DataPropertyName = "Name";
+            dgvLoggedWaiters.Columns["WSurname"].DataPropertyName = "Surname";
         }
 
         private void lbTable1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             OpenTable(1);
         }
-
         private void lbTable2_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             OpenTable(2);
         }
-
         private void lbTable3_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             OpenTable(3);
         }
-
         private void lbTable4_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             OpenTable(4);
         }
-
         private void lbTable5_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             OpenTable(5);
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void prijavaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login lw = new Login('w');
-            lw.ShowDialog();
+            if (lw.ShowDialog() == DialogResult.OK) 
+            {
+                waiters = this.waiterBusiness.getLoggedWaiters();
+                dgvLoggedWaiters.DataSource = waiters;
+                if (dgvLoggedWaiters.Rows.Count > 0)
+                {
+                    dgvLoggedWaiters.CurrentCell.Selected = false;
+                }
+            }            
         }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             OpenTable(1);
         }
-
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             OpenTable(2);
         }
-
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             OpenTable(3);
         }
-
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
             OpenTable(4);
         }
-
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             OpenTable(5);
         }
-
         private void artikliToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login al = new Login('a');
@@ -100,7 +105,6 @@ namespace PresentationLayer
                 tp.ShowDialog();
             }
         }
-
         private void konobariToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login al = new Login('a');
@@ -111,7 +115,6 @@ namespace PresentationLayer
                 tw.ShowDialog();
             }
         }
-
         private void racuniToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login al = new Login('a');
@@ -152,16 +155,52 @@ namespace PresentationLayer
         private void Main_Load(object sender, EventArgs e)
         {
             CheckTables();
+            timer1.Start();
+            List<Receipt> receipts = this.receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            decimal daily = 0;
+            foreach (Receipt r in receipts)
+            {
+                daily += r.Total;
+            }
+            lbDailyIncome.Text = "Danasnja zarada : " + daily + " din.";
+            dgvLoggedWaiters.DataSource = waiters;
+            if (dgvLoggedWaiters.Rows.Count > 0)
+            {
+                dgvLoggedWaiters.CurrentCell.Selected = false;
+            }
         }
         private void OpenTable(int id) 
         {
             TableOverview to = new TableOverview(id);
-            /*if (to.ShowDialog() == DialogResult.OK)
-            {
-                CheckTables();
-            }*/
             to.ShowDialog();
+            List<Receipt> receipts = this.receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            decimal daily = 0;
+            foreach (Receipt r in receipts) 
+            {
+                daily += r.Total;
+            }
+            lbDailyIncome.Text = daily + " din.";
             CheckTables();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = Convert.ToString(DateTime.Now);            
+        }
+        private void dgvLoggedWaiters_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3) 
+            {
+                Waiter waiter = waiters.FirstOrDefault(w => w.Id == Convert.ToInt32(dgvLoggedWaiters.Rows[e.RowIndex].Cells[0].Value));
+                waiter.Logged = false;
+                this.waiterBusiness.updateWaiter(waiter);
+
+                waiters = this.waiterBusiness.getLoggedWaiters();
+                dgvLoggedWaiters.DataSource = waiters;
+                if (dgvLoggedWaiters.Rows.Count > 0) 
+                {
+                    dgvLoggedWaiters.CurrentCell.Selected = false;
+                }
+            }
         }
     }
 }

@@ -29,6 +29,7 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnBackTable1 = new System.Windows.Forms.Panel();
             this.lbTable1 = new System.Windows.Forms.Label();
             this.lbTable3 = new System.Windows.Forms.Label();
@@ -48,13 +49,24 @@ namespace PresentationLayer
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.konobarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prijavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administracijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konobariToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.artikliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.racuniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.lbDailyIncome = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dgvLoggedWaiters = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.WId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WLogOut = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnBackTable1.SuspendLayout();
             this.pnBackTable3.SuspendLayout();
             this.pnBackTable2.SuspendLayout();
@@ -62,6 +74,8 @@ namespace PresentationLayer
             this.pnBackTable5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoggedWaiters)).BeginInit();
             this.SuspendLayout();
             // 
             // pnBackTable1
@@ -241,8 +255,7 @@ namespace PresentationLayer
             // konobarToolStripMenuItem
             // 
             this.konobarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.prijavaToolStripMenuItem,
-            this.odjavaToolStripMenuItem});
+            this.prijavaToolStripMenuItem});
             this.konobarToolStripMenuItem.Name = "konobarToolStripMenuItem";
             this.konobarToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.konobarToolStripMenuItem.Text = "Konobar";
@@ -250,15 +263,9 @@ namespace PresentationLayer
             // prijavaToolStripMenuItem
             // 
             this.prijavaToolStripMenuItem.Name = "prijavaToolStripMenuItem";
-            this.prijavaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.prijavaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.prijavaToolStripMenuItem.Text = "Prijava";
             this.prijavaToolStripMenuItem.Click += new System.EventHandler(this.prijavaToolStripMenuItem_Click);
-            // 
-            // odjavaToolStripMenuItem
-            // 
-            this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
-            this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.odjavaToolStripMenuItem.Text = "Odjava";
             // 
             // administracijaToolStripMenuItem
             // 
@@ -273,21 +280,21 @@ namespace PresentationLayer
             // konobariToolStripMenuItem
             // 
             this.konobariToolStripMenuItem.Name = "konobariToolStripMenuItem";
-            this.konobariToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.konobariToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.konobariToolStripMenuItem.Text = "Konobari";
             this.konobariToolStripMenuItem.Click += new System.EventHandler(this.konobariToolStripMenuItem_Click);
             // 
             // artikliToolStripMenuItem
             // 
             this.artikliToolStripMenuItem.Name = "artikliToolStripMenuItem";
-            this.artikliToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.artikliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.artikliToolStripMenuItem.Text = "Artikli";
             this.artikliToolStripMenuItem.Click += new System.EventHandler(this.artikliToolStripMenuItem_Click);
             // 
             // racuniToolStripMenuItem
             // 
             this.racuniToolStripMenuItem.Name = "racuniToolStripMenuItem";
-            this.racuniToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.racuniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.racuniToolStripMenuItem.Text = "Racuni";
             this.racuniToolStripMenuItem.Click += new System.EventHandler(this.racuniToolStripMenuItem_Click);
             // 
@@ -311,12 +318,138 @@ namespace PresentationLayer
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dgvLoggedWaiters);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.lbDailyIncome);
+            this.panel1.Controls.Add(this.lbTime);
+            this.panel1.Location = new System.Drawing.Point(522, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(337, 226);
+            this.panel1.TabIndex = 4;
+            // 
+            // lbTime
+            // 
+            this.lbTime.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Location = new System.Drawing.Point(3, 6);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(334, 35);
+            this.lbTime.TabIndex = 0;
+            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbDailyIncome
+            // 
+            this.lbDailyIncome.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDailyIncome.Location = new System.Drawing.Point(3, 185);
+            this.lbDailyIncome.Name = "lbDailyIncome";
+            this.lbDailyIncome.Size = new System.Drawing.Size(334, 41);
+            this.lbDailyIncome.TabIndex = 1;
+            this.lbDailyIncome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.panel2.Location = new System.Drawing.Point(20, 174);
+            this.panel2.Margin = new System.Windows.Forms.Padding(20);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(297, 5);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
+            this.panel3.Location = new System.Drawing.Point(21, 42);
+            this.panel3.Margin = new System.Windows.Forms.Padding(20);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(297, 5);
+            this.panel3.TabIndex = 12;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dgvLoggedWaiters
+            // 
+            this.dgvLoggedWaiters.AllowUserToDeleteRows = false;
+            this.dgvLoggedWaiters.AllowUserToResizeColumns = false;
+            this.dgvLoggedWaiters.AllowUserToResizeRows = false;
+            this.dgvLoggedWaiters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLoggedWaiters.ColumnHeadersVisible = false;
+            this.dgvLoggedWaiters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WId,
+            this.WName,
+            this.WSurname,
+            this.WLogOut});
+            this.dgvLoggedWaiters.Location = new System.Drawing.Point(21, 56);
+            this.dgvLoggedWaiters.MultiSelect = false;
+            this.dgvLoggedWaiters.Name = "dgvLoggedWaiters";
+            this.dgvLoggedWaiters.ReadOnly = true;
+            this.dgvLoggedWaiters.RowHeadersVisible = false;
+            this.dgvLoggedWaiters.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
+            this.dgvLoggedWaiters.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLoggedWaiters.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvLoggedWaiters.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLoggedWaiters.RowTemplate.Height = 30;
+            this.dgvLoggedWaiters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLoggedWaiters.Size = new System.Drawing.Size(295, 111);
+            this.dgvLoggedWaiters.TabIndex = 13;
+            this.dgvLoggedWaiters.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoggedWaiters_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 138);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "KONOBARI";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // WId
+            // 
+            this.WId.HeaderText = "Id";
+            this.WId.Name = "WId";
+            this.WId.ReadOnly = true;
+            this.WId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.WId.Visible = false;
+            // 
+            // WName
+            // 
+            this.WName.HeaderText = "Ime";
+            this.WName.Name = "WName";
+            this.WName.ReadOnly = true;
+            this.WName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // WSurname
+            // 
+            this.WSurname.HeaderText = "Prezime";
+            this.WSurname.Name = "WSurname";
+            this.WSurname.ReadOnly = true;
+            this.WSurname.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.WSurname.Width = 110;
+            // 
+            // WLogOut
+            // 
+            this.WLogOut.HeaderText = "Odjava";
+            this.WLogOut.Name = "WLogOut";
+            this.WLogOut.ReadOnly = true;
+            this.WLogOut.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.WLogOut.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.WLogOut.Text = "Odjavi se";
+            this.WLogOut.UseColumnTextForButtonValue = true;
+            this.WLogOut.Width = 80;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(884, 511);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnBackTable2);
             this.Controls.Add(this.pnBackTable5);
             this.Controls.Add(this.pnBackTable4);
@@ -338,6 +471,8 @@ namespace PresentationLayer
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoggedWaiters)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +504,18 @@ namespace PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem prijavaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem odjavaToolStripMenuItem;
         private System.Windows.Forms.Label lbTable1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbDailyIncome;
+        private System.Windows.Forms.Label lbTime;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dgvLoggedWaiters;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WSurname;
+        private System.Windows.Forms.DataGridViewButtonColumn WLogOut;
     }
 }

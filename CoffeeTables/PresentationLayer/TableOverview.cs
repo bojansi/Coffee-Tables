@@ -50,17 +50,15 @@ namespace PresentationLayer
             dgvTable.Columns["TAmount"].DataPropertyName = "Amount";
             dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";
 
+            
+
             this.productBusiness = new ProductBusiness();
             this.receiptBusiness = new ReceiptBusiness();
             this.receiptItemBusiness = new ReceiptItemBusiness();
             this.waiterBusiness = new WaiterBusiness();
 
             currentReceipt = this.receiptBusiness.getUnpaidReceiptByTableId(tableNumber);
-
-            
-
         }
-
         private void TableOverview_Load(object sender, EventArgs e)
         {
             dgvProducts.DataSource = Main.products;
