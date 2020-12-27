@@ -43,5 +43,9 @@ namespace BusinessLayer
             }
             return false;
         }
+        public List<ReceiptItem> getReceiptItemByReceiptId(int receiptId)
+        {
+            return this.receiptItemRepository.GetAllReceiptItems().Where(r => r.ReceiptId == receiptId).ToList();
+        }
     }
 }

@@ -55,5 +55,9 @@ namespace BusinessLayer
         {
             return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Username == waiterUser && w.Password == waiterPass);
         }
+        public List<Waiter> getLoggedWaiters()
+        {
+            return this.waiterRepository.GetAllWaiters().Where(w => w.Logged == true).ToList();
+        }
     }
 }
