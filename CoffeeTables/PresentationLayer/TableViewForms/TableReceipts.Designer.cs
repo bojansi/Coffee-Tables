@@ -29,15 +29,15 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WaiterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbTableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,14 +48,14 @@ namespace PresentationLayer
             this.dgvData.AllowUserToResizeColumns = false;
             this.dgvData.AllowUserToResizeRows = false;
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeight = 40;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -80,18 +80,9 @@ namespace PresentationLayer
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(773, 438);
+            this.dgvData.Size = new System.Drawing.Size(741, 438);
             this.dgvData.TabIndex = 15;
-            // 
-            // lbTableName
-            // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(752, 47);
-            this.lbTableName.TabIndex = 16;
-            this.lbTableName.Text = "RACUNI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             // 
             // Id
             // 
@@ -137,12 +128,22 @@ namespace PresentationLayer
             this.Paid.ReadOnly = true;
             this.Paid.Width = 70;
             // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(752, 47);
+            this.lbTableName.TabIndex = 16;
+            this.lbTableName.Text = "RACUNI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TableReceipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(795, 511);
+            this.ClientSize = new System.Drawing.Size(765, 511);
             this.Controls.Add(this.dgvData);
             this.Controls.Add(this.lbTableName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
