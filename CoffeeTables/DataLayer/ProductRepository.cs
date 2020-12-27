@@ -74,7 +74,7 @@ namespace DataLayer
             {
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("DELETE FROM Product WHERE Id='{0}'", Id);
+                sqlCommand.CommandText = string.Format("DELETE FROM Products WHERE Id='{0}'", Id);
 
                 sqlConnection.Open();
                 int result = sqlCommand.ExecuteNonQuery();

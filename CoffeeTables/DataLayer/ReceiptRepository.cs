@@ -53,6 +53,50 @@ namespace DataLayer
             }
         }
 
+        public int UpdateReceipt(Receipt r)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
+            {
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = string.Format("UPDATE Receipts SET WaiterId = '{0}', TableId = '{1}', Date = '{2}', Total = '{3}', Paid = '{4}' WHERE Id = '{5}' ", r.WaiterId, r.TableId, r.Date, r.Total, r.Paid, r.Id);
+
+                sqlConnection.Open();
+                int result = sqlCommand.ExecuteNonQuery();
+                return result;
+            }
+
+        }
+
+        public int DeleteReceipt(int Id)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
+            {
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = string.Format("DELETE FROM Receipts WHERE Id='{0}'", Id);
+
+                sqlConnection.Open();
+                int result = sqlCommand.ExecuteNonQuery();
+                return result;
+            }
+        }
+
+        public int GetNewReceiptId()
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
+            {
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = string.Format("SELECT IDENT_CURRENT('Receipts')");
+
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                sqlDataReader.Read();
+                return Convert.ToInt32(sqlDataReader[0]);
+            }
+        }
+
 
     }
 }
