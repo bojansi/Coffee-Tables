@@ -49,7 +49,7 @@ namespace BusinessLayer
         }
         public List<Receipt> getReceiptByTodayDate(DateTime date)
         {
-            return this.receiptRepository.GetAllReceipts().Where(r => r.Date == date).ToList();
+            return this.receiptRepository.GetAllReceipts().Where(r => String.Format("{0:d/M/yyyy}", r.Date).Equals(String.Format("{0:d/M/yyyy}", date))).ToList();
         }
 
         public int getNewReceiptId()
