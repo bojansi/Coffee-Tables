@@ -16,71 +16,47 @@ namespace DataLayer
         {
             List<Product> listOfProducts = new List<Product>();
 
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
+            SqlDataReader sqlDataReader = DBConnection.GetData("SELECT * FROM Products");
+
+            while (sqlDataReader.Read())
             {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = "SELECT * FROM Products";
-
-                sqlConnection.Open();
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
-                {
-                    Product p = new Product();
-                    p.Id = sqlDataReader.GetInt32(0);
-                    p.Name = sqlDataReader.GetString(1);
-                    p.Price = sqlDataReader.GetDecimal(2);
-                    p.Type = sqlDataReader.GetString(3);
-                    listOfProducts.Add(p);
-                }
+                Product p = new Product();
+                p.Id = sqlDataReader.GetInt32(0);
+                p.Name = sqlDataReader.GetString(1);
+                p.Price = sqlDataReader.GetDecimal(2);
+                p.Type = sqlDataReader.GetString(3);
+                listOfProducts.Add(p);
             }
 
-                return listOfProducts;
+            DBConnection.CloseConnection();
+            return listOfProducts;
         }
 
 
         public int UpdateProduct(Product p)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("UPDATE Products SET Name = '{0}', Price = '{1}', Type = '{2}' WHERE Id = '{3}' ", p.Name, p.Price, p.Type, p.Id);
+            var result = DBConnection.EditData(string.Format("UPDATE Products SET Name = '{0}', Price = '{1}', Type = '{2}' WHERE Id = '{3}' ", p.Name, p.Price, p.Type, p.Id));
 
-                sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
-            }
-           
+            DBConnection.CloseConnection();
+            return result;
+
         }
 
         public int InsertProduct(Product p)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("INSERT INTO Products VALUES ('{0}',  '{1}', '{2}')", p.Name, p.Price, p.Type);
+            var result = DBConnection.EditData(string.Format("INSERT INTO Products VALUES ('{0}',  '{1}', '{2}')", p.Name, p.Price, p.Type));
+            DBConnection.CloseConnection();
 
-                sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
-            }
+            return result;
         }
 
         public int DeleteProduct(int Id)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("DELETE FROM Products WHERE Id='{0}'", Id);
+            var result = DBConnection.EditData(string.Format("DELETE FROM Products WHERE Id='{0}'", Id));
 
-                sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
-            }
+            DBConnection.CloseConnection();
+            return result;
+
         }
 
 

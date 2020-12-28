@@ -15,73 +15,48 @@ namespace DataLayer
         {
             List<ReceiptItem> listOfReceiptItems = new List<ReceiptItem>();
 
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
+            SqlDataReader sqlDataReader = DBConnection.GetData("SELECT * FROM ReceiptItems");
+
+            while (sqlDataReader.Read())
             {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = "SELECT * FROM ReceiptItems";
+                ReceiptItem r = new ReceiptItem();
+                r.ReceiptId = sqlDataReader.GetInt32(0);
+                r.ProductId = sqlDataReader.GetInt32(1);
+                r.Quantity = sqlDataReader.GetInt32(2);
+                r.Amount = sqlDataReader.GetDecimal(3);
 
-                sqlConnection.Open();
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
-                {
-                    ReceiptItem r = new ReceiptItem();
-                    r.ReceiptId = sqlDataReader.GetInt32(0);
-                    r.ProductId = sqlDataReader.GetInt32(1);
-                    r.Quantity = sqlDataReader.GetInt32(2);
-                    r.Amount = sqlDataReader.GetDecimal(3);
-
-                    listOfReceiptItems.Add(r);
-                }
+                listOfReceiptItems.Add(r);
             }
 
+            DBConnection.CloseConnection();
             return listOfReceiptItems;
         }
 
 
         public int InsertReceiptItem(ReceiptItem r)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("INSERT INTO ReceiptItems VALUES ('{0}',  '{1}', '{2}', '{3}')", r.ReceiptId, r.ProductId, r.Quantity, r.Amount);
+            var result = DBConnection.EditData(string.Format("INSERT INTO ReceiptItems VALUES ('{0}',  '{1}', '{2}', '{3}')", r.ReceiptId, r.ProductId, r.Quantity, r.Amount));
 
-                sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
-            }
+            DBConnection.CloseConnection();
+            return result;
         }
 
 
         public int UpdateReceiptItem(ReceiptItem r)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("UPDATE ReceiptItems SET Quantity = '{0}', Amount = '{1}' WHERE ReceiptId = '{2}' AND ProductId = '{3}'  ", r.Quantity, r.Amount, r.ReceiptId, r.ProductId);
+            var result = DBConnection.EditData(string.Format("UPDATE ReceiptItems SET Quantity = '{0}', Amount = '{1}' WHERE ReceiptId = '{2}' AND ProductId = '{3}'  ", r.Quantity, r.Amount, r.ReceiptId, r.ProductId));
 
-                sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
-            }
+            DBConnection.CloseConnection();
+            return result;
 
         }
 
         public int DeleteReceiptItemById(int rId, int pId)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
-            {
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = string.Format("DELETE FROM ReceiptItems WHERE ReceiptId = '{0}' AND ProductId = '{1}' ", rId, pId);
+            var result = DBConnection.EditData(string.Format("DELETE FROM ReceiptItems WHERE ReceiptId = '{0}' AND ProductId = '{1}' ", rId, pId));
 
-                sqlConnection.Open();
-                int result = sqlCommand.ExecuteNonQuery();
-                return result;
-            }
+            DBConnection.CloseConnection();
+            return result;
 
         }
     }
