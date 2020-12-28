@@ -1,31 +1,244 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
+﻿/* COLORS */
+/* BODY #3b3b3b; */
+/*  */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+* {
+    font-family: 'Audiowide', cursive !important;
+}
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #3b3b3b;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+nav {
+    background-color: #ffffff;
+    display: flex;
+    position: absolute;
+    width: 60vw;
+    height: 10vh;
+    top: 2vh;
+    margin-left: 20vw;
+    margin-right: 10vw;
+    border-radius: 5px;
+    text-align: center;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
+    nav > div > img {
+        width: 10vh;
+        margin-left: 1vw;
     }
 
-    .body-content {
+    nav > ul {
+        /* position: absolute; */
+        /* top: 0.5vh; */
+        width: 50vw;
+        margin-top: 1vh;
+        /* margin-left: 20vw; */
         padding: 0;
     }
+
+        nav > ul > li {
+            display: inline-block;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            padding-left: 2vw;
+            padding-right: 2vw;
+            background-color: #3b3b3b;
+            border-radius: 10px;
+            border: 2px solid #3b3b3b;
+        }
+
+            nav > ul > li:hover {
+                background-color: #636363;
+                color: #000000 !important;
+            }
+
+            nav > ul > li > a {
+                text-decoration: none;
+                font-size: 100%;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+.login {
+    background-color: #fff;
+    position: absolute;
+    display: flex;
+    text-align: center;
+    top: 28vh;
+    width: 32vw;
+    left: 34vw;
+    height: 20vh;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+}
+
+footer {
+    position: absolute;
+    top: 93.5vh;
+    width: 100vw;
+    height: 5vh;
+    padding-top: 1.5vh;
+    margin: 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.box {
+    background-color: #636363;
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    width: 80vw;
+    height: 75vh;
+    border-radius: 10px;
+}
+
+    .box > .heading {
+        color: white;
+        font-size: 20pt;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+.tables {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80vw;
+    margin-top: 2vh;
+    gap: 2vw;
+    justify-content: center;
+    text-align: center;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-image: url("../img/table.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 100px;
+    border: 6px solid #3b3b3b;
+    text-align: center;
+    margin-top: 2vh;
+}
+
+    .table > div {
+        /* background-color: blue; */
+        line-height: 100px;
+        color: rgb(73, 15, 15);
+        font-size: 30pt;
+        font-weight: bold;
+    }
+
+hr {
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stats {
+    width: 100%;
+    /* background-color: red; */
+    text-align: center;
+}
+
+.data {
+    color: white;
+    font-size: 16pt;
+    margin-left: 20px;
+    display: inline;
+}
+
+.data1 {
+    color: white;
+    font-size: 10pt;
+    margin-left: 20px;
+    display: inline;
+}
+
+#t1 {
+    border-color: red !important;
+}
+
+#t5 {
+    border-color: blue !important;
+}
+
+#red {
+    background-color: red;
+}
+
+#green {
+    background-color: #3b3b3b;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#priceLbl {
+    color: white;
+    font-size: 30pt;
+}
+
+.checkoutBtn a {
+    color: white;
+    border: 2px solid white;
+    line-height: 70px;
+    padding: 10px;
+    font-size: 16pt;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+    .checkoutBtn a:hover {
+        color: #636363;
+        background-color: white;
+    }
+
+.checkoutConfirm {
+    color: #fff;
+}
+
+.login > ul {
+    padding: 0 !important;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .login > ul > li {
+        margin: 0 0 3px 0;
+        background-color: #636363;
+        width: 80%;
+        padding: 10px;
+        color: white;
+        font-size: 16pt;
+        border-radius: 10px;
+        border: 2px solid #636363;
+    }
+
+        .login > ul > li:hover {
+            background-color: #fff;
+            color: #636363;
+        }
+
+#MainContent_waiterss > li > a {
+    color: white;
+}
+
+#MainContent_waiterss > li > a:hover {
+    color: #636363;
 }

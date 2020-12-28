@@ -1,17 +1,40 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="PresentationLayerWeb.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h3>Your contact page.</h3>
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
+    <!-- STATS PAGE -->
+    <div class="box">
+        <div class="heading">Sto br 1.</div>
+        <div class="tables">
+            <div class="table" id="t1">
+                <div>5</div>
+            </div>
+            <div class="table" id="t2">
+                <div>4</div>
+            </div>
+            <div class="table" id="t3">
+                <div>3</div>
+            </div>
+            <div class="table" id="t4">
+                <div>2</div>
+            </div>
+            <div class="table" id="t5">
+                <div>1</div>
+            </div>
+        </div>
+        <br>
+        <hr>
 
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
+        <div class="stats">
+            <div id="priceLbl">Cena: <i>654.95</i></div>
+            <br>
+            <div class="checkoutBtn">
+                <a href="#">Checkout</a>
+                <a href="#">Confirm</a>
+            </div>    
+            <br>
+            <div class="checkoutConfirm">
+                Racun je placen!
+            </div>
+        </div>
+    </div>
 </asp:Content>
