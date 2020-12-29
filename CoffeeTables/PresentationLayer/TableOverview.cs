@@ -104,7 +104,7 @@ namespace PresentationLayer
                     dgvTable.Rows.Add(row);
                     rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
                 }
-                dgvTable.CurrentCell.Selected = false;
+              //  dgvTable.CurrentCell.Selected = false;
                 Waiter waiter = this.waiterBusiness.getWaiterById(currentReceipt.WaiterId);
                 cbWaiters.Text = waiter.Id + ". " + waiter.Name + " " + waiter.Surname;
             }
