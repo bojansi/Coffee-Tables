@@ -143,7 +143,7 @@ namespace PresentationLayer
             this.btnPay.TabIndex = 3;
             this.btnPay.Text = "Naplati";
             this.btnPay.UseVisualStyleBackColor = false;
-            this.btnPay.Click += new System.EventHandler(this.btn_Click);
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // dgvTable
             // 

@@ -77,7 +77,7 @@ namespace PresentationLayer
             this.tbUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbUser.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUser.Location = new System.Drawing.Point(61, 143);
-            this.tbUser.MaxLength = 20;
+            this.tbUser.MaxLength = 25;
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(270, 34);
             this.tbUser.TabIndex = 1;

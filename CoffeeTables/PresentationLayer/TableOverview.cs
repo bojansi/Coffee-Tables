@@ -36,9 +36,7 @@ namespace PresentationLayer
             this.productBusiness = _productBusiness;
             this.receiptBusiness = _receiptBusiness;
             this.receiptItemBusiness = _receiptItemBusiness;
-            
             this.tableBusiness = _tableBusiness;
-
             this.waiterBusiness = _waiterBusiness;
 
             rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
@@ -79,7 +77,7 @@ namespace PresentationLayer
                 receipt = new Receipt()
                 {
                     TableId = Convert.ToInt32(this.Text.Split(' ')[1]),
-                    WaiterId = 2002,
+                    WaiterId = this.waiterBusiness.getLoggedWaiters()[0].Id,
                     Date = DateTime.Now,
                     Total = 0
                 };
@@ -195,26 +193,27 @@ namespace PresentationLayer
                 dgvProducts.DataSource = Main.products.Where(p => p.Type.Equals(cbDrinkType.Text)).ToList();
             }
         }
-
-        private void btn_Click(object sender, EventArgs e)
+        private void cbWaiters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentReceipt.WaiterId = Convert.ToInt32(cbWaiters.Text.Split('.')[0]);
+            this.receiptBusiness.updateReceipt(currentReceipt);
+        }
+        private void btnPay_Click(object sender, EventArgs e)
         {
             if (cbWaiters.SelectedIndex == -1)
             {
                 MessageBox.Show("Morate izabrati konobara koji izdaje racun");
             }
-            else 
+            else
             {
-                ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, currentReceipt.Id, true);
-                if (ro.ShowDialog() == DialogResult.OK) 
+                ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, this.tableBusiness, currentReceipt.Id, true);
+                if (ro.ShowDialog() == DialogResult.OK)
                 {
+                    currentTable.Taken = false;
+                    this.tableBusiness.updateTable(currentTable);
                     this.DialogResult = DialogResult.OK;
                 }
             }
-        }
-        private void cbWaiters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            currentReceipt.WaiterId = Convert.ToInt32(cbWaiters.Text.Split('.')[0]);
-            this.receiptBusiness.updateReceipt(currentReceipt);
         }
     }
 }

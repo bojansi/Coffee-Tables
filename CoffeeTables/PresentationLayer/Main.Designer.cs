@@ -425,7 +425,7 @@ namespace PresentationLayer
             this.lbDailyIncome.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDailyIncome.Location = new System.Drawing.Point(3, 185);
             this.lbDailyIncome.Name = "lbDailyIncome";
-            this.lbDailyIncome.Size = new System.Drawing.Size(334, 41);
+            this.lbDailyIncome.Size = new System.Drawing.Size(334, 33);
             this.lbDailyIncome.TabIndex = 1;
             this.lbDailyIncome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

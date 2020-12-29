@@ -179,6 +179,7 @@ namespace PresentationLayer
             this.Name = "TableProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikli";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TableProducts_FormClosing);
             this.Load += new System.EventHandler(this.TableProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);

@@ -19,9 +19,10 @@ namespace PresentationLayer
         private readonly IReceiptBusiness receiptBusiness;
         private readonly IReceiptItemBusiness receiptItemBusiness;
         private readonly IWaiterBusiness waiterBusiness;
+        private readonly ITableBusiness tableBusiness;
         private Receipt currentReceipt;
         private List<ReceiptItem> receiptItems;
-        public ReceiptOverview(IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, int receiptId, bool payment)
+        public ReceiptOverview(IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, ITableBusiness _tableBusiness, int receiptId, bool payment)
         {
             InitializeComponent();
 
@@ -30,6 +31,7 @@ namespace PresentationLayer
             this.receiptBusiness = _receiptBusiness;
             this.receiptItemBusiness = _receiptItemBusiness;
             this.waiterBusiness = _waiterBusiness;
+            this.tableBusiness = _tableBusiness;
 
             if (!payment) 
             {
@@ -73,7 +75,11 @@ namespace PresentationLayer
         {
             MessageBox.Show("Racun placen, hvala na poverenju");
             currentReceipt.Paid = true;
+            currentReceipt.Date = DateTime.Now;
             this.receiptBusiness.updateReceipt(currentReceipt);
+            Table t = this.tableBusiness.getTableById(currentReceipt.TableId);
+            t.Taken = false;
+            this.tableBusiness.updateTable(t);
             this.DialogResult = DialogResult.OK;
         }
     }

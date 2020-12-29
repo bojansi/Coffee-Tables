@@ -74,7 +74,7 @@ namespace PresentationLayer
             this.tbName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbName.Location = new System.Drawing.Point(100, 25);
             this.tbName.Margin = new System.Windows.Forms.Padding(15);
-            this.tbName.MaxLength = 100;
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(281, 37);
             this.tbName.TabIndex = 1;
