@@ -65,5 +65,10 @@ namespace PresentationLayer
                 RefreshData();
             }
         }
+
+        private void TableProducts_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Main.products = this.productBusiness.getAllProduct();
+        }
     }
 }

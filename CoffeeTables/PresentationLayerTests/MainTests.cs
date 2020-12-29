@@ -52,8 +52,8 @@ namespace PresentationLayerTests
             var mockWaiterBusiness = new Mock<IWaiterBusiness>();
             var mockTableBusiness = new Mock<ITableBusiness>();
 
-            mockReceiptBusiness.Setup(r => r.getReceiptByTodayDate(It.IsAny<DateTime>())).Returns(receipts);
-            var main = new Main(mockProductBusiness.Object, mockReceiptBusiness.Object, mockReceiptItemBusiness.Object, mockWaiterBusiness.Object, mockTableBusiness.Object);
+            mockReceiptBusiness.Setup(r => r.getReceiptByDate(It.IsAny<DateTime>())).Returns(receipts);
+            var main = new Main(mockProductBusiness.Object, mockReceiptBusiness.Object, mockWaiterBusiness.Object, mockReceiptItemBusiness.Object, mockTableBusiness.Object);
 
             // Act
             PrivateObject obj = new PrivateObject(main);

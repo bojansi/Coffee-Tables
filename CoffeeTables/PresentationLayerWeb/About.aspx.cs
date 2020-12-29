@@ -36,7 +36,7 @@ namespace PresentationLayerWeb
             String iduser = Request.QueryString["id"];
             USER = iduser;
 
-            List<Receipt> todaysList = receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            List<Receipt> todaysList = receiptBusiness.getReceiptByDate(DateTime.Now);
             List<Receipt> AllList = receiptBusiness.getAllReceipts();
 
             decimal sumAll = AllList.Sum(s => s.Total);
@@ -62,7 +62,7 @@ namespace PresentationLayerWeb
         }
         int ReceiptCountByTableToday(int id)
         {
-            List<Receipt> todaysList = receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            List<Receipt> todaysList = receiptBusiness.getReceiptByDate(DateTime.Now);
             int k = 0;
 
             for (int i = 0; i < todaysList.Count(); i++)
@@ -76,7 +76,7 @@ namespace PresentationLayerWeb
         }
         decimal ReceiptSumByTableToday(int id)
         {
-            List<Receipt> todaysList = receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            List<Receipt> todaysList = receiptBusiness.getReceiptByDate(DateTime.Now);
             decimal k = 0;
             for (int i = 0; i < todaysList.Count(); i++)
             {

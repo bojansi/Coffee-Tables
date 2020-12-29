@@ -53,7 +53,7 @@ namespace PresentationLayer
             this.tbName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbName.Location = new System.Drawing.Point(170, 20);
             this.tbName.Margin = new System.Windows.Forms.Padding(15);
-            this.tbName.MaxLength = 30;
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(305, 37);
             this.tbName.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace PresentationLayer
             this.tbSurname.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbSurname.Location = new System.Drawing.Point(170, 80);
             this.tbSurname.Margin = new System.Windows.Forms.Padding(15);
-            this.tbSurname.MaxLength = 30;
+            this.tbSurname.MaxLength = 50;
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(305, 37);
             this.tbSurname.TabIndex = 2;
@@ -123,7 +123,7 @@ namespace PresentationLayer
             this.tbAddress.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbAddress.Location = new System.Drawing.Point(170, 138);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(15);
-            this.tbAddress.MaxLength = 40;
+            this.tbAddress.MaxLength = 100;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(305, 37);
             this.tbAddress.TabIndex = 3;
@@ -136,7 +136,7 @@ namespace PresentationLayer
             this.tbEmail.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbEmail.Location = new System.Drawing.Point(170, 200);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(15);
-            this.tbEmail.MaxLength = 40;
+            this.tbEmail.MaxLength = 100;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(305, 37);
             this.tbEmail.TabIndex = 4;
@@ -160,7 +160,7 @@ namespace PresentationLayer
             this.tbPhoneNumber.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbPhoneNumber.Location = new System.Drawing.Point(170, 260);
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(15);
-            this.tbPhoneNumber.MaxLength = 20;
+            this.tbPhoneNumber.MaxLength = 15;
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(305, 37);
             this.tbPhoneNumber.TabIndex = 5;
@@ -201,7 +201,7 @@ namespace PresentationLayer
             this.tbPass.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbPass.Location = new System.Drawing.Point(170, 380);
             this.tbPass.Margin = new System.Windows.Forms.Padding(15);
-            this.tbPass.MaxLength = 7;
+            this.tbPass.MaxLength = 20;
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(305, 37);
             this.tbPass.TabIndex = 7;
@@ -225,7 +225,7 @@ namespace PresentationLayer
             this.tbUser.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbUser.Location = new System.Drawing.Point(170, 320);
             this.tbUser.Margin = new System.Windows.Forms.Padding(15);
-            this.tbUser.MaxLength = 6;
+            this.tbUser.MaxLength = 25;
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(305, 37);
             this.tbUser.TabIndex = 6;
