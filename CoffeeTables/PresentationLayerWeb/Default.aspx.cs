@@ -18,10 +18,7 @@ namespace PresentationLayerWeb
         {
             this.waiterBusiness = _waiterBusiness;
         }
-        public void getLoginID(int id)
-        {
 
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Waiter> waiters = this.waiterBusiness.getLoggedWaiters();

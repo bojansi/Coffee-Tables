@@ -25,9 +25,19 @@ namespace PresentationLayerWeb
             container.RegisterType<ITableRepository, TableRepository>();
             container.RegisterType<ITableBusiness, TableBusiness>();
 
+            container.RegisterType<IReceiptRepository, ReceiptRepository>();
+            container.RegisterType<IReceiptBusiness, ReceiptBusiness>();
+
             container.RegisterType<IWaiterRepository, WaiterRepository>();
             container.RegisterType<IWaiterBusiness, WaiterBusiness>();
 
+            container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IProductBusiness, ProductBusiness>();
+
+            container.RegisterType<IReceiptItemRepository, ReceiptItemRepository>();
+            container.RegisterType<IReceiptItemBusiness, ReceiptItemBusiness>();
+
+           
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

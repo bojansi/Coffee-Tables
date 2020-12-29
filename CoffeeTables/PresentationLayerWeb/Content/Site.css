@@ -137,6 +137,13 @@ footer {
         font-size: 30pt;
         font-weight: bold;
     }
+    .table > div > a {
+        text-decoration: none;
+    }
+    .table > div > a:hover {
+        color: white;
+
+    }
 
 hr {
     width: 80%;
@@ -230,10 +237,10 @@ hr {
         border: 2px solid #636363;
     }
 
-        .login > ul > li:hover {
-            background-color: #fff;
-            color: #636363;
-        }
+    .login > ul > li:hover {
+        background-color: #fff;
+        color: #636363;
+    }
 
 #MainContent_waiterss > li > a {
     color: white;
@@ -241,4 +248,14 @@ hr {
 
 #MainContent_waiterss > li > a:hover {
     color: #636363;
+}
+
+.aktivno {
+    border: 6px solid blue !important;
+}
+.full {
+    border: 6px solid rgb(255, 37, 37) !important;
+}
+.empty {
+    border: 6px solid rgb(128, 255, 128) !important;
 }
