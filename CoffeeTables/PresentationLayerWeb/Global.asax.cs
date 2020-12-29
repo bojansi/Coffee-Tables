@@ -36,7 +36,6 @@ namespace PresentationLayerWeb
 
             container.RegisterType<IReceiptItemRepository, ReceiptItemRepository>();
             container.RegisterType<IReceiptItemBusiness, ReceiptItemBusiness>();
-
            
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -23,8 +23,10 @@ namespace PresentationLayerWeb
         private readonly IReceiptItemBusiness receiptItemBusiness;
         private readonly IWaiterBusiness waiterBusiness;
         private readonly ITableBusiness tableBusiness;
-       
-        
+
+        private List<Table> tables;
+
+
         public Contact(IProductBusiness _productBusiness, IReceiptBusiness _receiptBusiness, IReceiptItemBusiness _receiptItemBusiness, IWaiterBusiness _waiterBusiness, ITableBusiness _tableBusiness)
         {
             this.productBusiness = _productBusiness;
@@ -32,6 +34,8 @@ namespace PresentationLayerWeb
             this.receiptItemBusiness = _receiptItemBusiness;
             this.tableBusiness = _tableBusiness;
             this.waiterBusiness = _waiterBusiness;
+
+            tables = this.tableBusiness.getAllTables();
         }
         
 
@@ -40,12 +44,29 @@ namespace PresentationLayerWeb
             String iduser = Request.QueryString["id"];
             USER = iduser;
 
-            List<Table> tables = tableBusiness.getAllTables();
-            t1.Attributes.Add("class", (tables[0].Taken) ? "full table" : "empty table");
-            t2.Attributes.Add("class", (tables[1].Taken) ? "full table" : "empty table");
-            t3.Attributes.Add("class", (tables[2].Taken) ? "full table" : "empty table");
-            t4.Attributes.Add("class", (tables[3].Taken) ? "full table" : "empty table");
-            t5.Attributes.Add("class", (tables[4].Taken) ? "full table" : "empty table");
+            if ((Boolean)Session["CheckRefresh"] is true)
+            {
+                Session["CheckRefresh"] = null;
+                Response.Write("Page was refreshed");
+                CheckTables();
+            }
+            else
+            { }
+
+            
+            CheckTables();
+        }
+        public void CheckTables() 
+        {
+            t1.Attributes.Add("class", (receiptBusiness.getUnpaidReceiptByTableId(tables[0].Id) != null) ? "full table" : "empty table");
+            t2.Attributes.Add("class", (receiptBusiness.getUnpaidReceiptByTableId(tables[1].Id) != null) ? "full table" : "empty table");
+            t3.Attributes.Add("class", (receiptBusiness.getUnpaidReceiptByTableId(tables[2].Id) != null) ? "full table" : "empty table");
+            t4.Attributes.Add("class", (receiptBusiness.getUnpaidReceiptByTableId(tables[3].Id) != null) ? "full table" : "empty table");
+            t5.Attributes.Add("class", (receiptBusiness.getUnpaidReceiptByTableId(tables[4].Id) != null) ? "full table" : "empty table");
+        }
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            Session["CheckRefresh"] = Session["CheckRefresh"] is null ? false : true;
         }
 
         void getTotalSumOnTable(int id)
@@ -62,11 +83,12 @@ namespace PresentationLayerWeb
                 {
                     //if there is a receipt
                     decimal totalAmount = a.Total;
-                    totalSUM.InnerText = totalAmount.ToString();
+                    totalSUM.InnerText = totalAmount.ToString() + " dinara";
                 }
                 else
                 {
                     //if there isn't
+                    totalSUM.InnerText = "";
                     totalSUM.InnerText = "Prazan sto!";
                 }
             }
@@ -83,14 +105,11 @@ namespace PresentationLayerWeb
             t5.Attributes["class"] = t5.Attributes["class"].Replace("aktivno", "").Trim();
             getTotalSumOnTable(1);
             heading.InnerText = "Sto br. " + indexSelectedTable.ToString();
-
-
-
         }
         protected void table_ServerClick2(object sender, EventArgs e)
         {
 
-            t2.Attributes.Add("class", "aktivno table");
+            t2.Attributes.Add("class", "aktivno table"); 
             
             //brisanje aktivnog statusa
             t1.Attributes["class"] = t1.Attributes["class"].Replace("aktivno", "").Trim();
@@ -153,8 +172,7 @@ namespace PresentationLayerWeb
             else
             {
                 checkoutConfirm.InnerText = "Prazan sto!";
-            }
-  
+            }  
         }
     }
 }

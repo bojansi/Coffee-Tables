@@ -1,6 +1,7 @@
 ﻿/* COLORS */
 /* BODY #3b3b3b; */
 /*  */
+
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 * {
@@ -191,9 +192,9 @@ hr {
     background-color: blue;
 }
 
-#priceLbl {
+#MainContent_totalSUM {
     color: white;
-    font-size: 30pt;
+    font-size: 20pt;
 }
 
 .checkoutBtn a {

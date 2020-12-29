@@ -364,7 +364,7 @@ namespace PresentationLayer
             this.dgvLoggedWaiters.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLoggedWaiters.RowTemplate.Height = 30;
             this.dgvLoggedWaiters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLoggedWaiters.Size = new System.Drawing.Size(295, 111);
+            this.dgvLoggedWaiters.Size = new System.Drawing.Size(311, 111);
             this.dgvLoggedWaiters.TabIndex = 13;
             this.dgvLoggedWaiters.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoggedWaiters_CellContentClick);
             // 

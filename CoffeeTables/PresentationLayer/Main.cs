@@ -127,7 +127,7 @@ namespace PresentationLayer
             if (al.ShowDialog() == DialogResult.OK)
             {
                 al.Dispose();
-                TableReceipts tr = new TableReceipts(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness);
+                TableReceipts tr = new TableReceipts(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, this.tableBusiness);
                 tr.ShowDialog();
             }
         }
@@ -190,7 +190,8 @@ namespace PresentationLayer
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lbTime.Text = Convert.ToString(DateTime.Now);            
+            lbTime.Text = Convert.ToString(DateTime.Now);
+            CheckTables();
         }
         private void dgvLoggedWaiters_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

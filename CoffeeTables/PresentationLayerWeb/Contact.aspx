@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="PresentationLayerWeb.Contact" %>
+﻿<%@ Page Title="Receipts" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="PresentationLayerWeb.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- STATS PAGE -->
@@ -25,7 +25,7 @@
         <hr>
 
         <div runat="server" class="stats">
-            <div runat="server" id="priceLbl">Cena: <i id="totalSUM" runat="server">Izaberite sto!</i></div>
+            <div runat="server" id="priceLbl"> <i id="totalSUM" runat="server">Izaberite sto!</i></div>
             <br>
             <div runat="server" class="checkoutBtn">
                 <a href="#" runat="server" onserverclick="checkoutBill">Naplati</a>
