@@ -162,7 +162,7 @@ namespace PresentationLayer
         {
             CheckTables();
             timer1.Start();
-            List<Receipt> receipts = this.receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            List<Receipt> receipts = this.receiptBusiness.getReceiptByDate(DateTime.Now);
             decimal daily = 0;
             foreach (Receipt r in receipts)
             {
@@ -179,7 +179,7 @@ namespace PresentationLayer
         {
             TableOverview to = new TableOverview(this.productBusiness, this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, this.tableBusiness, id);
             to.ShowDialog();
-            List<Receipt> receipts = this.receiptBusiness.getReceiptByTodayDate(DateTime.Now);
+            List<Receipt> receipts = this.receiptBusiness.getReceiptByDate(DateTime.Now);
             decimal daily = 0;
             foreach (Receipt r in receipts) 
             {

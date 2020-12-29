@@ -13,7 +13,7 @@ namespace Shared.Interfaces.Business
         bool insertReceipt(Receipt r);
         bool updateReceipt(Receipt r);
         bool deleteReceipt(int Id);
-        List<Receipt> getReceiptByTodayDate(DateTime date);
+        List<Receipt> getReceiptByDate(DateTime date);
         int getNewReceiptId();
         Receipt getUnpaidReceiptByTableId(int tableId);
         Receipt getReceiptById(int id);
