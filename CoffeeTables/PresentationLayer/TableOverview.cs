@@ -151,7 +151,6 @@ namespace PresentationLayer
 
             dgvTable.Rows.Add(row);
             rowClone = (DataGridViewRow) dgvTable.Rows[0].Clone();
-            dgvTable.CurrentCell.Selected = false;
 
         }
         private void DisplayTotal(decimal price) 
@@ -163,9 +162,13 @@ namespace PresentationLayer
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            this.receiptItemBusiness.deleteReceiptItemById(currentReceipt.Id, Convert.ToInt32(dgvTable.SelectedRows[0].Cells[0].Value));
-            DisplayTotal(Convert.ToDecimal(dgvTable.SelectedRows[0].Cells[3].Value) * -1);
-            dgvTable.Rows.RemoveAt(dgvTable.SelectedRows[0].Index);
+            if (dgvTable.CurrentCell.Selected == true)
+            {
+                this.receiptItemBusiness.deleteReceiptItemById(currentReceipt.Id, Convert.ToInt32(dgvTable.SelectedRows[0].Cells[0].Value));
+                DisplayTotal(Convert.ToDecimal(dgvTable.SelectedRows[0].Cells[3].Value) * -1);
+                dgvTable.Rows.RemoveAt(dgvTable.SelectedRows[0].Index);
+            }
+            
 
         }
         private void TableOverview_FormClosing(object sender, FormClosingEventArgs e)
