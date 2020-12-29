@@ -185,7 +185,7 @@ namespace PresentationLayer
             {
                 daily += r.Total;
             }
-            lbDailyIncome.Text = daily + " din.";
+            lbDailyIncome.Text = "Danasnja zarada : " + daily + " din.";
             CheckTables();
         }
         private void timer1_Tick(object sender, EventArgs e)
