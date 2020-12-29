@@ -47,7 +47,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public List<Receipt> getReceiptByTodayDate(DateTime date)
+        public List<Receipt> getReceiptByDate(DateTime date)
         {
             return this.receiptRepository.GetAllReceipts().Where(r => String.Format("{0:d/M/yyyy}", r.Date).Equals(String.Format("{0:d/M/yyyy}", date))).ToList();
         }
