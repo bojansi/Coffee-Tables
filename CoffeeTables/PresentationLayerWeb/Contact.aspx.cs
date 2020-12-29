@@ -148,6 +148,7 @@ namespace PresentationLayerWeb
                 Table t = tableBusiness.getTableById(indexSelectedTable);
                 t.Taken = false;
                 tableBusiness.updateTable(t);
+                Response.Redirect("contact.aspx?id=" + USER);
             }
             else
             {
