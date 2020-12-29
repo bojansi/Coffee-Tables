@@ -3,56 +3,51 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- STATS PAGE -->
     <div class="box">
-        <div class="heading">Stats</div>
+        <div class="heading" id="heading" runat="server">Sto br 1.</div>
         <div class="tables">
-            <div class="table" id="t1">
-                <div>5</div>
+            <div class="table tb5" runat="server" id="t5">
+                <div><a id="A5" href="#" runat="server" onserverclick="table_ServerClick5">5</a></div>
             </div>
-            <div class="table" id="t2">
-                <div>4</div>
+            <div class="table tb4" runat="server" id="t4">
+                <div><a id="A4" href="#" runat="server" onserverclick="table_ServerClick4">4</a></div>
             </div>
-            <div class="table" id="t3">
-                <div>3</div>
+            <div class="table tb3" runat="server" id="t3">
+                <div><a id="A3" href="#" runat="server" onserverclick="table_ServerClick3">3</a></div>
             </div>
-            <div class="table" id="t4">
-                <div>2</div>
+            <div class="table tb2" runat="server" id="t2">
+                <div><a id="A2" href="#" runat="server" onserverclick="table_ServerClick2">2</a></div>
             </div>
-            <div class="table" id="t5">
-                <div>1</div>
+            <div class="table tb1" runat="server" id="t1">
+                <div><a id="A1" href="#" runat="server" onserverclick="table_ServerClick1">1</a></div>
             </div>
         </div>
         <br>
         <hr>
         <div class="stats">
             <div class="data">
-                Dnevni promet: <i>7856.85</i>
+                Dnevni promet: <i runat="server" id="todayValue"></i>
             </div>
             <div class="data">
-                Jucerasnji promet: <i>4856.85</i>
+                Ukupni promet: <i runat="server" id="allValue"></i>
             </div>
-            <div class="data">
-                Razlika: <i>3000</i>
-            </div>
+           
             <br><br>
             <div class="data">
-                Dnevni br. musterija: <i>20</i>
+                Dnevni br. musterija: <i runat="server" id="todayValueCount"></i>
             </div>
             <div class="data">
-                Jucerasnji br. musterija: <i>5</i>
-            </div>
-            <div class="data">
-                Razlika: <i>15</i>
+                Ukupni br. musterija: <i runat="server" id="allValueCount"></i>
             </div>
             <br><br><br>
             <hr>
             <div class="data">
-                Broj musterija stola: <i>4</i>
+                Broj musterija stola: <i runat="server" id="tableCountValue"></i>
             </div>
             <div class="data">
-                Trenutni racun: <i>421.65</i>
+                Dnevni promet stola: <i runat="server" id="tableSumTodayValue"></i>
             </div>
             <div class="data">
-                Promet stola: <i>2651.95</i>
+                Ukupni promet stola: <i runat="server" id="tableSumAllValue"></i>
             </div>
             <br><br><br>
             <hr>
