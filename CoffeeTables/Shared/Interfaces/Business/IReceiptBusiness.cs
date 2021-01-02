@@ -9,14 +9,14 @@ namespace Shared.Interfaces.Business
 {
     public interface IReceiptBusiness
     {
-        List<Receipt> getAllReceipts();
-        bool insertReceipt(Receipt r);
-        bool updateReceipt(Receipt r);
-        bool deleteReceipt(int Id);
-        List<Receipt> getReceiptByDate(DateTime date);
-        int getNewReceiptId();
-        Receipt getUnpaidReceiptByTableId(int tableId);
-        Receipt getReceiptById(int id);
+        List<Receipt> GetAllReceipts();
+        bool InsertReceipt(Receipt r);
+        bool UpdateReceipt(Receipt r);
+        bool DeleteReceipt(int Id);
+        List<Receipt> GetReceiptsByDate(DateTime date);
+        int GetNewReceiptId();
+        Receipt GetUnpaidReceiptByTableId(int tableId);
+        Receipt GetReceiptById(int id);
 
     }
 }

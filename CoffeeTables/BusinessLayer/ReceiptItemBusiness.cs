@@ -17,11 +17,11 @@ namespace BusinessLayer
         {
             this.receiptItemRepository = _receiptItemRepository;
         }
-        public List<ReceiptItem> getAllReceiptItems()
+        public List<ReceiptItem> GetAllReceiptItems()
         {
             return this.receiptItemRepository.GetAllReceiptItems();
         }
-        public bool insertReceiptItem(ReceiptItem r)
+        public bool InsertReceiptItem(ReceiptItem r)
         {
             if (this.receiptItemRepository.InsertReceiptItem(r) > 0)
             {
@@ -29,7 +29,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool updateReceiptItem(ReceiptItem r)
+        public bool UpdateReceiptItem(ReceiptItem r)
         {
             if (this.receiptItemRepository.UpdateReceiptItem(r) > 0)
             {
@@ -37,7 +37,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool deleteReceiptItemById(int rId, int pId)
+        public bool DeleteReceiptItemById(int rId, int pId)
         {
             if (this.receiptItemRepository.DeleteReceiptItemById(rId,pId) > 0)
             {
@@ -45,7 +45,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public List<ReceiptItem> getReceiptItemByReceiptId(int receiptId)
+        public List<ReceiptItem> GetReceiptItemByReceiptId(int receiptId)
         {
             return this.receiptItemRepository.GetAllReceiptItems().Where(r => r.ReceiptId == receiptId).ToList();
         }

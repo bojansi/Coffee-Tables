@@ -17,11 +17,11 @@ namespace BusinessLayer
         {
             this.receiptRepository = _receiptRepository;
         }
-        public List<Receipt> getAllReceipts()
+        public List<Receipt> GetAllReceipts()
         {
             return this.receiptRepository.GetAllReceipts();
         }
-        public bool insertReceipt(Receipt r)
+        public bool InsertReceipt(Receipt r)
         {
             if(this.receiptRepository.InsertReceipts(r) > 0)
             {
@@ -30,7 +30,7 @@ namespace BusinessLayer
             return false;
         }
 
-        public bool updateReceipt(Receipt r)
+        public bool UpdateReceipt(Receipt r)
         {
             if (this.receiptRepository.UpdateReceipt(r) > 0)
             {
@@ -39,7 +39,7 @@ namespace BusinessLayer
             return false;
         }
 
-        public bool deleteReceipt(int Id)
+        public bool DeleteReceipt(int Id)
         {
             if (this.receiptRepository.DeleteReceipt(Id) > 0)
             {
@@ -47,17 +47,17 @@ namespace BusinessLayer
             }
             return false;
         }
-        public List<Receipt> getReceiptByDate(DateTime date)
+        public List<Receipt> GetReceiptsByDate(DateTime date)
         {
             return this.receiptRepository.GetAllReceipts().Where(r => String.Format("{0:d/M/yyyy}", r.Date).Equals(String.Format("{0:d/M/yyyy}", date))).ToList();
         }
 
-        public int getNewReceiptId()
+        public int GetNewReceiptId()
         {
             return this.receiptRepository.GetNewReceiptId();
         }
 
-        public Receipt getUnpaidReceiptByTableId(int tableId)
+        public Receipt GetUnpaidReceiptByTableId(int tableId)
         {
             return this.receiptRepository.GetAllReceipts().FirstOrDefault(r =>
             {
@@ -71,7 +71,7 @@ namespace BusinessLayer
                 }
             });
         }
-        public Receipt getReceiptById(int id)
+        public Receipt GetReceiptById(int id)
         {
             return this.receiptRepository.GetAllReceipts().FirstOrDefault(r => r.Id == id);
         }

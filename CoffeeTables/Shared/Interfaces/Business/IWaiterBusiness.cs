@@ -9,13 +9,13 @@ namespace Shared.Interfaces.Business
 {
     public interface IWaiterBusiness
     {
-        List<Waiter> getAllWaiters();
-        bool insertWaiter(Waiter w);
-        bool updateWaiter(Waiter w);
-        bool deleteWaiter(int Id);
-        Waiter getWaiterById(int id);
-        Waiter getWaiterByUserAndPass(string waiterUser, string waiterPass);
-        List<Waiter> getLoggedWaiters();
+        List<Waiter> GetAllWaiters();
+        bool InsertWaiter(Waiter w);
+        bool UpdateWaiter(Waiter w);
+        bool DeleteWaiter(int Id);
+        Waiter GetWaiterById(int id);
+        Waiter GetWaiterByUserAndPass(string waiterUser, string waiterPass);
+        List<Waiter> GetLoggedWaiters();
 
 
     }

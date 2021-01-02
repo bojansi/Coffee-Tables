@@ -19,12 +19,12 @@ namespace BusinessLayer
             this.waiterRepository = _waiterRepository;
         }
 
-        public List<Waiter> getAllWaiters()
+        public List<Waiter> GetAllWaiters()
         {
             return this.waiterRepository.GetAllWaiters();
         }
 
-        public bool insertWaiter(Waiter w)
+        public bool InsertWaiter(Waiter w)
         {
             if(this.waiterRepository.InsertWaiter(w) > 0)
             {
@@ -32,7 +32,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool updateWaiter(Waiter w)
+        public bool UpdateWaiter(Waiter w)
         {
             if (this.waiterRepository.UpdateWaiter(w) > 0)
             {
@@ -40,7 +40,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool deleteWaiter(int Id)
+        public bool DeleteWaiter(int Id)
         {
             if (this.waiterRepository.DeleteWaiter(Id) > 0)
             {
@@ -49,16 +49,16 @@ namespace BusinessLayer
             return false;
         }
 
-        public Waiter getWaiterById(int id)
+        public Waiter GetWaiterById(int id)
         {
             return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Id == id);
         }
 
-        public Waiter getWaiterByUserAndPass(string waiterUser, string waiterPass)
+        public Waiter GetWaiterByUserAndPass(string waiterUser, string waiterPass)
         {
             return this.waiterRepository.GetAllWaiters().FirstOrDefault(w => w.Username == waiterUser && w.Password == waiterPass);
         }
-        public List<Waiter> getLoggedWaiters()
+        public List<Waiter> GetLoggedWaiters()
         {
             return this.waiterRepository.GetAllWaiters().Where(w => w.Logged == true).ToList();
         }

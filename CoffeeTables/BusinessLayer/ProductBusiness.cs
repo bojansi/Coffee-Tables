@@ -17,11 +17,11 @@ namespace BusinessLayer
         {
             this.productRepository = _productRepository;
         }
-        public List<Product> getAllProduct()
+        public List<Product> GetAllProducts()
         {
             return this.productRepository.GetAllProducts();
         }
-        public bool insertProduct(Product p)
+        public bool InsertProduct(Product p)
         {
             if(this.productRepository.InsertProduct(p) > 0)
             {
@@ -29,7 +29,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool updateProduct(Product p)
+        public bool UpdateProduct(Product p)
         {
             if (this.productRepository.UpdateProduct(p) > 0)
             {
@@ -37,7 +37,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public bool deleteProduct(int Id)
+        public bool DeleteProduct(int Id)
         {
             if (this.productRepository.DeleteProduct(Id) > 0)
             {
@@ -45,7 +45,7 @@ namespace BusinessLayer
             }
             return false;
         }
-        public Product getProductById(int Id)
+        public Product GetProductById(int Id)
         {
             return this.productRepository.GetAllProducts().FirstOrDefault(p => p.Id == Id);
         }

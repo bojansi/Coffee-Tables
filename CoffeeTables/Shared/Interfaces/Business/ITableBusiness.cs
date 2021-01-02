@@ -9,9 +9,9 @@ namespace Shared.Interfaces.Business
 {
     public interface ITableBusiness
     {
-        List<Table> getAllTables();
-        Table getTableById(int Id);
-        bool updateTable(Table t);
+        List<Table> GetAllTables();
+        Table GetTableById(int Id);
+        bool UpdateTable(Table t);
 
     }
 }

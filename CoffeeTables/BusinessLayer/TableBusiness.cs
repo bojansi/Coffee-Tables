@@ -18,17 +18,17 @@ namespace BusinessLayer
             this.tableRepository = _tableRepository;
         }
 
-        public List<Table> getAllTables()
+        public List<Table> GetAllTables()
         {
             return this.tableRepository.GetAllTables();
         }
 
-        public Table getTableById(int Id)
+        public Table GetTableById(int Id)
         {
             return this.tableRepository.GetAllTables().FirstOrDefault(t => t.Id == Id);
         }
 
-        public bool updateTable(Table t)
+        public bool UpdateTable(Table t)
         {
             if (this.tableRepository.UpdateTable(t) > 0)
             {

@@ -9,11 +9,11 @@ namespace Shared.Interfaces.Business
 {
     public interface IProductBusiness
     {
-        List<Product> getAllProduct();
-        bool insertProduct(Product p);
-        bool updateProduct(Product p);
-        bool deleteProduct(int Id);
-        Product getProductById(int Id);
+        List<Product> GetAllProducts();
+        bool InsertProduct(Product p);
+        bool UpdateProduct(Product p);
+        bool DeleteProduct(int Id);
+        Product GetProductById(int Id);
 
     }
 }
