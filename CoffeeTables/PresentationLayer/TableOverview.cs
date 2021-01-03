@@ -42,7 +42,7 @@ namespace PresentationLayer
             rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
             dgvTable.AllowUserToAddRows = false;
 
-            currentTable = this.tableBusiness.getTableById(tableNumber);
+            currentTable = this.tableBusiness.GetTableById(tableNumber);
             this.Text = "Sto " + tableNumber;
             lbTableNumber.Text = "BROJ STOLA " + tableNumber;
 
@@ -59,14 +59,14 @@ namespace PresentationLayer
             dgvTable.Columns["TAmount"].DataPropertyName = "Amount";
             dgvTable.Columns["TQuantity"].DataPropertyName = "Quantity";            
 
-            currentReceipt = this.receiptBusiness.getUnpaidReceiptByTableId(tableNumber);
+            currentReceipt = this.receiptBusiness.GetUnpaidReceiptByTableId(tableNumber);
         }
         private void TableOverview_Load(object sender, EventArgs e)
         {
             dgvProducts.DataSource = Main.products;
 
             cbWaiters.Items.Clear();
-            List<Waiter> loggedWaiters = this.waiterBusiness.getLoggedWaiters();
+            List<Waiter> loggedWaiters = this.waiterBusiness.GetLoggedWaiters();
             foreach (Waiter w in loggedWaiters) 
             {
                 cbWaiters.Items.Add(w.Id + ". " + w.Name + " " + w.Surname);
@@ -77,18 +77,18 @@ namespace PresentationLayer
                 receipt = new Receipt()
                 {
                     TableId = Convert.ToInt32(this.Text.Split(' ')[1]),
-                    WaiterId = this.waiterBusiness.getLoggedWaiters()[0].Id,
+                    WaiterId = this.waiterBusiness.GetLoggedWaiters()[0].Id,
                     Date = DateTime.Now,
                     Total = 0
                 };
-                this.receiptBusiness.insertReceipt(receipt);
+                this.receiptBusiness.InsertReceipt(receipt);
                 currentReceipt = receipt;
-                currentReceipt.Id = this.receiptBusiness.getNewReceiptId();
+                currentReceipt.Id = this.receiptBusiness.GetNewReceiptId();
                 DisplayTotal(0);
             }
             else
             {
-                List<ReceiptItem> itemsList = this.receiptItemBusiness.getReceiptItemByReceiptId(currentReceipt.Id);
+                List<ReceiptItem> itemsList = this.receiptItemBusiness.GetReceiptItemByReceiptId(currentReceipt.Id);
                 foreach (ReceiptItem ri in itemsList)
                 {
                     DataGridViewRow row = rowClone;
@@ -102,8 +102,7 @@ namespace PresentationLayer
                     dgvTable.Rows.Add(row);
                     rowClone = (DataGridViewRow)dgvTable.Rows[0].Clone();
                 }
-              //  dgvTable.CurrentCell.Selected = false;
-                Waiter waiter = this.waiterBusiness.getWaiterById(currentReceipt.WaiterId);
+                Waiter waiter = this.waiterBusiness.GetWaiterById(currentReceipt.WaiterId);
                 cbWaiters.Text = waiter.Id + ". " + waiter.Name + " " + waiter.Surname;
             }
 
@@ -126,7 +125,7 @@ namespace PresentationLayer
                         Amount = Convert.ToDecimal(r.Cells[3].Value),
                         Quantity = Convert.ToInt32(r.Cells[2].Value)
                     };
-                    this.receiptItemBusiness.updateReceiptItem(riu);
+                    this.receiptItemBusiness.UpdateReceiptItem(riu);
                     return;
                 }               
             }
@@ -147,7 +146,7 @@ namespace PresentationLayer
                 Amount = Convert.ToDecimal(row.Cells[3].Value),
                 Quantity = Convert.ToInt32(row.Cells[2].Value)
             };
-            this.receiptItemBusiness.insertReceiptItem(rii);
+            this.receiptItemBusiness.InsertReceiptItem(rii);
 
             dgvTable.Rows.Add(row);
             rowClone = (DataGridViewRow) dgvTable.Rows[0].Clone();
@@ -157,14 +156,14 @@ namespace PresentationLayer
         {
             total += price;
             currentReceipt.Total = total;
-            this.receiptBusiness.updateReceipt(currentReceipt);
+            this.receiptBusiness.UpdateReceipt(currentReceipt);
             lbReceiptTotal.Text = "Iznos racuna : " + total + " din.";
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (dgvTable.CurrentCell.Selected == true)
             {
-                this.receiptItemBusiness.deleteReceiptItemById(currentReceipt.Id, Convert.ToInt32(dgvTable.SelectedRows[0].Cells[0].Value));
+                this.receiptItemBusiness.DeleteReceiptItemById(currentReceipt.Id, Convert.ToInt32(dgvTable.SelectedRows[0].Cells[0].Value));
                 DisplayTotal(Convert.ToDecimal(dgvTable.SelectedRows[0].Cells[3].Value) * -1);
                 dgvTable.Rows.RemoveAt(dgvTable.SelectedRows[0].Index);
             }
@@ -176,13 +175,13 @@ namespace PresentationLayer
             if (dgvTable.Rows.Count > 0)
             {
                 currentTable.Taken = true;
-                this.tableBusiness.updateTable(currentTable);
+                this.tableBusiness.UpdateTable(currentTable);
             }
             else 
             {
                 currentTable.Taken = false; 
-                this.tableBusiness.updateTable(currentTable);
-                this.receiptBusiness.deleteReceipt(currentReceipt.Id);
+                this.tableBusiness.UpdateTable(currentTable);
+                this.receiptBusiness.DeleteReceipt(currentReceipt.Id);
             }
         }
         private void cbDrinkType_SelectedIndexChanged(object sender, EventArgs e)
@@ -199,13 +198,13 @@ namespace PresentationLayer
         private void cbWaiters_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentReceipt.WaiterId = Convert.ToInt32(cbWaiters.Text.Split('.')[0]);
-            this.receiptBusiness.updateReceipt(currentReceipt);
+            this.receiptBusiness.UpdateReceipt(currentReceipt);
         }
         private void btnPay_Click(object sender, EventArgs e)
         {
             if (cbWaiters.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate izabrati konobara koji izdaje racun");
+                MessageBox.Show("Morate izabrati konobara koji izdaje racun", "Greska");
             }
             else
             {
@@ -213,7 +212,7 @@ namespace PresentationLayer
                 if (ro.ShowDialog() == DialogResult.OK)
                 {
                     currentTable.Taken = false;
-                    this.tableBusiness.updateTable(currentTable);
+                    this.tableBusiness.UpdateTable(currentTable);
                     this.DialogResult = DialogResult.OK;
                 }
             }

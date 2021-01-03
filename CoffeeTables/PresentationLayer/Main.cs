@@ -35,8 +35,8 @@ namespace PresentationLayer
             this.receiptItemBusiness = _receiptItemBusiness;
             this.tableBusiness = _tableBusiness;
 
-            products = this.productBusiness.getAllProduct();
-            waiters = this.waiterBusiness.getLoggedWaiters();
+            products = this.productBusiness.GetAllProducts();
+            waiters = this.waiterBusiness.GetLoggedWaiters();
 
             dgvLoggedWaiters.AutoGenerateColumns = false;
             dgvLoggedWaiters.Columns["WId"].DataPropertyName = "Id";
@@ -73,7 +73,7 @@ namespace PresentationLayer
             Login lw = new Login(this.waiterBusiness, 'w');
             if (lw.ShowDialog() == DialogResult.OK) 
             {
-                waiters = this.waiterBusiness.getLoggedWaiters();
+                waiters = this.waiterBusiness.GetLoggedWaiters();
                 dgvLoggedWaiters.DataSource = waiters;
                 if (dgvLoggedWaiters.Rows.Count > 0)
                 {
@@ -133,27 +133,27 @@ namespace PresentationLayer
         }
         private void CheckTables() 
         {
-            if (this.receiptBusiness.getUnpaidReceiptByTableId(1) != null)
+            if (this.receiptBusiness.GetUnpaidReceiptByTableId(1) != null)
                 pnBackTable1.BackColor = Constants.tableTaken;
             else
                 pnBackTable1.BackColor = Constants.tableAvailable;
 
-            if (this.receiptBusiness.getUnpaidReceiptByTableId(2) != null)
+            if (this.receiptBusiness.GetUnpaidReceiptByTableId(2) != null)
                 pnBackTable2.BackColor = Constants.tableTaken;
             else
                 pnBackTable2.BackColor = Constants.tableAvailable;
 
-            if (this.receiptBusiness.getUnpaidReceiptByTableId(3) != null)
+            if (this.receiptBusiness.GetUnpaidReceiptByTableId(3) != null)
                 pnBackTable3.BackColor = Constants.tableTaken;
             else
                 pnBackTable3.BackColor = Constants.tableAvailable;
 
-            if (this.receiptBusiness.getUnpaidReceiptByTableId(4) != null)
+            if (this.receiptBusiness.GetUnpaidReceiptByTableId(4) != null)
                 pnBackTable4.BackColor = Constants.tableTaken;
             else
                 pnBackTable4.BackColor = Constants.tableAvailable;
 
-            if (this.receiptBusiness.getUnpaidReceiptByTableId(5) != null)
+            if (this.receiptBusiness.GetUnpaidReceiptByTableId(5) != null)
                 pnBackTable5.BackColor = Constants.tableTaken;
             else
                 pnBackTable5.BackColor = Constants.tableAvailable;
@@ -162,7 +162,7 @@ namespace PresentationLayer
         {
             CheckTables();
             timer1.Start();
-            List<Receipt> receipts = this.receiptBusiness.getReceiptByDate(DateTime.Now);
+            List<Receipt> receipts = this.receiptBusiness.GetReceiptsByDate(DateTime.Now);
             decimal daily = 0;
             foreach (Receipt r in receipts)
             {
@@ -179,7 +179,7 @@ namespace PresentationLayer
         {
             TableOverview to = new TableOverview(this.productBusiness, this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness, this.tableBusiness, id);
             to.ShowDialog();
-            List<Receipt> receipts = this.receiptBusiness.getReceiptByDate(DateTime.Now);
+            List<Receipt> receipts = this.receiptBusiness.GetReceiptsByDate(DateTime.Now);
             decimal daily = 0;
             foreach (Receipt r in receipts) 
             {
@@ -199,9 +199,9 @@ namespace PresentationLayer
             {
                 Waiter waiter = waiters.FirstOrDefault(w => w.Id == Convert.ToInt32(dgvLoggedWaiters.Rows[e.RowIndex].Cells[0].Value));
                 waiter.Logged = false;
-                this.waiterBusiness.updateWaiter(waiter);
+                this.waiterBusiness.UpdateWaiter(waiter);
 
-                waiters = this.waiterBusiness.getLoggedWaiters();
+                waiters = this.waiterBusiness.GetLoggedWaiters();
                 dgvLoggedWaiters.DataSource = waiters;
                 if (dgvLoggedWaiters.Rows.Count > 0) 
                 {

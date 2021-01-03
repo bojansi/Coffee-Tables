@@ -54,13 +54,13 @@ namespace PresentationLayer
                 }
                 else
                 {
-                    MessageBox.Show("Pogresan username ili lozinka");
+                    MessageBox.Show("Pogresan username ili lozinka", "Greska");
                     tbUser.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Popunite sva potrebna polja");
+                MessageBox.Show("Popunite sva potrebna polja", "Greska");
                 if (tbUser.Text.Trim().Length == 0)
                     tbUser.Focus();
                 else
@@ -72,22 +72,22 @@ namespace PresentationLayer
         {
             if (tbUser.Text.Trim().Length != 0 && tbPass.Text.Length != 0)
             {
-                Waiter w = waiterBusiness.getWaiterByUserAndPass(tbUser.Text.Trim(), tbPass.Text.Trim());
+                Waiter w = waiterBusiness.GetWaiterByUserAndPass(tbUser.Text.Trim(), tbPass.Text.Trim());
                 if (w != null && w.Logged == false)
                 {
                     w.Logged = true;
-                    this.waiterBusiness.updateWaiter(w);
+                    this.waiterBusiness.UpdateWaiter(w);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
-                    MessageBox.Show("Pogresan username ili lozinka");
+                    MessageBox.Show("Pogresan username ili lozinka", "Greska");
                     tbUser.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Popunite sva potrebna polja");
+                MessageBox.Show("Popunite sva potrebna polja", "Greska");
                 if (tbUser.Text.Trim().Length == 0)
                     tbUser.Focus();
                 else

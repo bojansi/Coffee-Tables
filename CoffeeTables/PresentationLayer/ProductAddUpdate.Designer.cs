@@ -42,11 +42,17 @@ namespace PresentationLayer
             this.rbJuice = new System.Windows.Forms.RadioButton();
             this.rbEnergyDrink = new System.Windows.Forms.RadioButton();
             this.panelRadioButtons = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panelRadioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(14, 29);
             this.label2.Margin = new System.Windows.Forms.Padding(15);
@@ -77,7 +83,7 @@ namespace PresentationLayer
             this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(281, 37);
-            this.tbName.TabIndex = 1;
+            this.tbName.TabIndex = 2;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbPrice
@@ -90,7 +96,7 @@ namespace PresentationLayer
             this.tbPrice.MaxLength = 20;
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(281, 37);
-            this.tbPrice.TabIndex = 2;
+            this.tbPrice.TabIndex = 3;
             this.tbPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnProductInsertUpdate
@@ -98,14 +104,15 @@ namespace PresentationLayer
             this.btnProductInsertUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnProductInsertUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
             this.btnProductInsertUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductInsertUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(205)))), ((int)(((byte)(99)))));
             this.btnProductInsertUpdate.FlatAppearance.BorderSize = 0;
             this.btnProductInsertUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductInsertUpdate.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductInsertUpdate.Location = new System.Drawing.Point(84, 338);
+            this.btnProductInsertUpdate.Location = new System.Drawing.Point(79, 329);
             this.btnProductInsertUpdate.Margin = new System.Windows.Forms.Padding(70, 3, 70, 15);
             this.btnProductInsertUpdate.Name = "btnProductInsertUpdate";
-            this.btnProductInsertUpdate.Size = new System.Drawing.Size(226, 49);
-            this.btnProductInsertUpdate.TabIndex = 9;
+            this.btnProductInsertUpdate.Size = new System.Drawing.Size(236, 49);
+            this.btnProductInsertUpdate.TabIndex = 10;
             this.btnProductInsertUpdate.Text = "Dodaj";
             this.btnProductInsertUpdate.UseVisualStyleBackColor = false;
             // 
@@ -133,7 +140,7 @@ namespace PresentationLayer
             this.rbHotBeverage.Name = "rbHotBeverage";
             this.rbHotBeverage.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rbHotBeverage.Size = new System.Drawing.Size(106, 24);
-            this.rbHotBeverage.TabIndex = 3;
+            this.rbHotBeverage.TabIndex = 4;
             this.rbHotBeverage.TabStop = true;
             this.rbHotBeverage.Text = "Topli napici";
             this.rbHotBeverage.UseVisualStyleBackColor = true;
@@ -152,7 +159,7 @@ namespace PresentationLayer
             this.rbWater.Name = "rbWater";
             this.rbWater.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rbWater.Size = new System.Drawing.Size(64, 24);
-            this.rbWater.TabIndex = 4;
+            this.rbWater.TabIndex = 5;
             this.rbWater.TabStop = true;
             this.rbWater.Text = "Vode";
             this.rbWater.UseVisualStyleBackColor = true;
@@ -171,7 +178,7 @@ namespace PresentationLayer
             this.rbStrongDrink.Name = "rbStrongDrink";
             this.rbStrongDrink.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rbStrongDrink.Size = new System.Drawing.Size(113, 24);
-            this.rbStrongDrink.TabIndex = 5;
+            this.rbStrongDrink.TabIndex = 6;
             this.rbStrongDrink.TabStop = true;
             this.rbStrongDrink.Text = "Zestoka pica";
             this.rbStrongDrink.UseVisualStyleBackColor = true;
@@ -186,7 +193,7 @@ namespace PresentationLayer
             this.rbBeer.Name = "rbBeer";
             this.rbBeer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rbBeer.Size = new System.Drawing.Size(57, 24);
-            this.rbBeer.TabIndex = 6;
+            this.rbBeer.TabIndex = 7;
             this.rbBeer.TabStop = true;
             this.rbBeer.Text = "Piva";
             // 
@@ -200,7 +207,7 @@ namespace PresentationLayer
             this.rbJuice.Name = "rbJuice";
             this.rbJuice.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rbJuice.Size = new System.Drawing.Size(73, 24);
-            this.rbJuice.TabIndex = 7;
+            this.rbJuice.TabIndex = 8;
             this.rbJuice.TabStop = true;
             this.rbJuice.Text = "Sokovi";
             this.rbJuice.UseVisualStyleBackColor = true;
@@ -215,7 +222,7 @@ namespace PresentationLayer
             this.rbEnergyDrink.Name = "rbEnergyDrink";
             this.rbEnergyDrink.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rbEnergyDrink.Size = new System.Drawing.Size(132, 24);
-            this.rbEnergyDrink.TabIndex = 8;
+            this.rbEnergyDrink.TabIndex = 9;
             this.rbEnergyDrink.TabStop = true;
             this.rbEnergyDrink.Text = "Energetska pica";
             this.rbEnergyDrink.UseVisualStyleBackColor = true;
@@ -224,6 +231,7 @@ namespace PresentationLayer
             // 
             this.panelRadioButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.panelRadioButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRadioButtons.Controls.Add(this.label6);
             this.panelRadioButtons.Controls.Add(this.rbEnergyDrink);
             this.panelRadioButtons.Controls.Add(this.rbJuice);
             this.panelRadioButtons.Controls.Add(this.rbBeer);
@@ -236,6 +244,62 @@ namespace PresentationLayer
             this.panelRadioButtons.Size = new System.Drawing.Size(370, 151);
             this.panelRadioButtons.TabIndex = 7;
             // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(103, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 35);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(5, 29);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(16, 30);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "*";
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(5, 89);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 30);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(12, 384);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 20);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(23, 384);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(177, 23);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "- obavezan unos";
+            // 
             // ProductAddUpdate
             // 
             this.AcceptButton = this.btnProductInsertUpdate;
@@ -243,15 +307,20 @@ namespace PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(394, 411);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnProductInsertUpdate);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.panelRadioButtons);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ProductAddUpdate";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductAddUpdate";
             this.panelRadioButtons.ResumeLayout(false);
@@ -276,5 +345,10 @@ namespace PresentationLayer
         private System.Windows.Forms.RadioButton rbJuice;
         private System.Windows.Forms.RadioButton rbEnergyDrink;
         private System.Windows.Forms.Panel panelRadioButtons;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

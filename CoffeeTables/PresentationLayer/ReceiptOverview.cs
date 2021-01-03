@@ -38,8 +38,8 @@ namespace PresentationLayer
                 this.Height -= 50;
             }
 
-            currentReceipt = this.receiptBusiness.getReceiptById(receiptId);
-            receiptItems = this.receiptItemBusiness.getReceiptItemByReceiptId(currentReceipt.Id);
+            currentReceipt = this.receiptBusiness.GetReceiptById(receiptId);
+            receiptItems = this.receiptItemBusiness.GetReceiptItemByReceiptId(currentReceipt.Id);
             
         }
 
@@ -65,7 +65,7 @@ namespace PresentationLayer
             receipt += "-------------------------------------\n\n";
             receipt += "\tTotal : \t\t\t" + currentReceipt.Total + "din.\n";
             receipt += "-------------------------------------\n\n";
-            Waiter waiter = this.waiterBusiness.getWaiterById(currentReceipt.WaiterId);
+            Waiter waiter = this.waiterBusiness.GetWaiterById(currentReceipt.WaiterId);
             receipt += "Konobar : " + waiter.Id + " - " + waiter.Name + " " + waiter.Surname + "\n";
             receipt += "-------------------------------------";
             richTextBox1.Text = receipt;
@@ -76,10 +76,10 @@ namespace PresentationLayer
             MessageBox.Show("Racun placen, hvala na poverenju");
             currentReceipt.Paid = true;
             currentReceipt.Date = DateTime.Now;
-            this.receiptBusiness.updateReceipt(currentReceipt);
-            Table t = this.tableBusiness.getTableById(currentReceipt.TableId);
+            this.receiptBusiness.UpdateReceipt(currentReceipt);
+            Table t = this.tableBusiness.GetTableById(currentReceipt.TableId);
             t.Taken = false;
-            this.tableBusiness.updateTable(t);
+            this.tableBusiness.UpdateTable(t);
             this.DialogResult = DialogResult.OK;
         }
     }

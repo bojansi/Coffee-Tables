@@ -31,13 +31,14 @@ namespace PresentationLayer
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WaiterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StringTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HiddenTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbTableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,8 @@ namespace PresentationLayer
             this.WaiterId,
             this.TableId,
             this.Date,
-            this.Total,
+            this.StringTotal,
+            this.HiddenTotal,
             this.Paid});
             this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
             this.dgvData.Location = new System.Drawing.Point(12, 61);
@@ -83,6 +85,16 @@ namespace PresentationLayer
             this.dgvData.Size = new System.Drawing.Size(741, 438);
             this.dgvData.TabIndex = 15;
             this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
+            // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(752, 47);
+            this.lbTableName.TabIndex = 16;
+            this.lbTableName.Text = "RACUNI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Id
             // 
@@ -113,13 +125,21 @@ namespace PresentationLayer
             this.Date.ReadOnly = true;
             this.Date.Width = 200;
             // 
-            // Total
+            // StringTotal
             // 
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "Iznos";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 150;
+            this.StringTotal.HeaderText = "Iznos";
+            this.StringTotal.Name = "StringTotal";
+            this.StringTotal.ReadOnly = true;
+            this.StringTotal.Width = 150;
+            // 
+            // HiddenTotal
+            // 
+            this.HiddenTotal.DataPropertyName = "Total";
+            this.HiddenTotal.HeaderText = "SakrivenIznos";
+            this.HiddenTotal.Name = "HiddenTotal";
+            this.HiddenTotal.ReadOnly = true;
+            this.HiddenTotal.Visible = false;
+            this.HiddenTotal.Width = 150;
             // 
             // Paid
             // 
@@ -127,16 +147,6 @@ namespace PresentationLayer
             this.Paid.Name = "Paid";
             this.Paid.ReadOnly = true;
             this.Paid.Width = 70;
-            // 
-            // lbTableName
-            // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(752, 47);
-            this.lbTableName.TabIndex = 16;
-            this.lbTableName.Text = "RACUNI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TableReceipts
             // 
@@ -163,7 +173,8 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn WaiterId;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StringTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HiddenTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Paid;
     }
 }

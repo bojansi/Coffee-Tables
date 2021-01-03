@@ -34,11 +34,12 @@ namespace PresentationLayer
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.lbTableName = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StringPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HiddenPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbTableName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,8 @@ namespace PresentationLayer
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.PName,
-            this.Price,
+            this.StringPrice,
+            this.HiddenPrice,
             this.Type});
             this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(147)))), ((int)(((byte)(68)))));
             this.dgvData.Location = new System.Drawing.Point(12, 61);
@@ -127,6 +129,16 @@ namespace PresentationLayer
             this.dgvData.Size = new System.Drawing.Size(755, 411);
             this.dgvData.TabIndex = 20;
             // 
+            // lbTableName
+            // 
+            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTableName.Location = new System.Drawing.Point(12, 11);
+            this.lbTableName.Name = "lbTableName";
+            this.lbTableName.Size = new System.Drawing.Size(755, 47);
+            this.lbTableName.TabIndex = 21;
+            this.lbTableName.Text = "ARTIKLI";
+            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -140,12 +152,20 @@ namespace PresentationLayer
             this.PName.ReadOnly = true;
             this.PName.Width = 300;
             // 
-            // Price
+            // StringPrice
             // 
-            this.Price.HeaderText = "Cena";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 150;
+            this.StringPrice.HeaderText = "Cena";
+            this.StringPrice.Name = "StringPrice";
+            this.StringPrice.ReadOnly = true;
+            this.StringPrice.Width = 150;
+            // 
+            // HiddenPrice
+            // 
+            this.HiddenPrice.HeaderText = "SakrivenaCena";
+            this.HiddenPrice.Name = "HiddenPrice";
+            this.HiddenPrice.ReadOnly = true;
+            this.HiddenPrice.Visible = false;
+            this.HiddenPrice.Width = 150;
             // 
             // Type
             // 
@@ -153,16 +173,6 @@ namespace PresentationLayer
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
             this.Type.Width = 180;
-            // 
-            // lbTableName
-            // 
-            this.lbTableName.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTableName.Location = new System.Drawing.Point(12, 11);
-            this.lbTableName.Name = "lbTableName";
-            this.lbTableName.Size = new System.Drawing.Size(755, 47);
-            this.lbTableName.TabIndex = 21;
-            this.lbTableName.Text = "ARTIKLI";
-            this.lbTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TableProducts
             // 
@@ -195,7 +205,8 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lbTableName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StringPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HiddenPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

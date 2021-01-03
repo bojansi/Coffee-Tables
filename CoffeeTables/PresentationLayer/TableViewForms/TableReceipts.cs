@@ -33,13 +33,17 @@ namespace PresentationLayer
             dgvData.Columns["WaiterId"].DataPropertyName = "WaiterId";
             dgvData.Columns["TableId"].DataPropertyName = "TableId";
             dgvData.Columns["Date"].DataPropertyName = "Date";
-            dgvData.Columns["Total"].DataPropertyName = "Total";
+            dgvData.Columns["HiddenTotal"].DataPropertyName = "Total";
             dgvData.Columns["Paid"].DataPropertyName = "Paid";
         }
         private void RefreshData() 
         {
-            List<Receipt> receipts = this.receiptBusiness.getAllReceipts();
+            List<Receipt> receipts = this.receiptBusiness.GetAllReceipts();
             dgvData.DataSource = receipts;
+
+            foreach (DataGridViewRow r in dgvData.Rows) 
+                r.Cells["StringTotal"].Value = Convert.ToString(r.Cells["HiddenTotal"].Value + " din.");
+
         }
         private void TableReceipts_Load(object sender, EventArgs e)
         {
@@ -48,7 +52,7 @@ namespace PresentationLayer
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness,this.tableBusiness, Convert.ToInt32(dgvData.SelectedRows[0].Cells[0].Value), false);
+            ReceiptOverview ro = new ReceiptOverview(this.receiptBusiness, this.receiptItemBusiness, this.waiterBusiness,this.tableBusiness, Convert.ToInt32(dgvData.SelectedRows[0].Cells["Id"].Value), false);
             ro.ShowDialog();
         }
     }

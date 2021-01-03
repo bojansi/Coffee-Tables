@@ -31,7 +31,6 @@ namespace PresentationLayer
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnPay = new System.Windows.Forms.Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -67,7 +66,9 @@ namespace PresentationLayer
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.richTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ReceiptOverview";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReceiptOverview";
             this.Load += new System.EventHandler(this.ReceiptOverview_Load);
@@ -78,6 +79,5 @@ namespace PresentationLayer
         #endregion
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnPay;
-        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

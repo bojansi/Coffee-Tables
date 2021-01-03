@@ -35,7 +35,7 @@ namespace PresentationLayer
         }
         private void RefreshData() 
         {
-            List<Waiter> waiters = this.waiterBusiness.getAllWaiters();
+            List<Waiter> waiters = this.waiterBusiness.GetAllWaiters();
             dgvData.DataSource = waiters;
         }
         private void TableWaiter_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace PresentationLayer
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Waiter w = this.waiterBusiness.getWaiterById((int)dgvData.SelectedRows[0].Cells["Id"].Value);
+            Waiter w = this.waiterBusiness.GetWaiterById((int)dgvData.SelectedRows[0].Cells["Id"].Value);
             if (w != null)
             {
                 WaiterAddUpdate wu = new WaiterAddUpdate(waiterBusiness,'u', w);
@@ -64,10 +64,17 @@ namespace PresentationLayer
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (this.waiterBusiness.deleteWaiter((int)dgvData.SelectedRows[0].Cells["Id"].Value)) 
+            if (dgvData.CurrentCell.Selected == true)
             {
-                MessageBox.Show("Uspesno izbrisan konobar iz baze podataka");
-                RefreshData();
+                DialogResult dialog = MessageBox.Show("Da li ste sigurni da zelite da izbrisete ovog konobara?", "Potvrda brisanja konobara", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    if (this.waiterBusiness.DeleteWaiter((int)dgvData.SelectedRows[0].Cells["Id"].Value))
+                    {
+                        MessageBox.Show("Uspesno izbrisan konobar iz baze podataka", "Uspeh");
+                        RefreshData();
+                    }
+                }
             }
         }
     }

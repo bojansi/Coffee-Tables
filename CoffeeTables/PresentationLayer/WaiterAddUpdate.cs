@@ -11,6 +11,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace PresentationLayer
     {
         private Waiter selectedWaiter;
         private readonly IWaiterBusiness waiterBusiness;
+        private string emailRegex = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
         public WaiterAddUpdate(IWaiterBusiness _waiterBusiness, char type, Waiter w)
         {
             InitializeComponent();
@@ -51,33 +53,41 @@ namespace PresentationLayer
                 tbUser.Text = selectedWaiter.Username;
                 tbPass.Text = selectedWaiter.Password;
             }
-            else {
+            else
+            {
                 Application.Exit();
             }
         }
-        private void insertWaiter(object sender, EventArgs e) 
+        private void insertWaiter(object sender, EventArgs e)
         {
-            if (CheckTextBox())
+            if (CheckTextBox() && Regex.Match(tbEmail.Text, emailRegex).Success)
             {
-                Waiter w = new Waiter()
+                if (tbPhoneNumber.Text.Trim().Length > 8 && Int32.TryParse(tbPhoneNumber.Text, out int x))
                 {
-                    Name = tbName.Text,
-                    Surname = tbSurname.Text,
-                    Address = tbAddress.Text,
-                    Email = tbEmail.Text,
-                    PhoneNumber = tbPhoneNumber.Text,
-                    Username = tbUser.Text,
-                    Password = tbPass.Text
-                };
+                    Waiter w = new Waiter()
+                    {
+                        Name = tbName.Text,
+                        Surname = tbSurname.Text,
+                        Address = tbAddress.Text,
+                        Email = tbEmail.Text,
+                        PhoneNumber = tbPhoneNumber.Text,
+                        Username = tbUser.Text,
+                        Password = tbPass.Text
+                    };
 
-                if (this.waiterBusiness.insertWaiter(w))
-                {
-                    MessageBox.Show("Uspesno unet konobar u bazu podataka");
-                    this.DialogResult = DialogResult.OK;
+                    if (this.waiterBusiness.InsertWaiter(w))
+                    {
+                        MessageBox.Show("Uspesno unet konobar u bazu podataka", "Uspeh");
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Greska pri unosu konobara u bazu podataka", "Greska");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri unosu konobara u bazu podataka");
+                    MessageBox.Show("Pogresan format unetog telefonskog broja");
                 }
             }
         }
@@ -85,36 +95,58 @@ namespace PresentationLayer
         {
             if (CheckTextBox())
             {
-                Waiter w = new Waiter()
+                if (tbPhoneNumber.Text.Trim().Length > 8 && Int32.TryParse(tbPhoneNumber.Text, out int x))
                 {
-                    Id = selectedWaiter.Id,
-                    Name = tbName.Text,
-                    Surname = tbSurname.Text,
-                    Address = tbAddress.Text,
-                    Email = tbEmail.Text,
-                    PhoneNumber = tbPhoneNumber.Text,
-                    Username = tbUser.Text,
-                    Password = tbPass.Text
-                };
+                    Waiter w = new Waiter()
+                    {
+                        Id = selectedWaiter.Id,
+                        Name = tbName.Text,
+                        Surname = tbSurname.Text,
+                        Address = tbAddress.Text,
+                        Email = tbEmail.Text,
+                        PhoneNumber = tbPhoneNumber.Text,
+                        Username = tbUser.Text,
+                        Password = tbPass.Text
+                    };
 
-                if (this.waiterBusiness.updateWaiter(w))
-                {
-                    MessageBox.Show("Uspesno izmenjen konobar u bazi podataka");
-                    this.DialogResult = DialogResult.OK;
+                    if (this.waiterBusiness.UpdateWaiter(w))
+                    {
+                        MessageBox.Show("Uspesno izmenjen konobar u bazi podataka", "Uspeh");
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Greska pri izmeni konobara u bazi podataka", "Greska");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri izmeni konobara u bazi podataka");
+                    MessageBox.Show("Pogresan format unetog telefonskog broja");
                 }
             }
         }
         private bool CheckTextBox()
         {
-            TextBox tb = this.Controls.OfType<TextBox>().FirstOrDefault(c => c.Text.Length == 0);
-            if (tb != null)
+            List<TextBox> tb = this.Controls.OfType<TextBox>().Where(c => String.IsNullOrEmpty(c.Text)).OrderBy(c => c.TabIndex).ToList();
+            List<TextBox> tbFull = this.Controls.OfType<TextBox>().Where(c => !String.IsNullOrEmpty(c.Text)).ToList();
+            foreach (TextBox t in tbFull)
             {
-                tb.Focus();
-                MessageBox.Show("Popunite sva polja");
+                t.BackColor = Color.FromArgb(196, 196, 196);
+            }
+            if (tb.Count != 0)
+            {
+                tb[0].Focus();
+                foreach (TextBox t in tb)
+                {
+                    t.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                MessageBox.Show("Popunite sva polja", "Greska");
+                return false;
+            }
+            if (!Regex.Match(tbEmail.Text, emailRegex).Success)
+            {
+                tbEmail.BackColor = Color.FromArgb(255, 128, 128);
+                MessageBox.Show("Pogresan format unetog email-a", "Greska");
                 return false;
             }
             return true;

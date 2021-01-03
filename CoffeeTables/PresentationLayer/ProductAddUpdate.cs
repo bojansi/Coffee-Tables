@@ -74,68 +74,100 @@ namespace PresentationLayer
         }
         private void insertProduct(object sender, EventArgs e)
         {
-            if (CheckTextBox())
+            if (CheckTextBoxAndRadioButton())
             {
                 string price = tbPrice.Text;
                 var charsToRemove = new string[] { "d", "i", "n", ".", "a", "r" };
                 foreach (var c in charsToRemove)
                     price = price.Replace(c, string.Empty);
 
-                Product p = new Product()
+                if (Decimal.TryParse(price, out decimal checkedPrice))
                 {
-                    Name = tbName.Text,
-                    Price = Convert.ToDecimal(price),
-                    Type = panelRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text
-                };
+                    Product p = new Product()
+                    {
+                        Name = tbName.Text,
+                        Price = Convert.ToDecimal(checkedPrice),
+                        Type = panelRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text
+                    };
 
-                if (this.productBusiness.insertProduct(p))
-                {
-                    MessageBox.Show("Uspesno unet artikal u bazu podataka");
-                    this.DialogResult = DialogResult.OK;
+                    if (this.productBusiness.InsertProduct(p))
+                    {
+                        MessageBox.Show("Uspesno unet artikal u bazu podataka", "Uspeh");
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Greska pri unosu artikla u bazu podataka", "Greska");
+                    }
                 }
-                else
+                else 
                 {
-                    MessageBox.Show("Greska pri unosu artikla u bazu podataka");
+                    tbPrice.BackColor = Color.FromArgb(255, 128, 128);
+                    MessageBox.Show("Pogresno unet format cene artikla","Greska");
                 }
             }
         }
         private void updateProduct(object sender, EventArgs e)
         {
-            if (CheckTextBox())
+            if (CheckTextBoxAndRadioButton())
             {
                 string price = tbPrice.Text;
                 var charsToRemove = new string[] { "d", "i", "n", ".", "a", "r"};
                 foreach (var c in charsToRemove)
                     price = price.Replace(c, string.Empty);
 
-                Product p = new Product()
+                decimal checkedPrice;
+                if (Decimal.TryParse(price, out checkedPrice))
                 {
-                    Id = selectedProduct.Id,
-                    Name = tbName.Text,
-                    Price = Convert.ToDecimal(price),
-                    Type = panelRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text
-                };
+                    Product p = new Product()
+                    {
+                        Id = selectedProduct.Id,
+                        Name = tbName.Text,
+                        Price = Convert.ToDecimal(price),
+                        Type = panelRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked).Text
+                    };
 
-                if (this.productBusiness.updateProduct(p))
-                {
-                    MessageBox.Show("Uspesno izmenjen artikal u bazi podataka");
-                    this.DialogResult = DialogResult.OK;
+                    if (this.productBusiness.UpdateProduct(p))
+                    {
+                        MessageBox.Show("Uspesno izmenjen artikal u bazi podataka", "Uspeh");
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Greska pri izmeni artikla u bazi podataka", "Greska");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri izmeni artikla u bazi podataka");
+                    tbPrice.BackColor = Color.FromArgb(255, 128, 128);
+                    MessageBox.Show("Pogresno unet format cene artikla", "Greska");
                 }
             }
         }
-        private bool CheckTextBox()
+        private bool CheckTextBoxAndRadioButton()
         {
-            TextBox tb = this.Controls.OfType<TextBox>().FirstOrDefault(c => c.Text.Length == 0);
-            if (tb != null)
+            List<TextBox> tb = this.Controls.OfType<TextBox>().Where(c => String.IsNullOrEmpty(c.Text)).OrderBy(c => c.TabIndex).ToList();
+            List<TextBox> tbFull = this.Controls.OfType<TextBox>().Where(c => (!String.IsNullOrEmpty(c.Text))).ToList();
+            RadioButton rbChecked = panelRadioButtons.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked == true);
+            foreach (TextBox t in tbFull)
             {
-                tb.Focus();
-                MessageBox.Show("Popunite sva polja");
+                t.BackColor = Color.FromArgb(196, 196, 196);
+            }
+            if (tb.Count != 0)
+            {
+                tb[0].Focus();
+                foreach (TextBox t in tb)
+                {
+                    t.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                MessageBox.Show("Popunite sva polja", "Greska");                
                 return false;
             }
+            else if (rbChecked == null) 
+            {
+                MessageBox.Show("Popunite vrstu pica", "Greska");
+                return false;
+            }            
             return true;
         }
     }
